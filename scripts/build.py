@@ -73,6 +73,9 @@ def build(source, output, legacy_path=ROOT / "app-data/poems.json"):
         baseline = load(ROOT / "backups/pre-v3/app-data/poems.json", legacy)
         selection = dict(same_title_scope=sorted({(p.get("source_title", p["title"]), p["author"]) for p in baseline}))
     legacy_titles = {tuple(item) for item in selection["same_title_scope"]}
+    # Merged variants may lose their own App ID and have neither curated tags
+    # nor an exact baseline title. Explicit review references remain in scope.
+    reviewed_ids = set(load(ROOT / "raw/content_review.json", {}).get("works", {}))
     dump(output / "selection.json", selection)
     records, by_source, by_body, redirects = {}, {}, {}, {}
 
@@ -111,7 +114,7 @@ def build(source, output, legacy_path=ROOT / "app-data/poems.json"):
     poems = sorted(records.values(), key=lambda p: p["id"])
     lite = [p for p in poems if CURATED.intersection(p["tags"] + p["collections"])
             or p["appreciation"] or (p["title"], p["author"]) in legacy_titles
-            or preferred.keys() & set(p["source_ids"])]
+            or (preferred.keys() | reviewed_ids) & set(p["source_ids"])]
     lite.sort(key=lambda p: (-len(p["appreciation"]), -len(p["translate"]), p["title"], p["id"]))
     with (output / "poems_all.jsonl.gz").open("wb") as binary, \
             gzip.GzipFile(filename="", fileobj=binary, mode="wb", mtime=0) as compressed, \

@@ -17,8 +17,8 @@ def load(path, default=None):
     return json.loads(path.read_text(encoding="utf-8")) if path.exists() else default
 
 
-def dump(path, value):
-    Path(path).write_text(json.dumps(value, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+def dump(path, value, *, newline=None):
+    Path(path).write_text(json.dumps(value, ensure_ascii=False, indent=1) + "\n", encoding="utf-8", newline=newline)
 
 
 def unique(values):

@@ -382,12 +382,14 @@
   },
   "5c26e0bc97880d3b825f8b10": {
    "expected_body_hash": "1eab6355546c681773447365f741c885e337ee741ab5b0230a6956757a749675",
-   "status": "text_compared",
+   "status": "source_checked",
    "reviewer": "codex",
-   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "reason": "按正文“泛彼柏舟，亦泛其流”核对《诗经·邶风》，修正旧数据误标为鄘风；另一篇“在彼中河”仍保留为鄘风。",
    "sources": [
-    "https://so.gushiwen.org/shiwenv_5b2100b91c1c.aspx"
-   ]
+    "https://www.tup.com.cn/upload/books/yz/067854-01.pdf",
+    "https://www.gushiwen.cn/mingju/juv_f531be0520cb.aspx"
+   ],
+   "title": "国风·邶风·柏舟"
   },
   "5c26e0bc97880d3b825f8b36": {
    "expected_body_hash": "4c74f9538fde49c29d4f5f7ca8cf815a40d579371052e927fd8aab700e9ee0be",

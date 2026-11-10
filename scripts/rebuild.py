@@ -44,7 +44,7 @@ def main():
         else:
             raw = staging / "raw"
             build_raw(args.source_dir, raw)
-            for name in ("editorial_fixes.json", "content_review.json", "author_overrides.json", "annotation_additions.jsonl", "content_reviews.jsonl"):
+            for name in ("editorial_fixes.json", "content_review.json", "author_overrides.json", "annotation_additions.jsonl", "content_reviews.jsonl", "review_triage.jsonl", "approved_review_edits.json", "review_resolutions.json"):
                 if (ROOT / "raw" / name).is_file():
                     shutil.copy2(ROOT / "raw" / name, raw / name)
         stats = build_app(raw, app, generated_path=app / "generated.jsonl")
@@ -54,6 +54,7 @@ def main():
         report["rebuild_comparison"] = dict(
             current_data_version=current.get("data_version"),
             staged_data_version=staged_manifest["data_version"],
+            manifest_identical=current == staged_manifest,
             changed_files=[name for name, info in staged_manifest["files"].items()
                            if current.get("files", {}).get(name, {}).get("sha256") != info["sha256"]])
         (ROOT / "reports").mkdir(exist_ok=True)

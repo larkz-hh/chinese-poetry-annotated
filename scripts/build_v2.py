@@ -9,6 +9,7 @@ from pathlib import Path
 from data_utils import (ROOT, FIELDS, SCHEMA_VERSION, annotation_valid, body_hash, clean_lines,
                         compact, dump, editions, fts_text, identity_body, load, unique)
 from content_review import apply_catalog
+from review_application import apply_resolution
 
 COLLECTIONS = {"唐诗三百首", "宋词三百首", "古诗三百首", "元曲三百首", "诗经", "乐府",
                "古文观止", "宋词精选", "唐诗精选", "最美", "早教古诗100首",
@@ -83,6 +84,7 @@ def build(raw_dir, output, legacy_dir=ROOT / "app-data", legacy_raw=ROOT / "raw"
     generated.update(generated_records(raw_dir / "annotation_additions.jsonl"))
     fixes = load(ROOT / "raw/editorial_fixes.json", {})
     author_fixes = load(raw_dir / "author_overrides.json", {})
+    resolutions = load(raw_dir / "review_resolutions.json", {}).get("works", {})
     cipai = set(load(raw_dir / "cipai.json", []))
     poems, migration, changes = [], {}, load(legacy_dir / "repairs.json", [])
     for row in rows:
@@ -185,6 +187,7 @@ def build(raw_dir, output, legacy_dir=ROOT / "app-data", legacy_raw=ROOT / "raw"
                                           verified=False, unit_ids=[])
             if not value:
                 poem["quality_issues"].append("missing_" + key)
+        apply_resolution(poem, resolutions.get(pid))
         poem["complete"] = all(poem[k] for k in FIELDS)
         poem["ai_generated"] = any(poem["field_sources"][k]["type"] in ("ai", "ai_editorial") for k in FIELDS) or bool(old.get("ai_generated"))
         if genre == "未分类":
@@ -233,6 +236,9 @@ def build(raw_dir, output, legacy_dir=ROOT / "app-data", legacy_raw=ROOT / "raw"
     for old_id in legacy:
         if old_id not in migration:
             raise ValueError(f"Existing poem ID lost without migration: {old_id}")
+    for old_id, previous_target in load(legacy_dir / "id_map.json", {}).items():
+        if old_id not in migration or migration[old_id] != migration.get(previous_target):
+            raise ValueError(f"Existing source alias lost or redirected: {old_id}")
     by_id = {p["id"]: p for p in poems}
     for before in load(ROOT / "backups/pre-v3/app-data/poems.json", []):
         after = by_id.get(migration.get(before["id"]))
@@ -257,12 +263,19 @@ def build(raw_dir, output, legacy_dir=ROOT / "app-data", legacy_raw=ROOT / "raw"
                  content=p["content"], body_hash=p["body_hash"], missing=[k for k in FIELDS if not p[k]])
             for p in poems if not p["complete"]]
     (output / "todo_annotations.jsonl").write_text("".join(json.dumps(p, ensure_ascii=False) + "\n" for p in todo), encoding="utf-8")
+    review_todo = [dict(id=p["id"], title=p["title"], author=p["author"], body_hash=p["body_hash"],
+                        output_hash=p["content_review"]["output_hash"], findings=p["content_review"]["pending_findings"])
+                   for p in poems if p.get("content_review", {}).get("pending_findings")]
+    (output / "todo_content_review.jsonl").write_text("".join(json.dumps(p, ensure_ascii=False) + "\n" for p in review_todo), encoding="utf-8")
     write_sqlite(output / "poems.db", poems, authors, migration)
     stats = dict(诗词总数=len(poems), 作者数=len(authors), 有原文=len(poems),
                  有译文=sum(bool(p["translate"]) for p in poems), 有注释=sum(bool(p["notes"]) for p in poems),
                  有赏析=sum(bool(p["appreciation"]) for p in poems), 三样齐全=sum(bool(p["complete"]) for p in poems),
                  AI补全过=sum(p["ai_generated"] for p in poems), 仍缺任一项=len(todo),
                  作者简介待补=sum(not a["lifetime"] for a in authors),
+                 AI初审覆盖=sum(bool(p.get("content_review")) for p in poems),
+                 AI二审覆盖=sum(p.get("content_review", {}).get("second_reviewed", False) for p in poems),
+                 内容待核作品=len(review_todo), 内容待核疑点=sum(len(p["findings"]) for p in review_todo),
                  对照方式="document：未经语义审核的注解按整篇展示，不按数组下标配对",
                  文体=dict(collections.Counter(p["genre"] for p in poems)))
     dump(output / "stats.json", stats)
@@ -273,7 +286,7 @@ def build(raw_dir, output, legacy_dir=ROOT / "app-data", legacy_raw=ROOT / "raw"
                     files={p.name: dict(bytes=p.stat().st_size, sha256=hashlib.sha256(p.read_bytes()).hexdigest())
                            for p in sorted(output.iterdir()) if p.is_file() and p.name != "manifest.json"})
     manifest["source_inputs"] = {name: hashlib.sha256((raw_dir / name).read_bytes()).hexdigest()
-                                for name in ("content_review.json", "author_overrides.json", "editorial_fixes.json", "annotation_additions.jsonl", "content_reviews.jsonl")
+                                for name in ("content_review.json", "author_overrides.json", "editorial_fixes.json", "annotation_additions.jsonl", "content_reviews.jsonl", "review_triage.jsonl", "approved_review_edits.json", "review_resolutions.json")
                                 if (raw_dir / name).is_file()}
     dump(output / "manifest.json", manifest)
     return stats
@@ -328,7 +341,7 @@ def write_sqlite(path, poems, authors, migration):
                 con.execute("INSERT INTO editions VALUES(?,?,?,?,?)", (edition["id"], p["id"], edition["label"], int(edition["is_primary"]), encode(edition)))
                 con.executemany("INSERT INTO poem_units VALUES(?,?,?,?,?,?)", [(u["id"], p["id"], edition["id"], u["ordinal"], u["kind"], u["text"]) for u in edition["units"]])
             for kind in FIELDS:
-                con.execute("INSERT INTO annotations VALUES(?,?,?,?,?,?,?)", (p["id"], kind, encode(p[kind]), p["alignment"][kind]["mode"], p["field_sources"][kind]["type"], "unreviewed", encode(p["field_sources"][kind])))
+                con.execute("INSERT INTO annotations VALUES(?,?,?,?,?,?,?)", (p["id"], kind, encode(p[kind]), p["alignment"][kind]["mode"], p["field_sources"][kind]["type"], p["field_sources"][kind]["review_status"], encode(p["field_sources"][kind])))
             con.execute("INSERT INTO poems_fts VALUES(?,?,?,?)", (p["id"], fts_text("\n".join([p["title"]] + p["aliases"])), fts_text(p["author"]), fts_text("\n".join(p["content"]))))
         con.executemany("INSERT INTO id_aliases VALUES(?,?)", sorted(migration.items()))
         con.commit()

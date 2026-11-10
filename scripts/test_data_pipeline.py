@@ -4,6 +4,8 @@ import json
 import sqlite3
 import tempfile
 import unittest
+from unittest.mock import patch
+import urllib.error
 from pathlib import Path
 
 from build import build, combine, norm
@@ -12,6 +14,8 @@ from search import search
 from validate_data import validate
 from content_review import apply_catalog
 from data_utils import body_hash
+from review_application import apply_resolution, input_hash, fragmented_array, reviewed_input
+from prepare_review_resolutions import prepare
 
 
 class IdentityTests(unittest.TestCase):
@@ -67,6 +71,28 @@ class IdentityTests(unittest.TestCase):
             self.assertEqual({row["id"] for row in rows}, {"first", "second"})
             self.assertIn("duplicate", next(row for row in rows if row["id"] == "first")["source_ids"])
 
+    def test_reviewed_variant_stays_in_scope_after_its_app_id_is_merged(self):
+        with tempfile.TemporaryDirectory(prefix=".stage-test-", dir=ROOT) as folder:
+            path = Path(folder).resolve()
+            path.relative_to(ROOT.resolve())
+            source = path / "source"
+            source.mkdir()
+            row = dict(_id={"$oid": "variant"}, name="未在原选集中单列的异文", author="佚名", content=["异文正文。"])
+            for i in range(1, 5):
+                (source / f"poems{i}.json").write_text(json.dumps(row, ensure_ascii=False)+"\n" if i == 1 else "", encoding="utf-8")
+            for name in ("poems-authors.json", "poems-cipai.json"):
+                (source / name).write_text("", encoding="utf-8")
+            baseline = path / "legacy.json"
+            baseline.write_text("[]", encoding="utf-8")
+            from build import load as real_load
+            def policy_load(file, default=None):
+                if Path(file).name == "content_review.json":
+                    return {"works": {"variant": {"merge_into": "canonical"}}}
+                return real_load(file, default)
+            with patch("build.load", side_effect=policy_load):
+                report = build(source, path / "raw", baseline)
+            self.assertEqual(report["lite"], 1)
+
     def test_explicit_versions_split_and_raw_text_survives(self):
         raw = ["清晨入古寺。", "但余钟磬音。(版本一)", "清晨入古寺。", "惟余钟磬音。(版本二)"]
         result = editions("p", raw)
@@ -108,6 +134,60 @@ class IdentityTests(unittest.TestCase):
         result = apply_catalog([row], {"works": {"a": {"author": "佚名", "reason": "来源书名不是作者"}}})
         self.assertEqual(result[0]["source_author"], "杜甫")
         self.assertEqual(result[0]["author"], "佚名")
+
+
+class ContentReviewTests(unittest.TestCase):
+    def fixture(self):
+        poem = dict(id="p", title="测试", author="佚名", body_hash=body_hash(["正文"]), content=["正文"],
+                    translate=["翻译"], notes=["词义"], appreciation=list("这是一段长度足够用于验证单字数组被无损合并的赏析文字。"),
+                    field_sources={k:dict(type="original", body_hash=body_hash(["正文"]), review_status="unreviewed") for k in ("translate", "notes", "appreciation")},
+                    alignment={k:dict(mode="document", equal_length=False, verified=False) for k in ("translate", "notes", "appreciation")}, quality_issues=[])
+        reviews = {"p":dict(input_hash=input_hash(poem), model="test", findings=[])}
+        resolutions = prepare([poem], reviews, {}, dict(reviewed_at="2026-11-11", edits=[], rejections=[]), {}, {})
+        return poem, resolutions["p"]
+
+    def test_character_array_fix_is_lossless_and_idempotent(self):
+        poem, resolution = self.fixture()
+        original = "".join(poem["appreciation"])
+        self.assertTrue(fragmented_array(poem["appreciation"]))
+        apply_resolution(poem, resolution)
+        self.assertEqual(poem["appreciation"], [original])
+        self.assertEqual(poem["field_sources"]["appreciation"]["type"], "original")
+        once = copy.deepcopy(poem)
+        apply_resolution(poem, resolution)
+        self.assertEqual(poem, once)
+        self.assertFalse(poem["content_review"]["academic_review_complete"])
+        self.assertEqual(input_hash(reviewed_input(poem, resolution)), resolution["input_hash"])
+
+    def test_stale_annotations_and_body_reject_the_resolution(self):
+        for key in ("translate", "body_hash"):
+            poem, resolution = self.fixture()
+            poem[key] = ["已修改"] if key == "translate" else "stale"
+            with self.assertRaises(ValueError):
+                apply_resolution(poem, resolution)
+
+    def test_model_fix_proposal_is_pending_without_explicit_approval(self):
+        poem, _ = self.fixture()
+        reviews = {"p":dict(input_hash=input_hash(poem), model="test", findings=[dict(field="notes", index=0, quote="词义", reason="待核")])}
+        triages = {"p":dict(input_hash=input_hash(poem), model="test", decisions=[dict(finding_index=0, action="fix", replacement="不应自动替换", reason="模型提议")])}
+        resolution = prepare([poem], reviews, triages, dict(reviewed_at="2026-11-11", edits=[], rejections=[]), {}, {})["p"]
+        apply_resolution(poem, resolution)
+        self.assertEqual(poem["notes"], ["词义"])
+        self.assertEqual(poem["review_status"], "needs_source_check")
+        self.assertEqual(len(poem["content_review"]["pending_findings"]), 1)
+
+    def test_http_402_stops_retrying_and_future_requests(self):
+        import complete_annotations as api
+        api.BILLING_STOP.clear()
+        config = dict(LLM_API_KEY="test", LLM_BASE_URL="https://example.test", LLM_MODEL_ID="test")
+        try:
+            with patch.object(api.urllib.request, "urlopen", side_effect=urllib.error.HTTPError("https://example.test", 402, "Payment Required", {}, None)) as request:
+                for _ in range(2):
+                    with self.assertRaises(api.CreditUnavailable):
+                        api.request_json(config, "system", "prompt")
+                self.assertEqual(request.call_count, 1)
+        finally:
+            api.BILLING_STOP.clear()
 
 
 class SearchTests(unittest.TestCase):

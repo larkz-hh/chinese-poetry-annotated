@@ -1,6 +1,6 @@
 {
  "schema_version": 3,
- "data_version": "3.d763a1d5b5010256",
+ "data_version": "3.ede16c8c891686a8",
  "counts": {
   "poems": 1524,
   "authors": 372
@@ -28,30 +28,38 @@
    "sha256": "68e2578e903b54ba0fe3de060f69ef36f4660f10f725ead3c52af977955f527f"
   },
   "poems.db": {
-   "bytes": 38604800,
-   "sha256": "da53e42f31c1857a36144a3d40f6584a13732540d6c4461d8ad8d50699d44fe4"
+   "bytes": 40005632,
+   "sha256": "f5aee8c1344cc56eb726fccf6b644a4de1c5a8a4506bec3b0895f27ea26d65ae"
   },
   "poems.json": {
-   "bytes": 11380023,
-   "sha256": "d763a1d5b5010256963260915774cc06e685df5ec674c71bea89680d77ed2565"
+   "bytes": 12920890,
+   "sha256": "ede16c8c891686a83d365c6945cc8344f6238562dd0c85a1ba56096197cb37e9"
   },
   "repairs.json": {
    "bytes": 1058,
    "sha256": "dee2b15f3592a9b3954d37832d44eee91089d948561888a35be29392fa91d733"
   },
   "stats.json": {
-   "bytes": 422,
-   "sha256": "d5a3e11ec96f2b4869de8bf6b9a75920a8db12f5ace91f246e7c85060c9fd5e5"
+   "bytes": 532,
+   "sha256": "de525c81ec59fdae5ad605a47b7e9359b612d92a40160532ebc33179abbdec48"
   },
   "todo_annotations.jsonl": {
    "bytes": 0,
    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "todo_content_review.jsonl": {
+   "bytes": 766383,
+   "sha256": "f17dbbaddc769d05564d3f43ab641ee7937d1c0af5f69b43c912a6b3ba14c2b2"
   }
  },
  "source_inputs": {
-  "content_review.json": "c4022e8b9674cdf495e3c6bdcbfdf270b1e921d0cda6c8c263d2e555f17d94d8",
+  "content_review.json": "8e5bfa76b416cf609a14189cffbffd155ab1a14b11684039c2dbb23822130ba3",
   "author_overrides.json": "d07f925d6469b31cb3e8f9a0a811ea2df2d2b8483db37e6d8e7396e0d74be682",
   "editorial_fixes.json": "5897e4bd26728332de9a3b887d4d79385a6966554309001bd63d446f505c807b",
-  "annotation_additions.jsonl": "9db6636799324761ccbe137d1ae34f0b0a7b9277a45dcf369c6b75243f151a52"
+  "annotation_additions.jsonl": "9db6636799324761ccbe137d1ae34f0b0a7b9277a45dcf369c6b75243f151a52",
+  "content_reviews.jsonl": "32a49908c60fe11519069837c4ec09099187828db3df50c3270333f0900707a9",
+  "review_triage.jsonl": "4cd94d9ca85ec9da5f3ae28b9a25c9044f3dba0038e45ef4b31727f1c4a6ace2",
+  "approved_review_edits.json": "0f1aeb2cd40fce6a3e29c3e0722bce1689eaa80d75414557b9d656fb85230592",
+  "review_resolutions.json": "5410908fc427bb146ffea5a15b18b1af09a96d1d3b107c5f34ae1cae0218e9a2"
  }
 }

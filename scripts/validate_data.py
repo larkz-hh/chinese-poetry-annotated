@@ -7,6 +7,7 @@ import sqlite3
 from pathlib import Path
 
 from data_utils import ROOT, FIELDS, SCHEMA_VERSION, body_hash, compact, fts_text, identity_body, load, match_query
+from review_application import input_hash, fragmented_array
 
 
 def validate(app, baseline=None):
@@ -37,6 +38,7 @@ def validate(app, baseline=None):
     if baseline:
         error("lost_legacy_ids", [p["id"] for p in load(baseline, []) if p["id"] not in migrations])
     dirty, same, alignment, version_mix, missing, provenance = [], [], [], [], [], []
+    fragmented, review_errors = [], []
     for poem in poems:
         if poem["body_hash"] != body_hash(poem["content"]):
             errors.append(dict(code="body_hash", records=[label(poem)]))
@@ -50,6 +52,8 @@ def validate(app, baseline=None):
             if any("\ufffd" in s or re.search(r"</?[a-zA-Z][^>]*>|&(?:[a-z]+|#\d+);", s) for s in value):
                 dirty.append(label(poem, field=key))
             if key in FIELDS:
+                if fragmented_array(value):
+                    fragmented.append(label(poem, field=key))
                 if value and identity_body(value) == identity_body(poem["content"]):
                     same.append(label(poem, field=key))
                 if not value:
@@ -62,16 +66,42 @@ def validate(app, baseline=None):
                     alignment.append(label(poem, field=key))
         if any(re.search(r"版本[一二三四五六七八九十\d]", s) for s in poem["content"]):
             version_mix.append(label(poem))
+        review = poem.get("content_review")
+        if review:
+            pending = review["pending_findings"]
+            indexes = [f["finding_index"] for f in pending] + [d["finding_index"] for d in review["decisions"]]
+            if (review["output_hash"] != input_hash(poem)
+                    or sorted(indexes) != list(range(review["initial_findings"]))
+                    or poem["review_status"] != ("needs_source_check" if pending else "ai_reviewed")
+                    or review.get("academic_review_complete") is not False):
+                review_errors.append(label(poem))
+            for key in FIELDS:
+                expected = "needs_source_check" if any(f.get("field") == key for f in pending) else "ai_reviewed"
+                if poem["field_sources"][key]["review_status"] != expected:
+                    review_errors.append(label(poem, field=key))
     error("text_artifacts", dirty)
     error("annotation_is_original", same)
     error("unsafe_line_alignment", alignment)
     error("versions_in_primary_body", version_mix)
     error("field_provenance", provenance)
+    error("fragmented_annotations", fragmented)
+    error("content_review_integrity", review_errors)
     warning("missing_annotations", missing)
     warning("author_bio_missing", [dict(id=a["id"], name=a["name"]) for a in authors if not a["lifetime"]])
     warning("genre_unclassified", [label(p) for p in poems if p["genre"] == "未分类"])
     warning("same_title_identity_review", [label(p) for p in poems if "same_title_identity_review" in p["quality_issues"]])
     warning("author_attribution_review", [label(p) for p in poems if next(a for a in authors if a["id"] == p["author_id"])["entity_type"] == "collection"])
+    warning("content_source_verification", [label(p, findings=len(p["content_review"]["pending_findings"]))
+            for p in poems if p.get("content_review", {}).get("pending_findings")])
+    if any(p.get("content_review") for p in poems):
+        warning("content_review_missing", [label(p) for p in poems if not p.get("content_review")])
+        review_todo_path = app / "todo_content_review.jsonl"
+        review_todo = [json.loads(s) for s in review_todo_path.read_text(encoding="utf-8").splitlines() if s] if review_todo_path.exists() else []
+        expected_review_todo = [dict(id=p["id"], title=p["title"], author=p["author"], body_hash=p["body_hash"],
+            output_hash=p["content_review"]["output_hash"], findings=p["content_review"]["pending_findings"])
+            for p in poems if p.get("content_review", {}).get("pending_findings")]
+        if review_todo != expected_review_todo:
+            errors.append(dict(code="content_review_todo_mismatch"))
     categories = load(app / "categories.json")
     for kind, field in (("题材", "themes"), ("选集", "collections"), ("学段", "levels")):
         counts = collections.Counter(t for p in poems for t in p[field])
@@ -114,8 +144,8 @@ def validate(app, baseline=None):
                 if values != set(p[key]):
                     relations.append(label(p, field=key))
             for kind in FIELDS:
-                row = con.execute("SELECT body_json,mode,metadata_json FROM annotations WHERE poem_id=? AND kind=?", (p["id"], kind)).fetchone()
-                if row is None or json.loads(row[0]) != p[kind] or row[1] != p["alignment"][kind]["mode"] or json.loads(row[2]) != p["field_sources"][kind]:
+                row = con.execute("SELECT body_json,mode,metadata_json,review_status FROM annotations WHERE poem_id=? AND kind=?", (p["id"], kind)).fetchone()
+                if row is None or json.loads(row[0]) != p[kind] or row[1] != p["alignment"][kind]["mode"] or json.loads(row[2]) != p["field_sources"][kind] or row[3] != p["field_sources"][kind]["review_status"]:
                     relations.append(label(p, field=kind))
         error("sqlite_relations", relations)
         fts = {r[0]: r[1:] for r in con.execute("SELECT pid,title,author,content FROM poems_fts")}
@@ -139,5 +169,7 @@ def validate(app, baseline=None):
     return dict(summary=dict(poems=len(poems), authors=len(authors), schema_version=manifest["schema_version"],
                              data_version=manifest["data_version"], integrity=integrity,
                              errors=len(errors), warnings=len(warnings),
+                             ai_reviewed=sum(bool(p.get("content_review")) for p in poems),
+                             content_review_pending=sum(bool(p.get("content_review", {}).get("pending_findings")) for p in poems),
                              missing_annotations=len(missing), legacy_ids_resolved=True if baseline and not any(e["code"] == "lost_legacy_ids" for e in errors) else None),
                 search=search, errors=errors, warnings=warnings)
