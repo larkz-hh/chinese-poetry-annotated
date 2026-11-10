@@ -1,0 +1,31 @@
+{
+  "baseline_snapshot_files_verified": 26,
+  "regression_tests_passed": 12,
+  "repeat_full_build_identical": true,
+  "schema_version": 3,
+  "data_version": "3.717e1897f0863d21",
+  "poems": 1579,
+  "authors": 373,
+  "remaining_warnings": [
+    [
+      "missing_annotations",
+      327
+    ],
+    [
+      "author_bio_missing",
+      12
+    ],
+    [
+      "genre_unclassified",
+      172
+    ],
+    [
+      "same_title_identity_review",
+      168
+    ],
+    [
+      "author_attribution_review",
+      1
+    ]
+  ]
+}

@@ -1,179 +1,157 @@
-﻿# 古诗词 App · 出题数据包
+# 古诗词 App 数据源 · schema v3
 
-给「古诗词 App」这道赛题准备的数据起点。数据源：[yxcs/poems-db](https://github.com/yxcs/poems-db)（古诗文网 2019 年抓取），
-已做清洗、分类、索引，并用 AI 补全了缺失的注释与赏析。
+从 [yxcs/poems-db](https://github.com/yxcs/poems-db) 的原始转储整理而来，提供可离线使用的 JSON 和 SQLite。当前包含 **1579 条作品记录、373 条作者记录**。部分同题、异文和作者归属仍需内容审核，记录数不代表已经过学术校勘的独立作品数。
 
-```
-poems-clean\
-├─ app-data\              ← 给新生的起点（直接用这个）
-│   ├─ poems.db               SQLite，1470 首 + 359 位作者 + FTS5（11.5 MB）
-│   ├─ poems.json             同上，JSON 版（4.5 MB）
-│   ├─ categories.json        题材/选集/学段 分类字典
-│   ├─ generated.jsonl        AI 补写的原始产出（可追溯/可重跑）
-│   ├─ todo_annotations.jsonl 仍缺注解的诗（现在只剩 1 首）
-│   └─ stats.json             统计数字
-├─ raw\                   ← 需要更大体量时的素材
-│   ├─ poems_lite.json        1692 首原始精选（未剔古文）
-│   ├─ seed_annotated.json    112 首人工注解样板
-│   ├─ poems_all.jsonl.gz     19.2 万首全库（34 MB，进阶挑战用）
-│   └─ authors.json           7729 位作者
-└─ scripts\
-    ├─ build.py               原始 NDJSON → 分层数据
-    ├─ build_v2.py            赛题数据包（剔古文/分类/建索引）
-    ├─ gen_annotations.py     AI 批量补注释/赏析（断点续跑）
-    ├─ merge_annotations.py   把补写结果合并进 db/json
-    ├─ gen_long_poem.py       超长诗分段生成（远游 90 句）
-    ├─ strip_quoted_original.py 去掉赏析开头重复引用的原文
-    ├─ spotcheck.py           抽检脚本
-    └─ test_llm.py            接口连通性测试
-```
+本次修复保留原有 1470 个作品 ID 的解析能力。合并的旧 ID 通过 `id_map.json` 或 SQLite 的 `id_aliases` 查找；例如两个《忆江南三首》记录合并后，旧收藏仍能定位。原有作品映射到 1469 条记录，另外保留 110 条恢复候选；其中包括此前丢失的杜甫“迟日江山丽”、李商隐“紫泉宫殿锁烟霞”等同题作品。
 
----
+## 文件
 
-## 一、数据现状（已完成补全）
-
-| 赛题要求 | 数据 | 覆盖 |
-|---|---|---|
-| 列表：标题/作者/朝代/分类 | 1470 首 | ✅ 100% |
-| 详情：原文 | 1470 首 | ✅ 100% |
-| 详情：**赏析** | 1470 首 | ✅ **100%** |
-| 详情：**注释** | 1470 首 | ✅ 100% |
-| 详情：**译文** | 1470 首 | ✅ 100% |
-| 详情：作者简介 | 1457 / 1470（"佚名"有兜底） | ✅ 99% |
-| 筛选：朝代 | 唐代 511、宋代 382、先秦 311… | ✅ |
-| 筛选：作者 | 359 位（李白 108、杜甫 48） | ✅ |
-| 筛选：分类 | 40 题材 + 11 选集 + 5 学段 | ✅ 已规范化 |
-| 搜索：标题/正文 | FTS5，「明月」48 首、「东风」37 首 | ✅ |
-
-> 1470 首全部齐全。《远游》这类 90 句的长诗用 `gen_long_poem.py` 分段生成（并关闭模型思考，否则 token 全被推理吃光、正文为空）。
-
-### 数据来源要标清楚
-
-- 其中 **112 首**的注释/赏析是原始数据里就有的（人工编辑，权威）；
-- 另外 **1357 首**是我用 DeepSeek 批量生成的，`poems.db` 里 `ai_generated=1` 标了出来。
-- **App 里应该显示「AI 辅助生成」字样**——既诚实，也正好呼应赛题里"合理使用 AI 辅助开发"那条。
-- 生成内容我抽检过（每批 3 首人工看），字词注释基本准确，赏析 190~350 字，讲意象/手法/情感，不臆造典故。
-  但**不是学术级**，别当成《唐诗鉴赏辞典》引用。
-
----
-
-## 二、注释/赏析是怎么补的
-
-```bash
-# 1) 需要 key：默认读 D:\project\agent\.env 里的 LLM_API_KEY / LLM_BASE_URL / LLM_MODEL_ID
-# 2) 批量生成（按 id 断点续跑，重复执行不会重复花钱）
-python scripts/gen_annotations.py --workers 12
-# 3) 合并进 poems.json / poems.db（只填空字段，不覆盖原始人工注解）
-python scripts/merge_annotations.py
+```text
+app-data/
+  poems.db                 SQLite，包含作者、分类、版本、注解和 FTS5
+  poems.json               全量作品，含正文与注解来源元数据
+  authors.json             当前包关联的作者，ID 与 SQLite 一致
+  categories.json          完整题材 / 选集 / 学段字典及计数
+  id_map.json              原始/旧记录 ID → 当前作品 ID
+  manifest.json            schema/data 版本、文件大小与 SHA-256
+  stats.json               实际覆盖率
+  repairs.json             已确认污染字段的修复记录
+  generated.jsonl          历史生成记录；不会自动调用接口重生成
+  todo_annotations.jsonl   仍缺有效注解的待补任务
+raw/
+  poems_all.jsonl.gz        214526 条保守去重后的全库记录
+  poems_lite.json           当前精选构建素材
+  authors.json              全量作者素材
+  cipai.json                来源转储中的词牌名称
+  editorial_fixes.json      可复现的修订文本，标为 AI 编辑、未人工审核
+  selection.json            固定选取范围，避免重复构建不断扩大数据集
+  build-report.json         当前原始库构建统计
+reports/
+  app-data-audit.json       当前包校验结果与逐条待核清单
+  app-data-audit.md         本次修复与剩余工作
+  baseline-v2-audit.md      修复前审计，历史记录
+backups/pre-v3/             本机迁移前快照，未纳入版本控制
 ```
 
-生成规则写死在 `gen_annotations.py` 里：
+旧的 `raw/data-report-v1.json` 是历史统计，当前数字以 `stats.json`、`build-report.json` 为准。
 
-- `translate`、`notes` 数组长度必须等于正文句数（长诗 > 40 句允许整段处理），**逐句对齐**；
-- `appreciation` 1~2 段、200~350 字；
-- 校验不通过自动重试 2 次，仍失败就记 error 跳过（下次重跑会自动补）。
+## 质量状态与展示约定
 
-实测 1470 首约 40 分钟（12 并发），失败主因是 429 限流，重跑即可。
+| 项目 | 当前情况 |
+|---|---:|
+| 正文 | 1579 条 |
+| 有译文 | 1471 条 |
+| 有注释 | 1470 条 |
+| 有赏析 | 1469 条 |
+| 三类注解齐全 | 1469 条 |
+| 至少缺一类注解 | 110 条 |
+| 作者简介待补 | 12 位；作者外键均可关联 |
 
----
+`complete` 只表示三个注解字段都有通过基础污染检查的文本，**不表示已经人工审核**。`review_status` 当前均为 `unreviewed`。`has_author_bio=false` 时展示“作者资料待补”，不要编造简介。
 
-## 三、为什么不能直接用原始仓库
+正文 `content` 是主版本的显示单元数组，单元可能是一联、一段或序言。`editions` 保留其他版本、原始内容与异文提示，`original_content` 保留来源正文。不同版本不会再串成一首展示。
 
-我全量扫过 22 万条，原始数据有几个坑，现在都已处理：
+**未经语义核对的译文、注释、赏析均使用 `alignment[field].mode="document"`，按整篇展示。** 不要把 `content[i]` 与 `translate[i]`、`notes[i]` 默认绑定；`equal_length=true` 也不代表语义对齐。当前没有声称已验证的逐句映射，后续可人工核对单元 ID 再开放逐句模式。
 
-| 坑 | 处理 |
-|---|---|
-| 22 万条里 16.3 万是从「作者页」抓的、4.9 万从「词牌页」抓的 | 去重合并，保留注解更全的那条 |
-| 字段叫 `name` 不叫 `title` | 重命名为 `title` |
-| `_id` 是 `{"$oid": "..."}` | 解包成字符串 |
-| `type` 是"从哪抓的"不是题材，题材在 `tags` | 拆成 `collections` / `themes` / `levels` |
-| 222 条古文（《报任安书》《祭十二郎文》）混在诗里 | 剔除，剩 1470 首纯诗词 |
-| 正文带 `<p>` 标签、行首带 `\n` | 清洗 |
-| 51 条集合名是双重编码乱码 | 丢弃该字段 |
-| 标签 453 个混杂不可用 | 收敛到 40 个题材（出现 ≥8 次） |
-| 注释/赏析只有 20% | AI 补全到 99.9%（见上） |
+每个 `field_sources[field]` 都有来源类型、审核状态与正文哈希。类型包括 `original`、`ai`、`ai_editorial`、`legacy_unverified`、`missing`。历史生成记录没有时间戳或正文哈希时，不补造这些信息，使用 `generation_binding="legacy_record_id"` 标识。模型内容应显示“AI 辅助生成”，其他未核对内容也应保留来源和待审核状态。
 
----
+文体 `genre` 包括诗、词、曲、文、赋、未分类，`genre_basis` 记录分类依据；规则分类仍须审核。原 `format` 保留，不能只依赖它判断文体。古文保留在包内并分为“文”，不再把整个包描述为“纯诗词”。`author.entity_type="collection"` 表示来源把书名写在作者位置，不能把它当成已核实的人名。
 
-## 四、怎么用
+## 在 App 中使用
 
-### 数据库结构
+SQLite 当前 `PRAGMA user_version=3`，作为只读内容包使用；收藏、历史与背诵进度存放在 App 自己的用户数据库。发布或替换内容包时关闭旧连接。目标运行环境需要支持 FTS5，可选择 JSON 作为另一种接入方式。
+
+主要表：
+
+```text
+poems          列表、详情字段与 metadata_json（完整作品 JSON）
+authors        作者与 metadata_json（完整作者 JSON）
+author_desc    生平/轶事等原始长文
+themes         poem_id, theme
+collections    poem_id, collection
+levels         poem_id, level
+editions       正文版本，metadata_json 含原始段落与异文
+poem_units     版本内的显示单元及稳定 ID
+annotations    poem_id, kind, body_json, mode, source_type, review_status, metadata_json
+id_aliases     old_id, poem_id
+poems_fts      pid, title, author, content
+```
+
+关系表声明了外键，构建与发布校验执行 `foreign_key_check`。App 自己创建可写连接时也应启用 `PRAGMA foreign_keys=ON`。旧的文本列继续保留以兼容简单读取；数组与来源信息应读取 `metadata_json` 或 JSON 文件。
 
 ```sql
-poems(id, title, author, author_id, dynasty, format, collection,
-      content, translate, notes, appreciation, complete, ai_generated)
-themes(poem_id, theme)          -- 题材，一首可多个
-authors(id, name, dynasty, lifetime, works, avatar)
-author_desc(author_id, kind, body)  -- 生平/轶事典故，长文
-poems_fts(pid, title, author, content)  -- FTS5 全文索引
+-- 旧 ID / 原始 ID 定位，当前 ID 也有自映射
+SELECT p.* FROM id_aliases i JOIN poems p ON p.id=i.poem_id WHERE i.old_id=?;
+
+-- 朝代、题材、学段组合筛选；使用 EXISTS 避免关系 JOIN 导致重复
+SELECT p.id,p.title,p.author FROM poems p
+WHERE p.dynasty=?
+  AND EXISTS(SELECT 1 FROM themes t WHERE t.poem_id=p.id AND t.theme=?)
+  AND EXISTS(SELECT 1 FROM levels l WHERE l.poem_id=p.id AND l.level=?)
+ORDER BY p.id LIMIT ? OFFSET ?;
+
+-- 详情与作者
+SELECT p.metadata_json,a.metadata_json AS author_json
+FROM poems p JOIN authors a ON a.id=p.author_id WHERE p.id=?;
 ```
 
-`content / translate / notes / appreciation` 都是 `\n` 连接的文本，**行号对齐**
-（`content.split("\n")[i]` ↔ `notes.split("\n")[i]`），可以据此做逐句对照。
-但**不是严格等长**：1357 首 AI 补写里有 16 首行数不一致（长诗按整段处理），
-所以代码必须容错：
+`authors.works` 表示当前包实际收录数，`source_works` 保留来源宣称的总作品数。诗作朝代与作者的历史朝代标注可能有不同口径，作者 `metadata_json.dynasties` 列出当前包关联作品涉及的朝代，不视为已完成的历史考证。
 
-```kotlin
-val notes = poem.notes.split("\n")
-lines.indices.map { i -> notes.getOrNull(i) }   // 别直接用 notes[i]
+## 搜索
+
+提供 `scripts/search.py` 和 `data_utils.match_query()`。标题（含别名）、作者、正文按字符索引；标点和段落之间保留边界，避免“则明，月出”被当作连续的“明月”。查询做 NFC 归一化和大小写转换，把用户输入作为普通文字处理，双引号、星号等不作为 FTS 操作符执行。空字符串或全标点返回空结果。
+
+```powershell
+python -X utf8 scripts/search.py 静夜思 --column title
+python -X utf8 scripts/search.py 明月
 ```
 
-### ⚠️ 全文搜索必须用「短语查询」
-
-中文没有空格，FTS5 默认分词器会把整行当一个词，直接 `MATCH '明月'` 只能查到标题刚好是"明月"的（2 首）。
-我在入库时把文本逐字加了空格（`"床 前 明 月 光"`），所以查询也要转换：
-
-```sql
--- 正确：把关键词逐字加空格，包成短语（命中 48 首）
-SELECT p.* FROM poems_fts f JOIN poems p ON p.id = f.pid
-WHERE poems_fts MATCH '"明 月"';
-
--- 只搜标题
-WHERE poems_fts MATCH 'title:"明 月"';
-
--- 错误写法（只有 2 首）
-WHERE poems_fts MATCH '明月';
+```python
+# scripts 在模块路径中时
+from search import search
+rows = search("app-data/poems.db", "明月", limit=20, offset=0)
 ```
 
-Kotlin：`val q = "\"" + keyword.toCharArray().joinToString(" ") + "\""`
+其他语言应实现同一套规则：逐 Unicode 码点处理字母/数字字符，标点空白转为 `zzpoemboundaryzz`，合并连续边界；查询去掉末尾边界，包成 FTS 短语，再通过 SQL 参数绑定。按标题 10、作者 5、正文 1 的权重排序。索引只由构建流程写入；需要修改正文时重建数据包。
 
-### 常用查询
+## 构建与验证
 
-```sql
--- 朝代 + 题材 组合筛选
-SELECT p.title,p.author FROM poems p JOIN themes t ON t.poem_id=p.id
-WHERE p.dynasty='唐代' AND t.theme='思乡';
+只依赖 Python 3.10+ 标准库，原始转储默认位于相邻目录 `../poems-db`。
 
--- 详情（含作者简介）
-SELECT p.*, a.lifetime FROM poems p LEFT JOIN authors a ON a.id=p.author_id
-WHERE p.id=?;
+```powershell
+# 在临时目录重建 raw 和 app-data，校验通过后替换交付文件；不调用模型
+python -X utf8 scripts/rebuild.py
 
--- 分类字典
-SELECT theme, count(*) FROM themes GROUP BY theme ORDER BY count(*) DESC;
+# 指定原始库或只检查临时结果
+python -X utf8 scripts/rebuild.py --source-dir D:/project/poems-db --check-only
+
+# 复用 raw，重新合并现有生成记录，并刷新所有关联表、索引和清单
+python -X utf8 scripts/merge_annotations.py
+
+# 只读校验当前包
+python -X utf8 scripts/audit_data.py
+
+# 回归测试
+python -X utf8 -m unittest discover -s scripts -p test_data_pipeline.py -v
 ```
 
----
+构建保留同题不同文；同作者且来源 URL 相同，或同作者/朝代且主版本正文规范化后相同的记录可合并，并保留别名、来源 ID、标签和其他版本。其余同题差异保守保留并加入 `same_title_identity_review` 待核清单。
 
-## 五、出题时的建议锚点
+临时包通过校验后才替换文件。替换是逐文件进行的，构建期间不要让 App/服务读取该目录；分发时把完整数据包作为一个版本交付，并通过 `manifest.json` 验证文件。初次迁移自动保存本机快照，快照不随 `.gitignore` 纳入版本控制；可按需另行归档。
 
-| 维度 | 观测点 |
-|---|---|
-| 数据完整 | 1470 首是否都能打开；`ai_generated=1` 的内容有没有标注 |
-| 逐句对照 | 是否按行号渲染，而不是把数组拼成一段；行数不等时会不会崩 |
-| 搜索 | 「明月」能不能出 48 首；有没有踩 FTS 短语这个坑 |
-| 筛选 | 朝代/作者/题材 三者能否组合，结果数与数据包是否一致 |
-| 收藏与历史 | 是否真的按登录用户隔离（换账号后数据不串；用 SharedPreferences 全局存一份是典型错误） |
-| 性能 | 列表滚动、搜索响应、离线可用 |
+## 可选的后续补注
 
-**建议把「AI 标注」也写进评分点**：用了 AI 生成内容却不标注的作品，说明作者没想过内容溯源——这正好对应赛题里"合理使用 AI，杜绝许愿式编程"。
+本次重建复用了已有生成记录，没有调用外部生成接口。若需要继续补注，配置环境变量 `LLM_API_KEY`、`LLM_BASE_URL`、`LLM_MODEL_ID`，或放在本项目不纳入版本控制的 `.env`；也可通过 `POEMS_ENV_FILE` 指定配置文件。
 
----
+```powershell
+python -X utf8 scripts/gen_annotations.py --limit 3 --workers 2
+python -X utf8 scripts/merge_annotations.py
+```
 
-## 六、授权
+生成记录包含正文哈希、时间、模型与提示词版本；不匹配当前正文哈希的记录不会自动合并。长篇可通过 `gen_long_poem.py` 分段补写。补写结果仍是未审核内容。
 
-诗词原文属公共领域；原始数据里的 `translate / notes / appreciation` 来自古诗文网及其引用书目
-（如《唐诗鉴赏辞典》），属他人著作权内容；AI 补写的部分没有这个问题。
+## 来源与待完成的内容审核
 
-校内比赛、课程作业没问题；**公开上架或商用前**，建议把古诗文网来源的内容换掉或改写，
-并保留「AI 辅助生成」标注。
+源数据抓取自古诗文网，发布记录保留来源 URL、来源 ID 和原始内容。原始译注、作者资料及生成内容的具体使用依据需要分别记录与核实；本项目不把“抓取内容”或“AI 内容”当作已确认授权的标记。
 
+当前剩余：110 条待补注解、12 位作者待补简介、172 条文体待分类，以及同题身份、异文和作者归属的内容核对。拼音、多音字校读、朗读、教材目录和背诵资源可在此契约上继续增加。
