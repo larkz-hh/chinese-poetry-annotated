@@ -101,6 +101,8 @@ def validate(app, baseline=None):
             errors.append(dict(code="schema_version"))
         actual = {pid: json.loads(meta) for pid, meta in con.execute("SELECT id,metadata_json FROM poems")}
         error("json_sqlite_metadata", [p["id"] for p in poems if actual.get(p["id"]) != p] + sorted(set(actual) - ids))
+        if dict(con.execute("SELECT old_id,poem_id FROM id_aliases")) != migrations:
+            errors.append(dict(code="sqlite_id_aliases"))
         error("json_sqlite_authors", [a["id"] for a in authors if json.loads(con.execute("SELECT metadata_json FROM authors WHERE id=?", (a["id"],)).fetchone()[0]) != a])
         relations = []
         text_rows = {r[0]: r[1:] for r in con.execute("SELECT id,content,translate,notes,appreciation FROM poems")}

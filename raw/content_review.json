@@ -1,0 +1,2620 @@
+{
+ "reviewed_at": "2026-11-11",
+ "review_type": "AI文本比对与部分来源核对；非人工学术审定",
+ "works": {
+  "5c22086397880d3b825c95d5": {
+   "expected_body_hash": "9f01793dfb8dbb2edb345599e1600d73df543f17159835bb5d590b89d5dda73b",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_6368d3d62fcd.aspx"
+   ]
+  },
+  "5c22086397880d3b825c95dd": {
+   "expected_body_hash": "0192a695b702f5136723b66639907b21ca173d3a43ff2951fe72e1d538494831",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_68fe1f940020.aspx"
+   ]
+  },
+  "5c22086397880d3b825c95df": {
+   "expected_body_hash": "d8c03f29e3e0e9bdab2a90da05adf9d0cab003ff0cb0bd3e4d5606e34045899d",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_ee9af27de9f2.aspx"
+   ]
+  },
+  "5c22086497880d3b825c960b": {
+   "expected_body_hash": "cdbb96db27f2f1fb8d9efbe73012a016f5b2a4b7e553aba7fe2b3f2eb5c11ceb",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_72c224467be6.aspx"
+   ]
+  },
+  "5c22086497880d3b825c961b": {
+   "expected_body_hash": "ca454d728a3f115e4e15bbd59d984940619690f73608addebd32af59288a9a78",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_0c472e85a3ad.aspx"
+   ]
+  },
+  "5c22086497880d3b825c9629": {
+   "expected_body_hash": "68d7c32708d5a14a86e9da057969cbc1f6ebe07a903ae6c9b211f2e1f373554c",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_b4fbe7244670.aspx"
+   ]
+  },
+  "5c22086497880d3b825c9631": {
+   "expected_body_hash": "0d84f68402a2420f9542ca3987ba6a170633edfeda42a35f2bb3881c0a3e5752",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_42e12feb4ebb.aspx"
+   ]
+  },
+  "5c22086497880d3b825c9633": {
+   "expected_body_hash": "f94015acac29c192bc831b79ba4a623d584915fba9814040a958a2b461106bea",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_bbe4155bdc90.aspx"
+   ]
+  },
+  "5c22086497880d3b825c9637": {
+   "expected_body_hash": "e10c662bacd1dda57b2947df480f8c1870e87b6b8c49520fe68b5ac04d22567b",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_3fb397218a1e.aspx"
+   ]
+  },
+  "5c22086497880d3b825c9643": {
+   "expected_body_hash": "9bd1cdf660a7d5afa7af1f53d732b0fc81229cf41f434c410608bf4a5fa26fca",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_eb3a53d949c4.aspx"
+   ]
+  },
+  "5c22086497880d3b825c9651": {
+   "expected_body_hash": "293c8747d48ddcdedfa9c67ce52b77b5357274b0cf5b38f2b63dea6fdd13fec7",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_4508caf3b53b.aspx"
+   ]
+  },
+  "5c22086497880d3b825c965d": {
+   "expected_body_hash": "715f0e01345f4110fe6a2b50f21f8b28934e07267bd5d5f04d686c12d0c3a76f",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_48936601c146.aspx"
+   ]
+  },
+  "5c22086497880d3b825c9663": {
+   "expected_body_hash": "1ea7752659346609a98806c73e074953fb97875e284ec9af2a9055994fb9e118",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_2c55b2038285.aspx"
+   ]
+  },
+  "5c22086497880d3b825c96bb": {
+   "expected_body_hash": "cc06d68012f56f2b8a204d20deb6526c22982a21b576ad81661719eb7da731cf",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_2c0faba4ce52.aspx"
+   ]
+  },
+  "5c22086497880d3b825c96c5": {
+   "expected_body_hash": "52612d449298f49297f0429607d305e98d82c37482e075e88ff16f486c4840ac",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_ab3dd0fbce99.aspx"
+   ]
+  },
+  "5c22086497880d3b825c96c7": {
+   "expected_body_hash": "fa5b1899f42ab55b7e47a3d76da834773995b44e4e68090e37823387e46035c1",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_ae20659aff8c.aspx",
+    "https://so.gushiwen.org/shiwenv_0f09e814eae2.aspx"
+   ]
+  },
+  "5c22086497880d3b825c96e3": {
+   "expected_body_hash": "a741e18979a00bf67920e7131419a6222237788fe968dd8992a6c377027bcbf1",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_67a8c97e4204.aspx"
+   ]
+  },
+  "5c22086497880d3b825c970f": {
+   "expected_body_hash": "bab5a0ba7502902f68b6762c5e1ec398381a6fcc9e4b1e804ce7913d08d13ebf",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_f9b928085e77.aspx"
+   ]
+  },
+  "5c22086497880d3b825c972d": {
+   "expected_body_hash": "c672b46ebebab90f8587877995cfe03b38272402c473e938bf662e2837d56f44",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_09fd71c77ec7.aspx"
+   ]
+  },
+  "5c22086497880d3b825c9749": {
+   "expected_body_hash": "ba4ed1f8bad85186f4e788146d2f12005c0743b377f9a4f02be859aae73b91cd",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_c14aa77a50e5.aspx"
+   ]
+  },
+  "5c22086497880d3b825c9759": {
+   "expected_body_hash": "ac17758d44e424295cb20938a34585343aabdc56d13f0e4ddf41e75e0142c466",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_b0d3f72465ef.aspx"
+   ]
+  },
+  "5c22086497880d3b825c975b": {
+   "expected_body_hash": "d0b4e7b866a7bcd5c80caeb112a0fc53b4f26942e12a69287c927a1273377edc",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_0c4f19716bfe.aspx"
+   ]
+  },
+  "5c22086497880d3b825c9767": {
+   "expected_body_hash": "7ede738491e288f77da10177607f5305102fce3327061cb25871e7052ed5117a",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_1abc932ae63c.aspx"
+   ]
+  },
+  "5c22086497880d3b825c976b": {
+   "expected_body_hash": "b68dc1a8454ba4d4234e8fb62751978bc74ccd41fc4e124ab8992faa8d00a961",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_f210718ad962.aspx"
+   ]
+  },
+  "5c22086497880d3b825c976f": {
+   "expected_body_hash": "0974b467a0cde2962d2ee384daf46a0be5a60a84a24224cd7c4c9f5d01e906d1",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_6022ecefe281.aspx"
+   ]
+  },
+  "5c22086497880d3b825c9775": {
+   "expected_body_hash": "a7519e943f7164f90bda117b162af0802c77d0a219c514fac368da9d601d8777",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_8813f91342c8.aspx"
+   ]
+  },
+  "5c22086497880d3b825c9779": {
+   "expected_body_hash": "1a250a445b013994adb40583cfea90d29df7de262dc02a18e40d8a7de6908ac0",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_dc090c40cab3.aspx"
+   ]
+  },
+  "5c22086497880d3b825c977b": {
+   "expected_body_hash": "297a20202ef6c2975628a55032c64fb6ba7351db52a71ca19944186dbf98921d",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_dfa0d65184ac.aspx"
+   ]
+  },
+  "5c22086497880d3b825c977d": {
+   "expected_body_hash": "2cd815cd08b73aba1ba4896211171cc4a2fa9e76a08ed8d72917de10aaf84602",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_3ca53d3dfb52.aspx"
+   ]
+  },
+  "5c22086497880d3b825c9791": {
+   "expected_body_hash": "6b002ea3de1b2700008c77bf663c06a31daeeb76b3e7086af4e43816504d51a1",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_59375fc2edd7.aspx"
+   ]
+  },
+  "5c22086497880d3b825c979b": {
+   "expected_body_hash": "86418e2b606171245d91d34134bd246282e20da637c2ba14204c5f583e029a0e",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_324652b6ac3d.aspx"
+   ]
+  },
+  "5c22086497880d3b825c97a3": {
+   "expected_body_hash": "c2c34e49de391b6c86c149082bc9ffc5d1b7750c280256cdf65cf97f963941e3",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_48b0176c1010.aspx"
+   ]
+  },
+  "5c22086497880d3b825c97a7": {
+   "expected_body_hash": "e0b0800a93fafabcbb15376d4ccb39c6fae3ec2653cdc0f492ad9fc166cbffb7",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_9a7569bbab39.aspx"
+   ]
+  },
+  "5c22086597880d3b825c97c1": {
+   "expected_body_hash": "dc3f656fe61bfde5917cdbc55c18f5222d5688bf635279a445d80f384a3dbc4d",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_444df93c9bdf.aspx"
+   ]
+  },
+  "5c22086597880d3b825c97cb": {
+   "expected_body_hash": "d257f9e347835f4f98951359ec4790f46d088b069d1994a0e0e7a73b2b3a9366",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_7c8b773e0ca1.aspx"
+   ]
+  },
+  "5c22086597880d3b825c9819": {
+   "expected_body_hash": "25f6333d68e51035c7271a0715a46934cead8753420bd468a99ac8d607b0cd37",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_d59ec5d6c91c.aspx"
+   ]
+  },
+  "5c22086597880d3b825c9833": {
+   "expected_body_hash": "b9432430ab57e4e76e9ead700f28e10a60b46c16a0bf02bc0140c1c0d7d2fd77",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_f46d7bbf66b8.aspx"
+   ]
+  },
+  "5c26e0a397880d3b825f59fb": {
+   "expected_body_hash": "9596b7ee7b03229a5f179579c8aa9bcc3ef6711187d0555a07ebcab6a4a84ff8",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_f698d8edda8c.aspx",
+    "https://so.gushiwen.org/shiwenv_513325560410.aspx"
+   ],
+   "genre": "词",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e0a397880d3b825f5a8f": {
+   "expected_body_hash": "2eb59b989a7087c400cb00a185f452d54fd07f8676271fa90c60fef824eb6151",
+   "merge_into": "5c26e1cd97880d3b826104e3",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "同题同作者全文比对：差异属于分段、字形、异文或来源转录；作为同一作品的其他版本保留。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_8b8f7662ba83.aspx"
+   ]
+  },
+  "5c26e0a497880d3b825f5aeb": {
+   "expected_body_hash": "742c3178f685bb5f181e4167a60f7b25290f8a95966e2813789c6d14b0c3ed76",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_adecc87c870c.aspx"
+   ]
+  },
+  "5c26e0a497880d3b825f5bd3": {
+   "expected_body_hash": "2a36374269b123652dca7b29fc3b05a51da52ff77cb32a1c8fe59a5a4c1ca123",
+   "status": "source_checked",
+   "reviewer": "codex",
+   "reason": "来源明确为十九首七言绝句的合集，避免作为一首长诗解释。",
+   "sources": [
+    "https://www.gushiwen.cn/shiwenv_4d751bd42824.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review",
+   "title": "杂诗十九首",
+   "text_scope": "sequence"
+  },
+  "5c26e0bc97880d3b825f8b10": {
+   "expected_body_hash": "1eab6355546c681773447365f741c885e337ee741ab5b0230a6956757a749675",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_5b2100b91c1c.aspx"
+   ]
+  },
+  "5c26e0bc97880d3b825f8b36": {
+   "expected_body_hash": "4c74f9538fde49c29d4f5f7ca8cf815a40d579371052e927fd8aab700e9ee0be",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_4690e75454c9.aspx"
+   ]
+  },
+  "5c26e0bd97880d3b825f8d28": {
+   "expected_body_hash": "a73cbc78b6a139100ec6a7e0c825df757bf97a195ac294696fac70633c6c010f",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_d48451f00541.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e0bd97880d3b825f8d2a": {
+   "expected_body_hash": "c3a80d7cc0efe2dc26e2fd4e08c383104b71591197affdbd0ea7ff8c767e0f49",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_fa087546c81b.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e0bd97880d3b825f8d2c": {
+   "expected_body_hash": "c6df54e81c55dc8268ef99ce3d478394205b23566d7b32a509f8b8c76f9986bc",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_af218ed70405.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e0be97880d3b825f8dd2": {
+   "expected_body_hash": "59f8f4a2ecd3362d4791e29836c39727dee2c5ec96a1d41d2e0c1803eb8a93ae",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_18d68bd0d5a9.aspx"
+   ]
+  },
+  "5c26e0be97880d3b825f8de2": {
+   "expected_body_hash": "fbf1d26d0902e19b4d26d37693a416dd8c59d76acc826ea886a3c53134c839b4",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_10086b1c2cc6.aspx"
+   ]
+  },
+  "5c26e0be97880d3b825f8dfe": {
+   "expected_body_hash": "b407e5a3d0de40c6c8175defdbab16805d2cb4b3035280008a4089a57053ad66",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_e0022a7b82a0.aspx"
+   ]
+  },
+  "5c26e0f497880d3b825ff72f": {
+   "expected_body_hash": "f0d77d91e05c757e31384c6e516021096d250aced76f840156e05ed0d6dd8386",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_061e048de1cd.aspx"
+   ]
+  },
+  "5c26e1cd97880d3b826104e3": {
+   "expected_body_hash": "e2732ec305a9a823fe3984f6c38560738bc4e950b6247484e5e2bf020eb34a93",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_04642f13ebcb.aspx"
+   ]
+  },
+  "5c26e1e497880d3b8261341f": {
+   "expected_body_hash": "2466e4f03f9b4eef447724a76ee410a00b7a49d56df6c60025d262af7b7db3c2",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_82fd6027caf3.aspx"
+   ]
+  },
+  "5c26e1e497880d3b826134d5": {
+   "expected_body_hash": "bd7229f42eb76f207d7e3a3e29b0e5084b428ff1c331f1603a1cbb3a125a056a",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_fb914d0f0e97.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e1e697880d3b826137cb": {
+   "expected_body_hash": "554942033700bff6a2bd7353eb15f633ce43e4269946ca5891c67664cb135bdf",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_9b63696a8bcc.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e1e697880d3b826137df": {
+   "expected_body_hash": "b48a1b92ddc17a478ab48a52e79e9de962ebe973b130ad4b13deab2fd5780116",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_b808c278d8bd.aspx",
+    "https://so.gushiwen.org/shiwenv_0d2d4a76ac9d.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e1e697880d3b8261389d": {
+   "expected_body_hash": "2a7e199bf7de46734bdbd58944a8bc524c022a253936e2acac284483699b7f47",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_97e6296bfb8d.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e1e697880d3b82613937": {
+   "expected_body_hash": "78e7cead0b000a041d825f259bcbe81aeedbcb2196679dc7f2ab3502d9db2476",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_f13ab2fe8afd.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e1e697880d3b8261393d": {
+   "expected_body_hash": "d311afca0316f7702a9b4a8036db51c75d0352c01ddb30fd1b458b67ade84bf7",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_a6c86c66a29f.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e1e797880d3b8261396f": {
+   "expected_body_hash": "fc674baa00da50ab704c10d21f81abcafbdb9820b45ce20a39aced56ff158461",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_1da5349ad9e4.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e1e797880d3b82613995": {
+   "expected_body_hash": "3bf166dedc807e10508f0d082bca149229dd0f571abd3e70bef9731d5281df0d",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_7a5a6e2c0972.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e1e797880d3b826139cd": {
+   "expected_body_hash": "099ac46b9896d9e96c428374ceb82099714beff912891c2fa0b130ecde76bb0d",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_796882166eaf.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e1e797880d3b82613a31": {
+   "expected_body_hash": "fba26c927b91c5da88e57f0f4d0dea215e3a7ee58bddf0eadecd5348f08cd317",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_5c547cfaf0cd.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e1ef97880d3b82614bb7": {
+   "expected_body_hash": "cd89f93c9d7edfab92130ef0893400607985a45c295a9c547931c108dd748233",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_7ef63cf7f13c.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e1f097880d3b82614ccb": {
+   "expected_body_hash": "b0c5bb108965be73368db8fb2719af9f9a12f46eee31531c8ee309c8b7e52bb4",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_06879cdd51ed.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e1f297880d3b82615029": {
+   "expected_body_hash": "eafd7929a5e383d3923fa84e3c9fd3ab3085144f31bb2b58d7d3f4ee4a767227",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_456bd37170f3.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e1f397880d3b82615406": {
+   "expected_body_hash": "892e085b497e5c825d69046cb6c6be390a2e0b5d04455614d46f18a9356daa0f",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_9fbf5fa35fe2.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e1f697880d3b82615978": {
+   "expected_body_hash": "913df75c75c35a7887e116949f7915c51082cde4f42186f1d26706710ccba196",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_880912218fc8.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e1f797880d3b82615bb4": {
+   "expected_body_hash": "8dd5a079ba72757076d6cd4d021a6b94c9c2a83c9c9455580b670d4eacc7fa44",
+   "merge_into": "5c22086497880d3b825c965d",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "同题同作者全文比对：差异属于分段、字形、异文或来源转录；作为同一作品的其他版本保留。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_d8574619caed.aspx"
+   ]
+  },
+  "5c26e1f797880d3b82615c2c": {
+   "expected_body_hash": "b973e2e30175c53d70c798db3191c5738744773733d14602e8685be5aa0af50a",
+   "merge_into": "5c22086497880d3b825c9767",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "同题同作者全文比对：差异属于分段、字形、异文或来源转录；作为同一作品的其他版本保留。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_a18ef69d113c.aspx"
+   ]
+  },
+  "5c26e1f897880d3b82615d26": {
+   "expected_body_hash": "556bc570d1d7ee5195dc4d23bffcfdd5d02d9871f412d19db99a46e98c922bb2",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_f6c40e3d4893.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e1f897880d3b82615d86": {
+   "expected_body_hash": "23c48767908458fe1eb4115e081fffceb5cbf955a09abf2d07e8f6f026686b1a",
+   "merge_into": "5c22086497880d3b825c9767",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "同题同作者全文比对：差异属于分段、字形、异文或来源转录；作为同一作品的其他版本保留。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_dcfb9c2e050f.aspx"
+   ]
+  },
+  "5c26e1f897880d3b82615dba": {
+   "expected_body_hash": "07be921b8a3534451e7c46043f7d126dabee58db00a88cc70a62e91bce2dc3c8",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_a9e6bc1228e1.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e1f897880d3b82615df2": {
+   "expected_body_hash": "88421dde08959b7e9d8c266abe5c2dd8234e069b129548300763d596219dd373",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_4995f2f0581b.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e1f997880d3b82615e90": {
+   "expected_body_hash": "e92100d8f2db7a2dcb91404487cc774f08e540af105e62bcf500b66a17072dcc",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_d0ab4b82f675.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e1f997880d3b8261601a": {
+   "expected_body_hash": "285c31bccdd1c832d5e511070647b62368ed4fd8716d426d29621450de8ac001",
+   "merge_into": "5c22086597880d3b825c97cb",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "同题同作者全文比对：差异属于分段、字形、异文或来源转录；作为同一作品的其他版本保留。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_8a53f3847dfd.aspx"
+   ]
+  },
+  "5c26e1fa97880d3b82616090": {
+   "expected_body_hash": "98697a327cfc0a0c165b34766838d4bd7a4c38f5e219b8b528de2c607749281e",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_d9737e273b97.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e1fa97880d3b826161d8": {
+   "expected_body_hash": "fd4149ed7277f75245a64b37bf0a368434f7ac638357899ae2a4e43c2fec0c10",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_7618e52971f1.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e1fb97880d3b826162ba": {
+   "expected_body_hash": "8cc3449917d3cdbf13110e4741162e6429a3c025dbcb6784462691485385e78b",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_09294abb5f67.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e1fb97880d3b826162bc": {
+   "expected_body_hash": "b07af2517ab9b073f0aa4512e8db08d8a8eba7d044ae0d83a36318d7b4b89a18",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_966c8a76211f.aspx"
+   ]
+  },
+  "5c26e20597880d3b82617658": {
+   "expected_body_hash": "1ef43c52ec2059f4a9336a9def525d83ddf106b32d22e52eba020f07d3aec8ac",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_297ad5f7d88b.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e20a97880d3b8261814a": {
+   "expected_body_hash": "36503cfbc851ca5f95b212d24359d82efd5bceef23070cf32e7cac95bb0b9258",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_d89f541bdcb1.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e20f97880d3b82618c22": {
+   "expected_body_hash": "04cb8cf4e15303eccb496f5aa6dce30ea2070498a182d514cf1e5c7d37edb549",
+   "merge_into": "5c26e20597880d3b82617658",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "同题同作者全文比对：差异属于分段、字形、异文或来源转录；作为同一作品的其他版本保留。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_7125496ddc43.aspx"
+   ]
+  },
+  "5c26e21397880d3b82619450": {
+   "expected_body_hash": "2f1b7b8fc6626f2e1bc2e6730f33b091e1bd22471fd7c0e05f9e64a25a5e3018",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_2f150b408860.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e21697880d3b82619a74": {
+   "expected_body_hash": "24e3883bddb257fc13b6710d4cad8c2d0f1a47d35a6e338f985d644ea1cb2ef0",
+   "merge_into": "5c22086497880d3b825c979b",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "同题同作者全文比对：差异属于分段、字形、异文或来源转录；作为同一作品的其他版本保留。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_ba1ae82f61ac.aspx"
+   ]
+  },
+  "5c26e21797880d3b82619b70": {
+   "expected_body_hash": "e2b4b3985c04ff3fb04fbe6872c8c6fc4a5bf23e73bfca3871b8edb0aca7a2c1",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_076cedfce20c.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e21797880d3b82619b88": {
+   "expected_body_hash": "2efefd12e51bc7d05dfae5f04eb747bd5a3f8d35972e7249d38a23782d40be4a",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_7e09f12b287c.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e21897880d3b82619d66": {
+   "expected_body_hash": "a46f5c335336847a917a23c5a6c4edaef2ba30de654d76f81fd17d854ef16bc2",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_846e626d74d3.aspx"
+   ]
+  },
+  "5c26e21897880d3b82619d6a": {
+   "expected_body_hash": "450b2060d7d62c6357e5721b1b0ced5b87f93803777be24f523314805118cff0",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_4a272f472fee.aspx"
+   ]
+  },
+  "5c26e21897880d3b82619da0": {
+   "expected_body_hash": "cd55ace12a014a3714530adf66946a654df60757d519192aa73deb41881a1b61",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_44a9467d74aa.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e21b97880d3b8261a4c2": {
+   "expected_body_hash": "456ac98eaa2da5429223a5fa91a56bbad3b3de55666c92e62543bbe788f50844",
+   "merge_into": "5c26e21897880d3b82619d6a",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "同题同作者全文比对：差异属于分段、字形、异文或来源转录；作为同一作品的其他版本保留。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_755c7cd7fb3f.aspx"
+   ]
+  },
+  "5c26e22097880d3b8261adf8": {
+   "expected_body_hash": "75e17371f9fb226605a83054e8f59fa569cb02e2265e8a1d2d9a0c771742f3d9",
+   "merge_into": "5c22086597880d3b825c97c1",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "同题同作者全文比对：差异属于分段、字形、异文或来源转录；作为同一作品的其他版本保留。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_009c284633b1.aspx"
+   ]
+  },
+  "5c26e22497880d3b8261b74c": {
+   "expected_body_hash": "eeaa72a0a5e19dfee22b630ef54194aaf72069ed9abd438a3f2e01a9e4fd8f67",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_8d18260838e2.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e22697880d3b8261bbea": {
+   "expected_body_hash": "160f1eb450e6e0af5af396cf21f95d05123fe5198c7a4f6b22ae5f575805d121",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_5ea23fc91c66.aspx",
+    "https://so.gushiwen.org/shiwenv_5383ef58b8c8.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e22697880d3b8261bc0a": {
+   "expected_body_hash": "60e095b3688288ac7aa599bc002420f38bf33261f7f435c60720b361c26a68c0",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_dae9d7e5db21.aspx"
+   ]
+  },
+  "5c26e22697880d3b8261bc1a": {
+   "expected_body_hash": "9bb15beae45c40cb83ad3dc4fbf4bad1a2037f22af32ac2308c56d4bf826446a",
+   "merge_into": "5c26e22697880d3b8261bc0a",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "同题同作者全文比对：差异属于分段、字形、异文或来源转录；作为同一作品的其他版本保留。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_61b5711190bb.aspx"
+   ]
+  },
+  "5c26e22797880d3b8261bc6a": {
+   "expected_body_hash": "d74dcbb2c27c4d0e048b3e8e84bed3105cd02c6c1021e959fc9014340f3b4aaf",
+   "status": "source_checked",
+   "reviewer": "codex",
+   "reason": "现存来源仅录两句，作为残句展示，不补造上下文。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_31b7b235b74f.aspx",
+    "https://so.gushiwen.org/shiwenv_b5c21d047481.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review",
+   "text_scope": "fragment"
+  },
+  "5c26e22797880d3b8261bc6c": {
+   "expected_body_hash": "a50c745f0144d80984f48d9b2d21a3cc9cdf5d56a97ec0298487ca4b73691698",
+   "status": "source_checked",
+   "reviewer": "codex",
+   "reason": "现存来源仅录两句，作为残句展示，不补造上下文。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_f24cba9448ed.aspx",
+    "https://so.gushiwen.org/shiwenv_b9f7b9f15c16.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review",
+   "text_scope": "fragment"
+  },
+  "5c26e22797880d3b8261bcb4": {
+   "expected_body_hash": "2accba6342b1bce66b81e8f2fc5c7e31f4a1a7323ac893454bbee5a7a98cbbc2",
+   "merge_into": "5c26e22697880d3b8261bc0a",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "同题同作者全文比对：差异属于分段、字形、异文或来源转录；作为同一作品的其他版本保留。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_d26cf21d4a0f.aspx"
+   ]
+  },
+  "5c26e22797880d3b8261bd32": {
+   "expected_body_hash": "d1107c90d20b9e470668299c736e01a203d29440d276e824c9f1a9c1d7ca7672",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_d1129db241ec.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e22897880d3b8261bed6": {
+   "expected_body_hash": "0dc5446d79f1778454ae2d537285d9a5918ab970708de133fa3ba0d01dcab045",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_596a2b090692.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e22897880d3b8261bf18": {
+   "expected_body_hash": "782e17c2755b16c595b8b09aa5144debab0fa241f78114c53ba83e4e8468ea5f",
+   "merge_into": "5c22086497880d3b825c96e3",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "同题同作者全文比对：差异属于分段、字形、异文或来源转录；作为同一作品的其他版本保留。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_1a7c05c0d820.aspx"
+   ]
+  },
+  "5c26e22897880d3b8261bfe4": {
+   "expected_body_hash": "c8ff38f072b62d228d847036bdb098baeb51c54d2b930074701bfe57b0d90e6a",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_9b06cd24ed3a.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e23397880d3b8261d627": {
+   "expected_body_hash": "0710796fda5e9080130aabf1c5dddf85a9c758cab73ce7d80b10e625d2ed7e22",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_bb19fa66ac26.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e23897880d3b8261e0ad": {
+   "expected_body_hash": "74d188fbe6bd36d1bd97a2222bc21b1ccc1cd82f860a540c80ccb29058a0a8cc",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_1e0dccec086a.aspx"
+   ]
+  },
+  "5c26e23997880d3b8261e299": {
+   "expected_body_hash": "748de41dbe89a909843a138c322a6c4aa6795dd2b2058177e99e1fe6504f43d5",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_cb5d821bdf54.aspx"
+   ]
+  },
+  "5c26e23a97880d3b8261e33b": {
+   "expected_body_hash": "51c0828e7f727017ef8399ff06e8a8038e53e373720056615daebcf362e03253",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_7a657363fae3.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e23a97880d3b8261e3d5": {
+   "expected_body_hash": "e698bc60190de7d1bb5b65beb0fe5729f547a14586ffd251d0f19e79ca453518",
+   "merge_into": "5c26e23997880d3b8261e299",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "同题同作者全文比对：差异属于分段、字形、异文或来源转录；作为同一作品的其他版本保留。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_2b355e32d78e.aspx"
+   ]
+  },
+  "5c26e23c97880d3b8261e776": {
+   "expected_body_hash": "a9107888c1e604767a6578b96559539965d550e3272cda39cb6375650b59b2ad",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_a47b4cf8c4f1.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e23e97880d3b8261ebf9": {
+   "expected_body_hash": "ac497e9341429417005bc458335309d49d2a156de4ed1423d18827b4376e1cd4",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_2e73c8b1e52f.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e24c97880d3b826208ba": {
+   "expected_body_hash": "4275a89ad871c30678999589ced432d5545bb29330da4140f2ceeb340fe3b75c",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_eca0e785f108.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e25597880d3b82621b55": {
+   "expected_body_hash": "e5d17209c6c51cb30ce1f0fa9edc969246c6af078bfca2eb86fe75c99d2ec59a",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_8afbeb0500d7.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e25f97880d3b82622f33": {
+   "expected_body_hash": "28a66e1ee23ec8c77f291f994d6689990de27d6b819b70763024a09b45a3f9bd",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_9936770100ef.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e25f97880d3b82622f35": {
+   "expected_body_hash": "6a5dae60da223e6a66358fb9a730ca9c0b84d46c43cf964a764bbd7c4b8cb711",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_b132fee5c4d1.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e25f97880d3b82622f47": {
+   "expected_body_hash": "bfce2f6c35ddce69fa7f2d3265f9d4e3aeb7215aa3e217274b86ec987241023e",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_72b8fb811e53.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e26397880d3b826238c0": {
+   "expected_body_hash": "56a541ad366714fdff2444922ed78710afed0052c1adc9c1d3e1b1763b39af7d",
+   "merge_into": "5c22086497880d3b825c9759",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "同题同作者全文比对：差异属于分段、字形、异文或来源转录；作为同一作品的其他版本保留。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_d9287311dae5.aspx"
+   ]
+  },
+  "5c26e26497880d3b82623902": {
+   "expected_body_hash": "9e5a5291038062a1337cca2e288902fc88eca4beabe616c3e772adc1cae11496",
+   "merge_into": "5c22086497880d3b825c975b",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "同题同作者全文比对：差异属于分段、字形、异文或来源转录；作为同一作品的其他版本保留。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_f80826fb4c58.aspx"
+   ]
+  },
+  "5c26e26897880d3b826241d4": {
+   "expected_body_hash": "2098cf3d17a536f7ea33b9467c3a0f617cd803c77a68160d79bcb760e996f552",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_487a36a73efe.aspx"
+   ],
+   "genre": "词",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e26b97880d3b82624785": {
+   "expected_body_hash": "03b97ca2c8952e7e82db8be69ce01d3cf7628a2a756cfa61ec4302726777cd5b",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_0bd9ee2b03fa.aspx",
+    "https://so.gushiwen.org/shiwenv_047134870535.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e27297880d3b8262560b": {
+   "expected_body_hash": "62483b0b635d7226d346b5f375efef6a5e402d3966a8aae42956e8342da4e127",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_a31b957aba53.aspx"
+   ]
+  },
+  "5c26e27297880d3b8262560d": {
+   "expected_body_hash": "4164f2ca976a161977bd24a5914694e5a928ac3f545bec370cfe03566a68dc88",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_7ccd1778ba07.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e27297880d3b82625625": {
+   "expected_body_hash": "2ae39dfd516613798d1ae8ddd8a3fbffd5053fe6e10cd6e60a0dca21f08cf275",
+   "merge_into": "5c26e27297880d3b8262560b",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "同题同作者全文比对：差异属于分段、字形、异文或来源转录；作为同一作品的其他版本保留。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_0d6c4c79cf57.aspx"
+   ]
+  },
+  "5c26e2f997880d3b826258a7": {
+   "expected_body_hash": "68fc0e1bd772985f8d7a063c9c1eaf744d756091c532cef477c497977afac591",
+   "merge_into": "5c22086597880d3b825c9833",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "同题同作者全文比对：差异属于分段、字形、异文或来源转录；作为同一作品的其他版本保留。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_21e2e8052dfc.aspx"
+   ]
+  },
+  "5c26e2fc97880d3b82625efb": {
+   "expected_body_hash": "c0ecad833073536a48dc24c179913220b7ea638426551419c4762e79f6484f92",
+   "merge_into": "5c26e0f497880d3b825ff72f",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "同题同作者全文比对：差异属于分段、字形、异文或来源转录；作为同一作品的其他版本保留。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_92e53f4a7599.aspx"
+   ]
+  },
+  "5c26e2fd97880d3b82625f8d": {
+   "expected_body_hash": "41f7487791abb07de2e7362188e79e0e043f530f62540da855d4ac4b15ed8f77",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_fac78a160fca.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e2fd97880d3b82625f91": {
+   "expected_body_hash": "e72ec9bd91720d600d3949e5a375d4ff31add4429f7298caa86e2daf7a0ba813",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_17d2abaded40.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e2fd97880d3b82625f93": {
+   "expected_body_hash": "a365086c13274393541ce698b24d05e26cac8a8731772e276e9b36781bdb03cf",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_84270756413f.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e30d97880d3b82627e65": {
+   "expected_body_hash": "426230b3181efd4a4a54f9df32cd47205d432b5340dc920a7e9a5a6f9cec4c1b",
+   "merge_into": "5c26e0be97880d3b825f8dd2",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "同题同作者全文比对：差异属于分段、字形、异文或来源转录；作为同一作品的其他版本保留。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_c49bde0f28e7.aspx"
+   ]
+  },
+  "5c26e31397880d3b826289a8": {
+   "expected_body_hash": "a9e731db355cf66275c080e9a4b3812c3888a4a5f6241246101053a6a5e6d168",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_9fedd9d41999.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e32097880d3b8262a29d": {
+   "expected_body_hash": "a09f06ce94936a31aeca9d49b978687c17e40c79aed981c3846a69c8b007ae5b",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_745e11b087ab.aspx"
+   ]
+  },
+  "5c26e32197880d3b8262a36d": {
+   "expected_body_hash": "cae6f0c58ebf1ee414560bba7bd6b685be575c8268209fa7bd85188401aae6e8",
+   "merge_into": "5c26e32097880d3b8262a29d",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "同题同作者全文比对：差异属于分段、字形、异文或来源转录；作为同一作品的其他版本保留。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_6b610dfe299e.aspx"
+   ]
+  },
+  "5c26e32597880d3b8262abe8": {
+   "expected_body_hash": "4962428958c2e314f12f750bae236b8b3bf659d781b0a17b906e641f2b70a172",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_ebb65733f23d.aspx"
+   ]
+  },
+  "5c26e32597880d3b8262abf4": {
+   "expected_body_hash": "3c6b1077c1cbcf5c603467e5ce9e33a130334e69c25b5dc942c5c3a1dd403025",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_72281b5ac735.aspx",
+    "https://so.gushiwen.org/shiwenv_532c7dbd3315.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e32597880d3b8262ac18": {
+   "expected_body_hash": "c6ed8459bbe8e656590adac151da3cf882c1409f103256982f6e970b67c8e71c",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_59c12597aad8.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e32597880d3b8262ac1a": {
+   "expected_body_hash": "a290713f75481f7f048c6df7d2c60217f637a15ef021fdd5ade7ea7db5634913",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_03bac6f26f5a.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e32997880d3b8262b324": {
+   "expected_body_hash": "0ef944db883a3d219bfc3f02323cedb356eaa88462e6607f9383781136d5a0e9",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_5f1aa916c2fb.aspx"
+   ]
+  },
+  "5c26e32997880d3b8262b32a": {
+   "expected_body_hash": "230f9caf0915b4cce9c9703614bbfd40403eee7d3f75cf40fc1e4527430b56f0",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_48fd52d666eb.aspx"
+   ]
+  },
+  "5c26e32a97880d3b8262b3e0": {
+   "expected_body_hash": "5cc86e7a8fb01eaf92d1d99d9a7407f4c65dc510b5bbb21496a52d09286b593d",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_f10e889a20d3.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e32a97880d3b8262b4e4": {
+   "expected_body_hash": "473c2793935dc309c37b83860b6b226cb7e05d9098599934bce51cb75bcd3432",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_6b5dbac1e5c1.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e32c97880d3b8262b6e3": {
+   "expected_body_hash": "1877aafdc6c9bb28e233b5658c3666c8d2bb342487658038043a813e0dad3c51",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_c6285f285ba8.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e33897880d3b8262ce8d": {
+   "expected_body_hash": "c47c8ad7e19133a36e5608eaad32ee26599cd689221c3e3bfedb3fbfb66d0845",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_9488a9c708f6.aspx"
+   ]
+  },
+  "5c26e33897880d3b8262ce9f": {
+   "expected_body_hash": "9430c722f6479fded92c4dc34bc88150ce7e8b458983f450e103bbfa9c35a701",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_6846e41fd9d2.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e33897880d3b8262cea1": {
+   "expected_body_hash": "ecd17d78bb3f1aeb4dcf69a6e754cdc697749f7d674b7d2f2f2d394ad1fe6319",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_dfc2b5580a50.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e33897880d3b8262cea3": {
+   "expected_body_hash": "0b91fcbf6f297c8a07fc160ef6b72bc5ba40c7d00e33f48a9d2e80ff6e1252a9",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_815242d9fc22.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e33997880d3b8262cf33": {
+   "expected_body_hash": "b95c7e2faafd735b8cc8ea9bfa9d5d244750155ea22f89b16b205d9476e2ad17",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_a79fa2c2d7b1.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e33a97880d3b8262d24b": {
+   "expected_body_hash": "23033f0fe62f3f9bc400102ec11102da3294b79be4d5612f99d410ba99f57bce",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_755e47a3b13f.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e33a97880d3b8262d24d": {
+   "expected_body_hash": "a3f1ba963b4b541c182e0811cc636f8c2283f665c229f7c37326bad6fd4d29f7",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_e152d043be94.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e33c97880d3b8262d55f": {
+   "expected_body_hash": "12eb29784bfb1af21e7986630e3f78eb541c978de34f83f296933aecbb88c0e9",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_1eaa0ce953db.aspx"
+   ]
+  },
+  "5c26e33c97880d3b8262d585": {
+   "expected_body_hash": "48f0e98d0ad8b1060ed50e1fbdac76ce4390128ed372bf2d01677ba2b680ce8a",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_7617ba96ba04.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e34a97880d3b8262f08f": {
+   "expected_body_hash": "0f29d6d8f4eef741d001eab9b22b3fbd593bc45238b72b8001b78f6446dbc042",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_66e4537a43f9.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e34b97880d3b8262f253": {
+   "expected_body_hash": "546d57c8d56fb5d4b6254da0147e7fa7de20cb280f5ea7feb306790d68b91b3d",
+   "merge_into": "5c26e34a97880d3b8262f08f",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "同题同作者全文比对：差异属于分段、字形、异文或来源转录；作为同一作品的其他版本保留。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_fb4403a7a32d.aspx"
+   ]
+  },
+  "5c26e35397880d3b82630188": {
+   "expected_body_hash": "36f38c05993200b24576344e7df7a0e716335b07eae6f6435c2ce4b687a1065f",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_73df2273247f.aspx"
+   ]
+  },
+  "5c26e35397880d3b8263018e": {
+   "expected_body_hash": "b5f48a819caebb6749cb6399adddfb8b54af8f651e973b95b5718a1a907fbe2f",
+   "merge_into": "5c26e35397880d3b82630188",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "同题同作者全文比对：差异属于分段、字形、异文或来源转录；作为同一作品的其他版本保留。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_d9b4365c564f.aspx"
+   ]
+  },
+  "5c26e36e97880d3b8263338f": {
+   "expected_body_hash": "30612e063a6da7a0ffa981f43055323a0bb6c49eb520222162a1a86227abbe43",
+   "merge_into": "5c26e0be97880d3b825f8dfe",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "同题同作者全文比对：差异属于分段、字形、异文或来源转录；作为同一作品的其他版本保留。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_cbf70996e797.aspx"
+   ]
+  },
+  "5c26e37297880d3b82633aa5": {
+   "expected_body_hash": "483941864f9ee150e2544d661020fc179d8f5c04158a21874a7bc12496b7ec05",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_14df22a8fd7f.aspx"
+   ]
+  },
+  "5c26e37297880d3b82633b49": {
+   "expected_body_hash": "6ab49674cb9231ef142e19fbe85b67cb37522a7361a957ee89c316200f6fc8db",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_1edc3050cba7.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e37397880d3b82633bbb": {
+   "expected_body_hash": "1a657efce21605adb18359ab067b342fde2b39b2e905cdd980db888fa431185e",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_b5f2fb5c6dd2.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e37397880d3b82633bcb": {
+   "expected_body_hash": "49a2f1ca95416aa53839904cbebdd68d123d204f8f3fea990cd3e124ff6318f7",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_6d36e50d4493.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e37397880d3b82633bd9": {
+   "expected_body_hash": "c91be44fa54c1ca89fb73777175486e0d06ade7345a6ead683ea2ac4307e4f6a",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_6314d17e4c2f.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e37397880d3b82633bdd": {
+   "expected_body_hash": "f6f8739925e1c779839a06db2571f2b85ce487aa9f98fe4d1fb498c13de84df3",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_736c7ab762eb.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e37397880d3b82633bdf": {
+   "expected_body_hash": "2b3109557ce768f01337d57f02b36bcb7e3ac30a1820175774d36d5d513e84e3",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_d23f31d47cc9.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e37397880d3b82633be9": {
+   "expected_body_hash": "02b16ca9a03f1c92045391cbf837330be171c4c8e48c92640763df060b57ff0d",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_18e9aac98a2a.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e38197880d3b82635752": {
+   "expected_body_hash": "9e6a380956a7a023c53eaf2fdb55d0e534263af64d9e05fecb0047a016f1bc76",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_9e676cd411fc.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e38897880d3b826364a5": {
+   "expected_body_hash": "c5046113d4680ad87b3815bcebb01c0e02e36d01b848302c8a4bc7cb82e4f00e",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_203cdd10d0ca.aspx"
+   ]
+  },
+  "5c26e38c97880d3b82636baf": {
+   "expected_body_hash": "65a52990cfca400faf130c6c1f88632f9b505d51cea93639f4717f54b814e30e",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_eae647c5c110.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e38c97880d3b82636c45": {
+   "expected_body_hash": "0e76882436a29be57c7142661b9af52abb55a65df65c39c56fda1426d884e8ff",
+   "merge_into": "5c22086497880d3b825c977b",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "同题同作者全文比对：差异属于分段、字形、异文或来源转录；作为同一作品的其他版本保留。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_bdd182d28dfc.aspx"
+   ]
+  },
+  "5c26e39f97880d3b82639034": {
+   "expected_body_hash": "ddb0c814725e9de7dc88d13230bc736f177dbb108e10f2e3b3974dcd5563dfa1",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_2ed2bc6c8af1.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e3a897880d3b82639f65": {
+   "expected_body_hash": "31b336357b13054b89e3ea2c7f2a3e0842e0cce84df45765b355084867125411",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_c9b69ba048ed.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e3a897880d3b82639f91": {
+   "expected_body_hash": "d44e5df3e2dee8a16c4523357ec1e4fa2cff55c56f951f545e1f41ee17434fb7",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_3b34bc23fb94.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e3ae97880d3b8263aa14": {
+   "expected_body_hash": "4c6444c29cad038b44fd784f4acc87ae32eecab886d58001c631254ed20ee13b",
+   "merge_into": "5c22086497880d3b825c970f",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "同题同作者全文比对：差异属于分段、字形、异文或来源转录；作为同一作品的其他版本保留。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_03489af756e4.aspx"
+   ]
+  },
+  "5c26e3ae97880d3b8263aa1c": {
+   "expected_body_hash": "0216209f27dd6d4c88aecf44d7c429ac708d65af2d72091c6556c2a4673715f5",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_82c6ec8e5c49.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e3ae97880d3b8263aa44": {
+   "expected_body_hash": "8474b7d0c05cf0613da5eb08c907a513e4eae89db76ce747f82eff849ee43812",
+   "merge_into": "5c22086497880d3b825c9775",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "同题同作者全文比对：差异属于分段、字形、异文或来源转录；作为同一作品的其他版本保留。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_82daab77bc51.aspx"
+   ]
+  },
+  "5c26e3ae97880d3b8263aaaa": {
+   "expected_body_hash": "d1f45f5c529e672501e6694a63d8be11ff25bc63efcd43a40eaea34bfc9bbf66",
+   "merge_into": "5c22086497880d3b825c977d",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "同题同作者全文比对：差异属于分段、字形、异文或来源转录；作为同一作品的其他版本保留。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_185634789e51.aspx"
+   ]
+  },
+  "5c26e3ae97880d3b8263abb0": {
+   "expected_body_hash": "ae82871accab26005bc0486a5c3bf039c7999dc26d61ee14b65da5eef24ff547",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_19927b89d62a.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e3b597880d3b8263b7ff": {
+   "expected_body_hash": "441e842576ba6fab37b9131f2440a2f1dfa843ecf0ca75e94153fc8b8f8d56ab",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_30a67e5c53be.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e3b997880d3b8263bedf": {
+   "expected_body_hash": "536064b3cb2327a6c3a62bf8c0556173287139e70d389503867e6c6e9f4359e9",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_2bba1443c73f.aspx"
+   ]
+  },
+  "5c26e3b997880d3b8263beeb": {
+   "expected_body_hash": "a2b2a5568a345788f04c8cd43436790ee2b698a397b9590038805c4a430fac5f",
+   "merge_into": "5c26e3b997880d3b8263bedf",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "同题同作者全文比对：差异属于分段、字形、异文或来源转录；作为同一作品的其他版本保留。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_f5f39cf7fce6.aspx"
+   ]
+  },
+  "5c26e3b997880d3b8263beff": {
+   "expected_body_hash": "d976af3ff129d8c5d421d2487dc215cbc81459c97a74b729dc2d0b25f5e29d62",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_62802abab937.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e3b997880d3b8263bf01": {
+   "expected_body_hash": "120b3c81091ce54786cdfab65a1c5ebe3713360b08ff35040be99d52dc01d09c",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_ca9eaf40a6ce.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e3b997880d3b8263bf03": {
+   "expected_body_hash": "f9c1879935e81710ed1637822a588b1d407a352cb543e96be689791dc771e772",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_62280919c9c5.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e3b997880d3b8263bf13": {
+   "expected_body_hash": "fd969f45dad171f0a4171f8e401e923c1290a7206900cb8c256695ec8f247e73",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_2d13ed0d54e9.aspx"
+   ]
+  },
+  "5c26e3b997880d3b8263bf2d": {
+   "expected_body_hash": "4ab8fc1cb96116b3931771f586ff62f1a65656fa59d432c863531cc5d25e24d3",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_0d967ce7ca17.aspx"
+   ]
+  },
+  "5c26e3b997880d3b8263bf35": {
+   "expected_body_hash": "bd7a56986261ad381773ccd428ea4acf41aed72e3659e89e4888755238bfe4cc",
+   "merge_into": "5c26e1e797880d3b82613995",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "同题同作者全文比对：差异属于分段、字形、异文或来源转录；作为同一作品的其他版本保留。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_a1448cdb4894.aspx"
+   ]
+  },
+  "5c26e3b997880d3b8263bf91": {
+   "expected_body_hash": "107ea4414feace8799f7a2d50e0b04fe1197cc0931e898ccfe2e9a9e0d5304e4",
+   "merge_into": "5c26e3b997880d3b8263bf13",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "同题同作者全文比对：差异属于分段、字形、异文或来源转录；作为同一作品的其他版本保留。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_8fa569b9382c.aspx"
+   ]
+  },
+  "5c26e3b997880d3b8263bf95": {
+   "expected_body_hash": "5ebad4763a08849df37407f19c8b4b86f7b8d174d6ed6ea4427515ca1dd62706",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_3c95aba93bb6.aspx"
+   ]
+  },
+  "5c26e3b997880d3b8263bfb9": {
+   "expected_body_hash": "5cf949b0bea98c8a0f21bdb2438bf764545eb9688c5746b9fbac8c046b92d629",
+   "merge_into": "5c26e0a497880d3b825f5aeb",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "同题同作者全文比对：差异属于分段、字形、异文或来源转录；作为同一作品的其他版本保留。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_09a08b914254.aspx"
+   ]
+  },
+  "5c26e3b997880d3b8263bfd3": {
+   "expected_body_hash": "8b0d579a714944dcd3eb27b90cc313eb1019cd344db36247cd457d04d14c0995",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_57379391737f.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e3b997880d3b8263c011": {
+   "expected_body_hash": "d104da43ad0939c8c362a77df9e539cd446a086c41fa636de66e8a5b88b76d5d",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_8c19637abf6f.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e3b997880d3b8263c02d": {
+   "expected_body_hash": "df30693683e5a23d8de8ae0fa92e7fbe25543fcafdc411933185ae8667bdaf61",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_fecee7e2910e.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e3ba97880d3b8263c0d3": {
+   "expected_body_hash": "9049c6b41bbccaa4383f8213bc20c32049a6771cc13ccc389c1cc1ea17f0edbf",
+   "merge_into": "5c26e3b997880d3b8263bfd3",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "同题同作者全文比对：差异属于分段、字形、异文或来源转录；作为同一作品的其他版本保留。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_258befa7a259.aspx"
+   ]
+  },
+  "5c26e3ba97880d3b8263c101": {
+   "expected_body_hash": "50b96bfbd66196b1445e275e3f6dc5abd0763302be0a57316b22b2ca31360791",
+   "merge_into": "5c22086597880d3b825c9819",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "同题同作者全文比对：差异属于分段、字形、异文或来源转录；作为同一作品的其他版本保留。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_d2faa58fd0b1.aspx"
+   ]
+  },
+  "5c26e3ba97880d3b8263c123": {
+   "expected_body_hash": "cba81f0942de633843e2a9e232f1055f90b510d35ca372a7dd566cb98b284831",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_ffe60852677a.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e3ba97880d3b8263c13b": {
+   "expected_body_hash": "1ae7d9a48db2f17b8f04ce18dad312f04ba6796c5e9d88d15bfd5859ae2b86d9",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_a03716ce4b2b.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e3ba97880d3b8263c13d": {
+   "expected_body_hash": "98af09facf32ef2fa59a0e467110e84bd8ad001da6693508d704a4bcef9e0c67",
+   "merge_into": "5c22086397880d3b825c95dd",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "同题同作者全文比对：差异属于分段、字形、异文或来源转录；作为同一作品的其他版本保留。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_3f1fd9fddf1e.aspx"
+   ]
+  },
+  "5c26e3ba97880d3b8263c22f": {
+   "expected_body_hash": "5b0cf50e41af8a0ae96548c554ae8a3be64b84d7280f57a802ab33976f6d71f3",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_be1894114330.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e3bc97880d3b8263c45a": {
+   "expected_body_hash": "df0a46e511e38ec1d953368b04e9fd371295e4ea6a9e155680e6435bb151c506",
+   "merge_into": "5c26e3b997880d3b8263bf2d",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "同题同作者全文比对：差异属于分段、字形、异文或来源转录；作为同一作品的其他版本保留。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_663e8ec276ac.aspx"
+   ]
+  },
+  "5c26e3bf97880d3b8263cab8": {
+   "expected_body_hash": "5e7ca3f85dbf0660f1e8b1648ec3c8b236f8b237dd73bfd262de464efaaaee11",
+   "merge_into": "5c22086497880d3b825c976f",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "同题同作者全文比对：差异属于分段、字形、异文或来源转录；作为同一作品的其他版本保留。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_2b155ffb8eb4.aspx"
+   ]
+  },
+  "5c26e3c197880d3b8263cde2": {
+   "expected_body_hash": "a4f4409ac1b5b94bfd0589bb3e3e107f58988d534c6e26eb6c6c9291bf8a1a38",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_8e9ecc95d6a4.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e3c197880d3b8263cde6": {
+   "expected_body_hash": "37f81a1dddef73b7ba6f67a35e5d577cde916cfd11041214e6a01803e09ad147",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_93ac46de573f.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e3c197880d3b8263cdf6": {
+   "expected_body_hash": "f9dc74bc12afa940e596fc7bc59bd5a869431378b3bcdcbddd857bdf99df0614",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_bfd93a5b5702.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e3c197880d3b8263ce02": {
+   "expected_body_hash": "9775324de1ada6e6885f89524796cbc753e861e1d0d47eecbf18049c35311f6d",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_e5e7911da1d2.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e3c197880d3b8263ce50": {
+   "expected_body_hash": "8a61000d617b1a9883be40b02e2423415e44dd16db6aabd477a4b70eb19dbe0f",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_24b73b964a6d.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e3c197880d3b8263ce6a": {
+   "expected_body_hash": "ad9b0721c5c50c08fc1e91e0fc5a66d36df25f082d032089f78a155fc5204f49",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_7c70cb7c5df9.aspx",
+    "https://so.gushiwen.org/shiwenv_a88df500af71.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e3c297880d3b8263cf6c": {
+   "expected_body_hash": "9ffb795d6db4ecfa24df691584b91014e2fc90abbf7daf09796d22d7a171a457",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_9f868b8c484b.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e3c297880d3b8263d0b7": {
+   "expected_body_hash": "78cba59fce549fb8b7b1fb7281a610aba7fabcb3423f37acd39f26b84a0cf7be",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_9f3134a8237d.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e3c397880d3b8263d2d9": {
+   "expected_body_hash": "32df946cf2c1b00295360d29a5ee7f8ebdf8a65d4d7a94ac97c36e2a2d62d924",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_549473b5211c.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e3c497880d3b8263d3a3": {
+   "expected_body_hash": "fddc44e0a9bc5139f89004278062abeb5ac9fa87b0fa67fac4686836020fd4d1",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_681b707934e7.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e42397880d3b8263eecc": {
+   "expected_body_hash": "4ce2acb7aae1748df0f9b2ee9891def504018f98e7f1e52003a9f72767abf4e5",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_df4cc5e691bd.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e43097880d3b826407a7": {
+   "expected_body_hash": "6c33860880b84d4df1ac6b6981b58200617ab815d3659819df8781dcdd59c582",
+   "merge_into": "5c22086497880d3b825c976b",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "同题同作者全文比对：差异属于分段、字形、异文或来源转录；作为同一作品的其他版本保留。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_b289f4d3792a.aspx"
+   ]
+  },
+  "5c26e43b97880d3b82641ba0": {
+   "expected_body_hash": "60c310a15f9de126b7ba1274b6530130feb24d7b9e52c67dd33c0d41f9769415",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_3b2fa20e2ac3.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e43b97880d3b82641c96": {
+   "expected_body_hash": "5300f9c676d4ef5c40b8f8ace6b5088ea0eb45450cfa2cb918040cf7a5aa9be1",
+   "merge_into": "5c22086497880d3b825c97a7",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "同题同作者全文比对：差异属于分段、字形、异文或来源转录；作为同一作品的其他版本保留。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_e7846e5b2a4d.aspx"
+   ]
+  },
+  "5c26e43c97880d3b82641dd0": {
+   "expected_body_hash": "de7a8b2207cb1d11b9a7a3fb214d3175c509d708030f5e7b78e4a2c7628d07b6",
+   "merge_into": "5c22086497880d3b825c97a3",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "同题同作者全文比对：差异属于分段、字形、异文或来源转录；作为同一作品的其他版本保留。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_cd86feff3ff9.aspx"
+   ]
+  },
+  "5c26e44597880d3b82642e70": {
+   "expected_body_hash": "2be0809da354c4bbf1f79f091db3a25885015c5face6b099fc523246e54f3362",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_868980d946b0.aspx"
+   ],
+   "genre": "词",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e44697880d3b8264307c": {
+   "expected_body_hash": "07c1167312740c58cde9a690609dabbc02348a1654322d0ba4edf9f005570593",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_5b1bdce24256.aspx"
+   ]
+  },
+  "5c26e44797880d3b8264335c": {
+   "expected_body_hash": "b100ffdeb312cd5ea000e7e3c2d5ceff59ed7df8458b0021adc843896ac83f6c",
+   "merge_into": "5c26e44697880d3b8264307c",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "同题同作者全文比对：差异属于分段、字形、异文或来源转录；作为同一作品的其他版本保留。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_bb0acf8ddeb1.aspx"
+   ]
+  },
+  "5c26e45097880d3b82644261": {
+   "expected_body_hash": "8470161eff203ff2f3f37e0349707522f308e51da1e8ff39fc67dc17628ea724",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_3c36881bd247.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e45097880d3b82644269": {
+   "expected_body_hash": "37511cd6ed832b0a7fb59e93a451ef2a1b1180cf98a2cfa1037e6f1444924851",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_c5d649eab603.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e45097880d3b826442fd": {
+   "expected_body_hash": "8fddafb4e2729c4f5878c248bbe761b726d8fc8e9a914aa027bd5d5415d3c1ae",
+   "merge_into": "5c22086497880d3b825c9631",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "同题同作者全文比对：差异属于分段、字形、异文或来源转录；作为同一作品的其他版本保留。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_f9955dddc405.aspx"
+   ]
+  },
+  "5c26e45097880d3b82644361": {
+   "expected_body_hash": "cbd35a6a339e4862b54ffaaf7f0cc3d70316e24e5d6e05800a04efad88cbf3d3",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_d0c4ca7199cb.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e45097880d3b82644387": {
+   "expected_body_hash": "849b19205dffc5da269aacefdb295d7d5502cdca816c9fbd45f5f4cbc9048f27",
+   "merge_into": "5c22086497880d3b825c9637",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "同题同作者全文比对：差异属于分段、字形、异文或来源转录；作为同一作品的其他版本保留。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_a5573772c5b0.aspx"
+   ]
+  },
+  "5c26e45097880d3b826443ad": {
+   "expected_body_hash": "bca66acec9ee5c7e2b20497c967658a9fb1e20866e90e69ae62865e1a73559a4",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_48ee4eab9c1d.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e45197880d3b8264451f": {
+   "expected_body_hash": "a340064d19c96962c2e1d60294d47262fdc2e70a45dca8c5114a0bf75ac06644",
+   "merge_into": "5c22086497880d3b825c9633",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "同题同作者全文比对：差异属于分段、字形、异文或来源转录；作为同一作品的其他版本保留。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_4fa44d325fc4.aspx"
+   ]
+  },
+  "5c26e45e97880d3b82645c1a": {
+   "expected_body_hash": "a5eea619a5e1fa14c9e2b2c58ad898be20bdf64d3b89499c72dec6f939c823fb",
+   "merge_into": "5c26e1f297880d3b82615029",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "同题同作者全文比对：差异属于分段、字形、异文或来源转录；作为同一作品的其他版本保留。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_df5646346cac.aspx"
+   ]
+  },
+  "5c26e46a97880d3b82647321": {
+   "expected_body_hash": "6bf4eb122082f4a27b96cc8c0b641253ca81b2012f738fb138309e71dbb7904e",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_31efba648fed.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e46a97880d3b82647383": {
+   "expected_body_hash": "2d2ab86ada9113a38fd6d74e235a442adab917dd96bfa5f3bbde019150ed904f",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_677b0d4274bb.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e46f97880d3b82647cff": {
+   "expected_body_hash": "975052184f3ea178197ff20478a156ffc7338ec36e8961079fc525c5361074ed",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_81e6db75a7af.aspx"
+   ]
+  },
+  "5c26e48e97880d3b8264b689": {
+   "expected_body_hash": "0567c68d7724651316fa3d6f19b038d2ed5e8acd5adf0f014fe3b43f268e82d7",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_e5325dec4270.aspx"
+   ]
+  },
+  "5c26e48e97880d3b8264b6b3": {
+   "expected_body_hash": "0a2a4d564816792c3c9c0c61e7de6ff879c7fe5016093c84a55a62543b2be623",
+   "merge_into": "5c26e48e97880d3b8264b689",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "同题同作者全文比对：差异属于分段、字形、异文或来源转录；作为同一作品的其他版本保留。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_435f8612554a.aspx"
+   ]
+  },
+  "5c26e49697880d3b8264c54b": {
+   "expected_body_hash": "8f07a0eb507a6669df0a770735ac23fb6d5f5d96535784efc1ebcfa8f6d0ff94",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_13c4e7658327.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e4bc97880d3b82650c9b": {
+   "expected_body_hash": "47853d12a4c0ee59bc67f75f2fec04251d742343d75d45af1bdd4e984343a7f1",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_f0bdd05c9a95.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e4cc97880d3b82652b0d": {
+   "expected_body_hash": "11f6d4221b9e78bf12d04305658d3bd25712be7377a74add5246194eecb81a54",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_7314a7eb9c95.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e4d397880d3b82653731": {
+   "expected_body_hash": "f5cf3f21ac5f09f7238ab04cc998c7bbf5f836b71a5d77e2788f60daa9fd82e3",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_e46594efec53.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e4da97880d3b82654530": {
+   "expected_body_hash": "47e4248c20832f5250b942aa254a0da4860378483408073f7ec9f0101cb6b2b2",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_073a78835674.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e4dc97880d3b82654822": {
+   "expected_body_hash": "c2be4be8962eecdd3d1b9d5a61bdecd991576f4d7cd42926557f50e607eaae28",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_e4cd80aceb52.aspx"
+   ]
+  },
+  "5c26e4dc97880d3b82654874": {
+   "expected_body_hash": "47323087742f9b3c51ac708469a9938a34e51b77f7e69d0bcd1edad30bd88626",
+   "merge_into": "5c26e4dc97880d3b82654822",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "同题同作者全文比对：差异属于分段、字形、异文或来源转录；作为同一作品的其他版本保留。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_4d439c047cf7.aspx"
+   ]
+  },
+  "5c26e4e397880d3b82655476": {
+   "expected_body_hash": "e734767568bed4c2147094456bca74a05240bd2559822b8139a777ed42165193",
+   "merge_into": "5c22086497880d3b825c96c7",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "同题同作者全文比对：差异属于分段、字形、异文或来源转录；作为同一作品的其他版本保留。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_b5718cd8952d.aspx"
+   ]
+  },
+  "5c26e4e397880d3b826554cc": {
+   "expected_body_hash": "5ad07ab41e6e0e1c9572aa61196c181a56fa227a9e5a3d6841110af4dc94473f",
+   "merge_into": "5c22086497880d3b825c96bb",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "同题同作者全文比对：差异属于分段、字形、异文或来源转录；作为同一作品的其他版本保留。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_338a1b7f33f3.aspx"
+   ]
+  },
+  "5c26e4e397880d3b82655512": {
+   "expected_body_hash": "9ff88a8c698633dc03a75aa50f86e591aa1a487ea2d3aeb4efea0b7cfc962f07",
+   "merge_into": "5c22086497880d3b825c96c5",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "同题同作者全文比对：差异属于分段、字形、异文或来源转录；作为同一作品的其他版本保留。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_500c5137ba44.aspx"
+   ]
+  },
+  "5c26e4e397880d3b82655542": {
+   "expected_body_hash": "103155b7502177eb3b285f4d75520c6b042c51dfdc79ba616b24436271808860",
+   "merge_into": "5c22086497880d3b825c9791",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "同题同作者全文比对：差异属于分段、字形、异文或来源转录；作为同一作品的其他版本保留。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_738f01d4dc05.aspx"
+   ]
+  },
+  "5c26e4e397880d3b82655584": {
+   "expected_body_hash": "f302b4f796093d570fa26fd958aed14caf45ac9c67a38541452761a36957a836",
+   "merge_into": "5c26e21397880d3b82619450",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "同题同作者全文比对：差异属于分段、字形、异文或来源转录；作为同一作品的其他版本保留。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_c898ca46ba64.aspx"
+   ]
+  },
+  "5c26e4e597880d3b8265595c": {
+   "expected_body_hash": "8968e4f2e1b593f511df9229aa0e1dc0f6446fc7d79ccd62202e2d4e71939b4d",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_4aa6ea82a0bf.aspx"
+   ]
+  },
+  "5c26e4e597880d3b8265596e": {
+   "expected_body_hash": "36954918a130c54ecf0222c2cf94abf0f38b9d3744f56aba5b278853bb7c7122",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_7027738f0989.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e4e597880d3b82655972": {
+   "expected_body_hash": "727883c5d6d8b31dcc0a7b9e9b213836fbf3430084005f1100cc294053762061",
+   "merge_into": "5c26e46f97880d3b82647cff",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "同题同作者全文比对：差异属于分段、字形、异文或来源转录；作为同一作品的其他版本保留。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_deec0ab6f20f.aspx"
+   ]
+  },
+  "5c26e4e597880d3b8265598e": {
+   "expected_body_hash": "38c39033f4234afafac64e7c5c40ca95a75049e5acc02f39a22125085504d9e9",
+   "merge_into": "5c26e4e597880d3b8265595c",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "同题同作者全文比对：差异属于分段、字形、异文或来源转录；作为同一作品的其他版本保留。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_ac0d69825be6.aspx"
+   ]
+  },
+  "5c26e54497880d3b82656de1": {
+   "expected_body_hash": "8dff52590c926b87cf95577e03c068528c3a15d80ee376eab7699cf669724396",
+   "merge_into": "5c26e25597880d3b82621b55",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "同题同作者全文比对：差异属于分段、字形、异文或来源转录；作为同一作品的其他版本保留。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_92b73651b92d.aspx"
+   ]
+  },
+  "5c26e56f97880d3b8265c31b": {
+   "expected_body_hash": "ffd3707778f356c49ef6a7bdd95c73e5153cb7e788f14e5ab640dbb7bbdbac3d",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_1407f7e38e46.aspx"
+   ]
+  },
+  "5c26e57097880d3b8265c3f1": {
+   "expected_body_hash": "20b8c6a1109d2eeea650055f3548c5b594a79c542e652d9bdda2bc4d0de81fa8",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_7ba08bf96f1a.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e57797880d3b8265d2ec": {
+   "expected_body_hash": "49b507d0683ba6af91b193dbbe0b26ab6751f01e7e715981158596165e738fd8",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_35000de73cdb.aspx"
+   ]
+  },
+  "5c26e57797880d3b8265d2f4": {
+   "expected_body_hash": "d151b9cc0922c093b4e56ccac5566899e88e4f1766b42193d0d1c9d234cb3ea7",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_a892cc9b9272.aspx"
+   ]
+  },
+  "5c26e57797880d3b8265d306": {
+   "expected_body_hash": "68ca15acce0ee5be4f712d96338954adc57f6bea5bdb6f715983bc4ac0cf7bf4",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_f5ab28338930.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e57797880d3b8265d30c": {
+   "expected_body_hash": "4713cbbb2718ea7a25e60945252feef389380bf72040cb9b20ee0f828fd62c84",
+   "merge_into": "5c26e57797880d3b8265d2f4",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "同题同作者全文比对：差异属于分段、字形、异文或来源转录；作为同一作品的其他版本保留。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_8839bee4d062.aspx"
+   ]
+  },
+  "5c26e57f97880d3b8265e2fe": {
+   "expected_body_hash": "b2afce4c966056004e291a3a3564c27c0d16afedb85c805c461651fa2398a613",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_486a03cdbd29.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e58797880d3b8265f174": {
+   "expected_body_hash": "f8391d9f8c57783ed28d4e4b4545fe26205b86fe9573f166edb6e5c3775c8643",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_43b3cbe749a9.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e58f97880d3b826601c2": {
+   "expected_body_hash": "3039dc4a0dfd7c72e659f83ca501c4a5262a5c618314e9f1f8cf9c25669cd71e",
+   "status": "text_compared",
+   "reviewer": "codex",
+   "reason": "逐条比对现存正文。同题不同文保留独立记录；此状态不代表人工学术审定。",
+   "sources": [
+    "https://so.gushiwen.org/shiwenv_ea761be0f016.aspx"
+   ],
+   "genre": "诗",
+   "genre_basis": "text_form_review"
+  },
+  "5c26e11197880d3b82602fdb": {
+   "expected_body_hash": "4d9cec1513aae5a4c330d4f62a0e3c95940f1bebfe2b9fd39be4d28a09eb2904",
+   "author": "黄简",
+   "status": "source_checked",
+   "reviewer": "codex",
+   "reason": "核对原站及《绝妙好词》黄简条，“黄笋”为错误作者名。",
+   "sources": [
+    "https://m.gushiwen.cn/shiwenv_2bb9736bff19.aspx",
+    "https://ourartnet.com/歷代名家詩詞類/絕妙好詞.pdf"
+   ]
+  },
+  "5c26e0be97880d3b825f8ddc": {
+   "expected_body_hash": "ef007f8bddf0b5073c345187cbe4ff1f38d8c2a07393bbd3fb78d03e15ca9baa",
+   "author": "佚名",
+   "status": "source_checked",
+   "reviewer": "codex",
+   "reason": "《敕勒歌》为北朝民歌；乐府诗集是收录来源，不是作者姓名。",
+   "sources": [
+    "https://www.edb.gov.hk/attachment/tc/curriculum-development/kla/chi-edu/resources/primary/lang/jilei_shi_pdf/jilei_shi_010.pdf"
+   ]
+  }
+ }
+}

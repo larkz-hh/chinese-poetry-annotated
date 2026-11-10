@@ -8,6 +8,7 @@ from pathlib import Path
 
 from data_utils import (ROOT, FIELDS, SCHEMA_VERSION, annotation_valid, body_hash, clean_lines,
                         compact, dump, editions, fts_text, identity_body, load, unique)
+from content_review import apply_catalog
 
 COLLECTIONS = {"唐诗三百首", "宋词三百首", "古诗三百首", "元曲三百首", "诗经", "乐府",
                "古文观止", "宋词精选", "唐诗精选", "最美", "早教古诗100首",
@@ -73,13 +74,15 @@ def infer_genre(row, cipai):
 def build(raw_dir, output, legacy_dir=ROOT / "app-data", legacy_raw=ROOT / "raw", generated_path=None):
     raw_dir, output, legacy_dir, legacy_raw = map(Path, (raw_dir, output, legacy_dir, legacy_raw))
     output.mkdir(parents=True, exist_ok=True)
-    rows = load(raw_dir / "poems_lite.json")
+    rows = apply_catalog(load(raw_dir / "poems_lite.json"), load(raw_dir / "content_review.json", {}))
     legacy = {p["id"]: p for p in load(legacy_dir / "poems.json", [])}
     legacy_raw_rows = {p["id"]: p for p in load(legacy_raw / "poems_lite.json", [])}
     legacy_authors = load(legacy_dir / "authors.json", [])
     old_author_ids = {p["author"]: p["author_id"] for p in legacy.values() if p.get("author_id")}
     generated = generated_records(generated_path or legacy_dir / "generated.jsonl")
+    generated.update(generated_records(raw_dir / "annotation_additions.jsonl"))
     fixes = load(ROOT / "raw/editorial_fixes.json", {})
+    author_fixes = load(raw_dir / "author_overrides.json", {})
     cipai = set(load(raw_dir / "cipai.json", []))
     poems, migration, changes = [], {}, load(legacy_dir / "repairs.json", [])
     for row in rows:
@@ -104,7 +107,10 @@ def build(raw_dir, output, legacy_dir=ROOT / "app-data", legacy_raw=ROOT / "raw"
         levels = [t for t in tags if t in LEVELS]
         themes = [t for t in tags if t not in COLLECTIONS and t not in LEVELS]
         genre, genre_basis = infer_genre(row, cipai)
-        poem = dict(id=pid, title=title_parts[0], source_title=row["title"],
+        catalog = row.get("catalog_review", {})
+        if catalog.get("genre"):
+            genre, genre_basis = catalog["genre"], catalog.get("genre_basis", "catalog_review")
+        poem = dict(id=pid, title=catalog.get("title", title_parts[0]), source_title=row["title"],
                     aliases=unique(title_parts[1:] + row.get("aliases", [])), author=row["author"],
                     dynasty=row["dynasty"], format=row["format"], genre=genre, genre_basis=genre_basis,
                     collections=colls, themes=themes, levels=levels, tags=tags,
@@ -113,6 +119,14 @@ def build(raw_dir, output, legacy_dir=ROOT / "app-data", legacy_raw=ROOT / "raw"
                     original_content=row["content"], content=content, editions=versions,
                     body_hash=body_hash(content), field_sources={}, alignment={},
                     review_status="unreviewed", quality_issues=[])
+        poem["catalog_review"] = catalog
+        poem["text_scope"] = catalog.get("text_scope", "source_text")
+        if row.get("source_author"):
+            poem["source_author"] = row["source_author"]
+            if row["author"] not in old_author_ids and row["source_author"] in old_author_ids:
+                old_author_ids[row["author"]] = old_author_ids[row["source_author"]]
+        if poem["title"] != title_parts[0]:
+            poem["aliases"] = unique(poem["aliases"] + title_parts)
         for edition in versions:
             edition["units"] = [dict(id=f"{edition['id']}:u{i + 1}", ordinal=i,
                                      kind="passage", text=line) for i, line in enumerate(edition["content"])]
@@ -162,6 +176,9 @@ def build(raw_dir, output, legacy_dir=ROOT / "app-data", legacy_raw=ROOT / "raw"
                 meta["revision"] = "editorial_fixes-v1"
                 meta["reason"] = fix.get("reason")
             poem["field_sources"][key] = meta
+            previous_meta = old.get("field_sources", {}).get(key)
+            if previous_meta and value == old.get(key) and previous_meta.get("body_hash") == poem["body_hash"]:
+                poem["field_sources"][key] = previous_meta.copy()
             # No alignment has been semantically checked; use whole-document rendering by default.
             poem["alignment"][key] = dict(mode="document" if value else "missing",
                                           equal_length=key != "appreciation" and len(value) == len(content),
@@ -188,12 +205,18 @@ def build(raw_dir, output, legacy_dir=ROOT / "app-data", legacy_raw=ROOT / "raw"
             candidates = by_name[poem["author"]]
             selected = max(candidates, key=lambda a: (a["dynasty"] == poem["dynasty"], len(a["lifetime"])), default={})
             previous = previous_authors.get(aid, {})
-            bio = selected.get("lifetime") or previous.get("lifetime") or ("佚名表示作者姓名不可考。" if poem["author"] == "佚名" else "")
-            authors[aid] = dict(id=aid, name=poem["author"], dynasty=selected.get("dynasty", ""),
+            author_fix = author_fixes.get(poem["author"], {})
+            bio = author_fix.get("lifetime") or selected.get("lifetime") or previous.get("lifetime") or ("佚名表示作者姓名不可考。" if poem["author"] == "佚名" else "")
+            authors[aid] = dict(id=aid, name=poem["author"], dynasty=author_fix.get("dynasty", selected.get("dynasty", "")),
                                 dynasties=[], lifetime=bio, works=0, source_works=selected.get("works"),
                                 avatar=selected.get("avatar", ""), describe=selected.get("describe", []),
                                 source_id=selected.get("id"), bio_status="available_unreviewed" if bio else "missing",
                                 entity_type="collection" if poem["author"] == "乐府诗集" else "unknown" if poem["author"] == "佚名" else "person")
+            if author_fix:
+                authors[aid]["bio_status"] = author_fix.get("review_status", "source_checked")
+                authors[aid]["bio_sources"] = author_fix["sources"]
+                authors[aid]["bio_reviewed_at"] = author_fix["reviewed_at"]
+                authors[aid]["bio_reviewer"] = "codex"
         author = authors[aid]
         author["works"] += 1
         author["dynasties"] = unique(author["dynasties"] + [poem["dynasty"]])
@@ -205,7 +228,8 @@ def build(raw_dir, output, legacy_dir=ROOT / "app-data", legacy_raw=ROOT / "raw"
     for group in collisions.values():
         if len(group) > 1:
             for p in group:
-                p["quality_issues"].append("same_title_identity_review")
+                if p["catalog_review"].get("status") not in {"text_compared", "source_checked"}:
+                    p["quality_issues"].append("same_title_identity_review")
     for old_id in legacy:
         if old_id not in migration:
             raise ValueError(f"Existing poem ID lost without migration: {old_id}")
@@ -248,6 +272,9 @@ def build(raw_dir, output, legacy_dir=ROOT / "app-data", legacy_raw=ROOT / "raw"
                     search=dict(tokenizer="unicode61", normalization="NFC/casefold/character tokens with punctuation boundaries"),
                     files={p.name: dict(bytes=p.stat().st_size, sha256=hashlib.sha256(p.read_bytes()).hexdigest())
                            for p in sorted(output.iterdir()) if p.is_file() and p.name != "manifest.json"})
+    manifest["source_inputs"] = {name: hashlib.sha256((raw_dir / name).read_bytes()).hexdigest()
+                                for name in ("content_review.json", "author_overrides.json", "editorial_fixes.json", "annotation_additions.jsonl", "content_reviews.jsonl")
+                                if (raw_dir / name).is_file()}
     dump(output / "manifest.json", manifest)
     return stats
 

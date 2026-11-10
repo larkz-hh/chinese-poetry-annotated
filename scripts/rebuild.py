@@ -44,7 +44,9 @@ def main():
         else:
             raw = staging / "raw"
             build_raw(args.source_dir, raw)
-            shutil.copy2(ROOT / "raw/editorial_fixes.json", raw / "editorial_fixes.json")
+            for name in ("editorial_fixes.json", "content_review.json", "author_overrides.json", "annotation_additions.jsonl", "content_reviews.jsonl"):
+                if (ROOT / "raw" / name).is_file():
+                    shutil.copy2(ROOT / "raw" / name, raw / name)
         stats = build_app(raw, app, generated_path=app / "generated.jsonl")
         report = validate(app, baseline=baseline if baseline.exists() else None)
         current = load(ROOT / "app-data/manifest.json", {})

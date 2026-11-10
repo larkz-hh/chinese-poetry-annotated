@@ -10,6 +10,8 @@ from build import build, combine, norm
 from data_utils import ROOT, annotation_valid, editions, fts_text, match_query
 from search import search
 from validate_data import validate
+from content_review import apply_catalog
+from data_utils import body_hash
 
 
 class IdentityTests(unittest.TestCase):
@@ -78,6 +80,34 @@ class IdentityTests(unittest.TestCase):
         result = editions("p", ["天阶夜色凉如水。", "(天阶 一作：天街)"])
         self.assertEqual(result[0]["content"], ["天阶夜色凉如水。"])
         self.assertEqual(result[0]["variants"][0]["text"], "天阶 一作：天街")
+
+    def test_reviewed_merge_preserves_sources_and_does_not_mutate_raw(self):
+        a, b = self.row("a"), self.row("b", content=["迟日江山丽，春风花草香！"])
+        original = copy.deepcopy([a, b])
+        policy = {"works": {"a": {"expected_body_hash": body_hash(a["content"]), "status": "text_compared"},
+                            "b": {"expected_body_hash": body_hash(b["content"]), "merge_into": "a", "reason": "核对异文"}}}
+        result = apply_catalog([a, b], policy)
+        self.assertEqual(len(result), 1)
+        self.assertEqual(set(result[0]["source_ids"]), {"a", "b"})
+        self.assertEqual(result[0]["alternate_contents"][0]["content"], b["content"])
+        self.assertEqual([a, b], original)
+
+    def test_stale_review_cannot_silently_merge_changed_text(self):
+        row = self.row("a")
+        with self.assertRaises(ValueError):
+            apply_catalog([row], {"works": {"a": {"expected_body_hash": "outdated"}}})
+
+    def test_review_does_not_merge_across_authors(self):
+        a, b = self.row("a"), self.row("b")
+        b["author"] = "王维"
+        with self.assertRaises(ValueError):
+            apply_catalog([a, b], {"works": {"b": {"merge_into": "a", "reason": "invalid"}}})
+
+    def test_attribution_correction_preserves_source_name(self):
+        row = self.row("a")
+        result = apply_catalog([row], {"works": {"a": {"author": "佚名", "reason": "来源书名不是作者"}}})
+        self.assertEqual(result[0]["source_author"], "杜甫")
+        self.assertEqual(result[0]["author"], "佚名")
 
 
 class SearchTests(unittest.TestCase):
