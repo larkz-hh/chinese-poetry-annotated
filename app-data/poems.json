@@ -7313,12 +7313,14 @@
     "alignment_verified": false
    },
    "appreciation": {
-    "type": "missing",
+    "type": "ai_editorial",
     "source_url": null,
-    "model": null,
+    "model": "codex",
     "review_status": "unreviewed",
     "body_hash": "0d84f68402a2420f9542ca3987ba6a170633edfeda42a35f2bb3881c0a3e5752",
-    "alignment_verified": false
+    "alignment_verified": false,
+    "revision": "editorial_fixes-v1",
+    "reason": "修正生成记录中的替换字符，原记录留存在备份及 generated.jsonl。"
    }
   },
   "alignment": {
@@ -7335,7 +7337,7 @@
     "unit_ids": []
    },
    "appreciation": {
-    "mode": "missing",
+    "mode": "document",
     "equal_length": false,
     "verified": false,
     "unit_ids": []
@@ -7343,7 +7345,6 @@
   },
   "review_status": "unreviewed",
   "quality_issues": [
-   "missing_appreciation",
    "same_title_identity_review"
   ],
   "translate": [
@@ -7354,8 +7355,11 @@
    "落魄江南载酒行，楚腰纤细掌中轻。(江南 一作：江湖；纤细 一作：肠断)落魄：仕宦潦倒不得意，飘泊江湖。魄一作拓。楚腰：指细腰美女。掌中轻：汉成帝皇后赵飞燕“体轻，能为掌上舞”（《飞燕外传》）。",
    "十年一觉扬州梦，赢得青楼薄幸名。 十年：一作三年。青楼：旧指精美华丽的楼房，也指妓院。薄幸：薄情。"
   ],
-  "appreciation": [],
-  "complete": false,
+  "appreciation": [
+   "诗以“落魄”二字领起，写江南载酒漂泊、楚腰掌中轻的冶游场景，笔调似放浪欢愉，实则暗藏失意。次句以梦喻往事，十年之长与一觉之短两相对照，愈显光阴空掷；“赢得”二字下得极冷，是自嘲也是反讽——所谓名声，不过“薄幸”而已，欢场虚名与功业无成形成尖锐落差。",
+   "全诗由追忆转入醒悟，前两句铺陈艳冶之景，后两句陡然收束于梦醒后的苍凉，以乐景写哀情，语浅而意深，不假雕饰。此诗为杜牧追忆扬州幕府生活之作，繁华已逝，回望只余自伤与忏悔，可见晚唐士人放浪背后的失意与清醒。"
+  ],
+  "complete": true,
   "ai_generated": true,
   "author_id": "au_杜牧",
   "has_author_bio": true
@@ -60318,12 +60322,14 @@
     "alignment_verified": false
    },
    "appreciation": {
-    "type": "missing",
+    "type": "ai_editorial",
     "source_url": null,
-    "model": null,
+    "model": "codex",
     "review_status": "unreviewed",
     "body_hash": "f25b9548e94133d1ad1afa6bd6e349e12c990bfcb4b76f6b2bf78e6408f533b6",
-    "alignment_verified": false
+    "alignment_verified": false,
+    "revision": "editorial_fixes-v1",
+    "reason": "原赏析与原文相同；补写文本分析，未经人工审核。"
    }
   },
   "alignment": {
@@ -60340,16 +60346,14 @@
     "unit_ids": []
    },
    "appreciation": {
-    "mode": "missing",
+    "mode": "document",
     "equal_length": false,
     "verified": false,
     "unit_ids": []
    }
   },
   "review_status": "unreviewed",
-  "quality_issues": [
-   "missing_appreciation"
-  ],
+  "quality_issues": [],
   "translate": [
    "孔子说：“学了（知识）然后按一定的时间复习它，不也是很愉快吗？有志同道合的人从远方来，不也是很快乐吗？人家不了解我，我却不恼怒，不也是道德上有修养的人吗？”",
    "曾子说：“我每天多次反省自己：替别人办事是不是尽心竭力了呢？同朋友交往是不是诚实可信了呢？老师传授的知识是不是复习了呢？”",
@@ -60378,9 +60382,11 @@
    "子曰：“三军可夺帅也， 匹夫不可夺志也。”《子罕》",
    "子夏曰：“博学而笃志，切问而近思，仁在其中矣。”《子张》"
   ],
-  "appreciation": [],
-  "complete": false,
-  "ai_generated": false,
+  "appreciation": [
+   "这组语录从学习、交友与自我修养等方面展开，篇幅虽短，关注的却是知识如何进入日常生活。开篇把学习后的温习、朋友来访与不因他人不了解自己而恼怒并列，说明学习既关乎求知，也关乎待人的态度。后文以学习与思考的相互补充、选择他人长处以及反省自身行为，构成不断实践和修正的过程。语录多用问句、对举和简洁的判断，便于记诵，也为读者留下反复体会的空间。各章关注点不同，却共同指向主动求学、审察自身与坚持志向。阅读时宜结合各章语境理解，不把某一句孤立地当作适用于一切处境的结论。"
+  ],
+  "complete": true,
+  "ai_generated": true,
   "author_id": "au_yiming",
   "has_author_bio": true
  },
@@ -132211,12 +132217,14 @@
   "body_hash": "5cbcdd6dbd35f0c303e374dd4a903ed0b0f8b795a7dd2259c0833c7ebd044adf",
   "field_sources": {
    "translate": {
-    "type": "missing",
+    "type": "ai_editorial",
     "source_url": null,
-    "model": null,
+    "model": "codex",
     "review_status": "unreviewed",
     "body_hash": "5cbcdd6dbd35f0c303e374dd4a903ed0b0f8b795a7dd2259c0833c7ebd044adf",
-    "alignment_verified": false
+    "alignment_verified": false,
+    "revision": "editorial_fixes-v1",
+    "reason": "原译文与原文相同；依据原文补写白话译文，未经人工审核。"
    },
    "notes": {
     "type": "ai",
@@ -132243,8 +132251,8 @@
   },
   "alignment": {
    "translate": {
-    "mode": "missing",
-    "equal_length": false,
+    "mode": "document",
+    "equal_length": true,
     "verified": false,
     "unit_ids": []
    },
@@ -132262,10 +132270,11 @@
    }
   },
   "review_status": "unreviewed",
-  "quality_issues": [
-   "missing_translate"
+  "quality_issues": [],
+  "translate": [
+   "翻过一程山，又走过一程水，队伍向山海关那边行进；夜已经深了，众多营帐中仍亮着灯。",
+   "风吹了一更又一更，雪下了一更又一更，风雪的声音扰乱了思乡之心，使人无法入梦；故乡没有这样的声音。"
   ],
-  "translate": [],
   "notes": [
    "榆关：即山海关。那畔：那边，指关外。千帐灯：众多营帐中的灯火。",
    "更：古代夜间计时单位，一夜分五更。聒：声音嘈杂扰人。乡心：思乡之心。故园：故乡。"
@@ -132273,7 +132282,7 @@
   "appreciation": [
    "上片以“山一程，水一程”写跋涉之远，行程叠进，空间不断推移；“身向榆关那畔行”点明出关方向，“夜深千帐灯”则以壮阔军旅夜景反衬孤身羁旅。下片转写风雪交加的夜晚，“风一更，雪一更”与上片句式呼应，时间在更漏中拉长，风雪声搅碎乡心，连归梦也难成。结句“故园无此声”以故乡的宁静对比塞外苦寒，将思乡之情收束得含蓄而深挚。全词多用叠词与反复，语言自然流转，以景寓情，在壮阔景象中写细腻乡愁。此词一般认为作于纳兰性德随康熙东巡、出山海关途中。"
   ],
-  "complete": false,
+  "complete": true,
   "ai_generated": true,
   "author_id": "au_纳兰性德",
   "has_author_bio": true
@@ -159491,12 +159500,14 @@
     "alignment_verified": false
    },
    "appreciation": {
-    "type": "missing",
+    "type": "ai_editorial",
     "source_url": null,
-    "model": null,
+    "model": "codex",
     "review_status": "unreviewed",
     "body_hash": "b7331a111c855c0dca5d7458cf4efaf76552a76dd2674b0ac91e1609953e9404",
-    "alignment_verified": false
+    "alignment_verified": false,
+    "revision": "editorial_fixes-v1",
+    "reason": "原赏析与原文相同；补写文本分析，未经人工审核。"
    }
   },
   "alignment": {
@@ -159513,16 +159524,14 @@
     "unit_ids": []
    },
    "appreciation": {
-    "mode": "missing",
+    "mode": "document",
     "equal_length": false,
     "verified": false,
     "unit_ids": []
    }
   },
   "review_status": "unreviewed",
-  "quality_issues": [
-   "missing_appreciation"
-  ],
+  "quality_issues": [],
   "translate": [
    "往昔曾经戏言我们身后的安排，如今都按你所说的展现在眼前。",
    "你穿过的衣裳已经快施舍完了，你的针线盒我珍存着不忍打开。",
@@ -159535,9 +159544,11 @@
    "尚想旧情怜婢仆，也曾因梦送钱财。怜：怜爱，痛惜。",
    "诚知此恨人人有，贫贱夫妻百事哀。诚知：确实知道。"
   ],
-  "appreciation": [],
-  "complete": false,
-  "ai_generated": false,
+  "appreciation": [
+   "这首诗从昔日谈论身后事的情景写起，以往日的戏言和眼前的现实相对照，使悼亡之痛在时间落差中显现。衣裳已经施舍，针线却仍不忍打开，两个细微动作写出了处理遗物时既不得不面对现实、又不愿割舍旧情的矛盾。诗人的追念又延伸到对婢仆的怜惜和梦中的馈赠，使哀思从可见的物品进入难以自主的内心。结尾由个人的丧偶之痛推向共同的人生遭际，再落回贫贱相守的往事。全诗没有用夸张的哭诉堆叠悲情，而以日常物件和动作保存共同生活的痕迹，语言平实，感情深厚。"
+  ],
+  "complete": true,
+  "ai_generated": true,
   "author_id": "au_元稹",
   "has_author_bio": true
  },

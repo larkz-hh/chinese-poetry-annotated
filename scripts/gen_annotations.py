@@ -1,7 +1,7 @@
 ﻿# -*- coding: utf-8 -*-
 """用 LLM 批量补全「注释 / 译文 / 赏析」。
 
-输入  : app-data/todo_annotations.jsonl（1327 首缺注解的诗）
+输入  : app-data/todo_annotations.jsonl（构建流程生成的待补清单）
 输出  : app-data/generated.jsonl（一行一首，可断点续跑）
 用法  : python gen_annotations.py            # 全量
         python gen_annotations.py --limit 3  # 先跑 3 首看看
@@ -16,12 +16,15 @@ import time
 import urllib.error
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from datetime import datetime, timezone
+from pathlib import Path
+from data_utils import annotation_valid, body_hash
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 TODO = os.path.join(ROOT, "app-data", "todo_annotations.jsonl")
 OUT = os.path.join(ROOT, "app-data", "generated.jsonl")
-ENV = r"D:\project\agent\.env"
+ENV = os.environ.get("POEMS_ENV_FILE", os.path.join(ROOT, ".env"))
 
 SYSTEM = (
     "你是古籍出版社的古诗词注释编辑，语言简洁准确，不臆造典故，"
@@ -46,6 +49,8 @@ PROMPT = """为下面这首诗生成注释数据，返回 JSON 对象（不要 m
 
 def load_env(path):
     cfg = {}
+    if not os.path.isfile(path):
+        return cfg
     with open(path, encoding="utf-8", errors="replace") as f:
         for line in f:
             line = line.strip()
@@ -55,7 +60,7 @@ def load_env(path):
     return cfg
 
 
-CFG = load_env(ENV)
+CFG = {**load_env(ENV), **os.environ}
 KEY = CFG.get("LLM_API_KEY", "")
 BASE = CFG.get("LLM_BASE_URL", "").rstrip("/")
 MODEL = CFG.get("LLM_MODEL_ID", "")
@@ -96,6 +101,9 @@ def gen_one(poem, attempt=0):
         resp = call([{"role": "system", "content": SYSTEM},
                      {"role": "user", "content": prompt}], max_tokens=budget)
         data = parse_json(resp["choices"][0]["message"]["content"])
+        if any(not isinstance(data.get(k), list) or any(not isinstance(x, str) for x in data[k])
+               for k in ("translate", "notes", "appreciation")):
+            raise ValueError("注解字段必须为字符串数组")
         tr = [str(x).strip() for x in (data.get("translate") or [])]
         nt = [str(x).strip() for x in (data.get("notes") or [])]
         ap = [str(x).strip() for x in (data.get("appreciation") or []) if str(x).strip()]
@@ -104,8 +112,12 @@ def gen_one(poem, attempt=0):
              (100 <= len("".join(ap)) <= 900)
         if not ok:
             raise ValueError("长度校验失败 tr=%d nt=%d ap=%d n=%d" % (len(tr), len(nt), len(ap), n))
+        if not all(annotation_valid(v, poem["content"]) for v in (tr, nt, ap)):
+            raise ValueError("注解为空、含乱码或重复原文")
         return {"id": poem["id"], "translate": tr, "notes": nt,
-                "appreciation": ap, "model": MODEL, "from": "ai"}
+                "appreciation": ap, "model": MODEL, "from": "ai",
+                "body_hash": body_hash(poem["content"]), "prompt_version": "annotations-v3",
+                "generated_at": datetime.now(timezone.utc).isoformat(), "review_status": "unreviewed"}
     except Exception as e:
         if attempt < 2:
             time.sleep(2 * (attempt + 1))
@@ -119,16 +131,19 @@ def main():
     ap.add_argument("--workers", type=int, default=6)
     args = ap.parse_args()
 
+    if not all((KEY, BASE, MODEL)):
+        raise SystemExit("请设置 LLM_API_KEY、LLM_BASE_URL、LLM_MODEL_ID 环境变量，或在项目 .env 中配置。")
+
     todo = [json.loads(l) for l in open(TODO, encoding="utf-8") if l.strip()]
     if os.path.exists(OUT):
         for l in open(OUT, encoding="utf-8"):
             try:
                 r = json.loads(l)
-                if "error" not in r:
-                    done.add(r["id"])
+                if "error" not in r and r.get("body_hash"):
+                    done.add((r["id"], r["body_hash"]))
             except Exception:
                 pass
-    todo = [p for p in todo if p["id"] not in done]
+    todo = [p for p in todo if (p["id"], p["body_hash"]) not in done]
     if args.limit:
         todo = todo[:args.limit]
     print("待生成 %d 首（已完成 %d）" % (len(todo), len(done)), flush=True)
@@ -157,4 +172,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

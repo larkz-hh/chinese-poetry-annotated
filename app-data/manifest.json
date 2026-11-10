@@ -1,6 +1,6 @@
 {
  "schema_version": 3,
- "data_version": "3.a6f4d160cb173e02",
+ "data_version": "3.717e1897f0863d21",
  "counts": {
   "poems": 1579,
   "authors": 373
@@ -28,12 +28,12 @@
    "sha256": "0968334c63f4984eaa0816b6a41d8837dea220173729571bdd9782d3b61d2be3"
   },
   "poems.db": {
-   "bytes": 38494208,
-   "sha256": "e0ddedd2367ff5431e06e1816491e886d634dafba835c25aed4f79dc5f337b5e"
+   "bytes": 38506496,
+   "sha256": "4529815c199ca792cf09750fd8bd522dd32977d87417ba73645f9b1b6ca7e8ba"
   },
   "poems.json": {
-   "bytes": 11280838,
-   "sha256": "a6f4d160cb173e025d0fd9d308b578caa3a7666830aff4ee7ba7a210f44581b0"
+   "bytes": 11283613,
+   "sha256": "717e1897f0863d212ffdd62e29a780a836f87dd25c7e725c27a92ac760762315"
   },
   "repairs.json": {
    "bytes": 1058,
@@ -41,11 +41,11 @@
   },
   "stats.json": {
    "bytes": 446,
-   "sha256": "1a5a8d9d58373352122a3b5bf6b95e65fdd7576961ddc54d4f939edf4548e71d"
+   "sha256": "b3b646a1cdaa3f257b4b1fea763c7d1db1c8271a9cb0860cc0c2ea56668b4953"
   },
   "todo_annotations.jsonl": {
-   "bytes": 52510,
-   "sha256": "e3988bf7c56f298516f164dbf4cf64b9f6b9963a295d5ff947f4fab3936a4b4b"
+   "bytes": 49869,
+   "sha256": "91d51b91a7570e1c37f4480f45af301afaabfb5ccfed7aa1183b4240aa5eef84"
   }
  }
 }

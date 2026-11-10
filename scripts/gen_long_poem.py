@@ -10,11 +10,13 @@ import re
 import sys
 import time
 import urllib.request
+from datetime import datetime, timezone
+from data_utils import body_hash
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 APP = os.path.join(ROOT, "app-data")
-ENV = r"D:\project\agent\.env"
+ENV = os.environ.get("POEMS_ENV_FILE", os.path.join(ROOT, ".env"))
 CHUNK = 20
 
 SYSTEM = ("你是古籍出版社的古诗词注释编辑，语言简洁准确，不臆造典故。只输出 JSON。")
@@ -22,6 +24,8 @@ SYSTEM = ("你是古籍出版社的古诗词注释编辑，语言简洁准确，
 
 def load_env(path):
     cfg = {}
+    if not os.path.isfile(path):
+        return cfg
     with open(path, encoding="utf-8", errors="replace") as f:
         for line in f:
             line = line.strip()
@@ -31,8 +35,8 @@ def load_env(path):
     return cfg
 
 
-CFG = load_env(ENV)
-KEY, BASE, MODEL = CFG["LLM_API_KEY"], CFG["LLM_BASE_URL"].rstrip("/"), CFG["LLM_MODEL_ID"]
+CFG = {**load_env(ENV), **os.environ}
+KEY, BASE, MODEL = CFG.get("LLM_API_KEY", ""), CFG.get("LLM_BASE_URL", "").rstrip("/"), CFG.get("LLM_MODEL_ID", "")
 URL = BASE + ("/chat/completions" if BASE.endswith("/v1") else "/v1/chat/completions")
 
 
@@ -100,6 +104,8 @@ def gen_appreciation(title, author, content):
 
 
 def main():
+    if not all((KEY, BASE, MODEL)):
+        raise SystemExit("请配置 LLM_API_KEY、LLM_BASE_URL、LLM_MODEL_ID 环境变量或项目 .env。")
     title = sys.argv[1] if len(sys.argv) > 1 else "远游"
     todo = [json.loads(l) for l in open(os.path.join(APP, "todo_annotations.jsonl"), encoding="utf-8") if l.strip()]
     poem = next((p for p in todo if p["title"] == title), None)
@@ -124,7 +130,9 @@ def main():
     assert len(tr_all) == len(lines) and len(nt_all) == len(lines)
 
     rec = {"id": poem["id"], "translate": tr_all, "notes": nt_all,
-           "appreciation": ap, "model": MODEL, "from": "ai"}
+           "appreciation": ap, "model": MODEL, "from": "ai",
+           "body_hash": body_hash(poem["content"]), "prompt_version": "long-poem-v3",
+           "generated_at": datetime.now(timezone.utc).isoformat(), "review_status": "unreviewed"}
     with open(os.path.join(APP, "generated.jsonl"), "a", encoding="utf-8", newline="\n") as f:
         f.write(json.dumps(rec, ensure_ascii=False) + "\n")
     print("已写入 generated.jsonl：《%s》%d 句，赏析 %d 字"
@@ -133,4 +141,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

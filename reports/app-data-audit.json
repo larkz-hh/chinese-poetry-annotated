@@ -3,11 +3,11 @@
   "poems": 1579,
   "authors": 373,
   "schema_version": 3,
-  "data_version": "3.a6f4d160cb173e02",
+  "data_version": "3.717e1897f0863d21",
   "integrity": "ok",
   "errors": 0,
   "warnings": 5,
-  "missing_annotations": 331,
+  "missing_annotations": 327,
   "legacy_ids_resolved": true
  },
  "search": [
@@ -60,14 +60,8 @@
  "warnings": [
   {
    "code": "missing_annotations",
-   "count": 331,
+   "count": 327,
    "records": [
-    {
-     "id": "5c22086497880d3b825c9631",
-     "title": "遣怀",
-     "author": "杜牧",
-     "field": "appreciation"
-    },
     {
      "id": "5c22086497880d3b825c972d",
      "title": "隋宫",
@@ -93,12 +87,6 @@
      "field": "appreciation"
     },
     {
-     "id": "5c26e0a497880d3b825f5b23",
-     "title": "论语十二章",
-     "author": "佚名",
-     "field": "appreciation"
-    },
-    {
      "id": "5c26e0a497880d3b825f5bd3",
      "title": "杂诗",
      "author": "佚名",
@@ -133,12 +121,6 @@
      "title": "国风·鄘风·柏舟",
      "author": "佚名",
      "field": "appreciation"
-    },
-    {
-     "id": "5c26e12497880d3b8260562f",
-     "title": "长相思·山一程",
-     "author": "纳兰性德",
-     "field": "translate"
     },
     {
      "id": "5c26e1e497880d3b826134d5",
@@ -402,12 +384,6 @@
      "id": "5c26e20f97880d3b82618c22",
      "title": "示儿",
      "author": "陆游",
-     "field": "appreciation"
-    },
-    {
-     "id": "5c26e21497880d3b826195f0",
-     "title": "遣悲怀三首·其二",
-     "author": "元稹",
      "field": "appreciation"
     },
     {
