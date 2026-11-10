@@ -1,9 +1,9 @@
 {
  "schema_version": 3,
- "data_version": "3.717e1897f0863d21",
+ "data_version": "3.d763a1d5b5010256",
  "counts": {
-  "poems": 1579,
-  "authors": 373
+  "poems": 1524,
+  "authors": 372
  },
  "read_only_corpus": true,
  "search": {
@@ -12,12 +12,12 @@
  },
  "files": {
   "authors.json": {
-   "bytes": 4765424,
-   "sha256": "d5b82bad9a0b33e58fe384ddefc2d6395beb93d6e65d0c7221696a1249d165dc"
+   "bytes": 4769776,
+   "sha256": "f1687eca3bdebbdca76252dafe051b69f022beb2fa72c3af6fdb124a0c1a6a45"
   },
   "categories.json": {
    "bytes": 20310,
-   "sha256": "f551bdaad106c157f34d833ccccbf5a2cdab6487dd7a66dbd5c4f8fb50d7f8d4"
+   "sha256": "91c63ecea564fc2f33ba7b9d7db82d56bec78636f445557685d2b9e57f8259a4"
   },
   "generated.jsonl": {
    "bytes": 2491557,
@@ -25,27 +25,33 @@
   },
   "id_map.json": {
    "bytes": 115309,
-   "sha256": "0968334c63f4984eaa0816b6a41d8837dea220173729571bdd9782d3b61d2be3"
+   "sha256": "68e2578e903b54ba0fe3de060f69ef36f4660f10f725ead3c52af977955f527f"
   },
   "poems.db": {
-   "bytes": 38506496,
-   "sha256": "4529815c199ca792cf09750fd8bd522dd32977d87417ba73645f9b1b6ca7e8ba"
+   "bytes": 38604800,
+   "sha256": "da53e42f31c1857a36144a3d40f6584a13732540d6c4461d8ad8d50699d44fe4"
   },
   "poems.json": {
-   "bytes": 11283613,
-   "sha256": "717e1897f0863d212ffdd62e29a780a836f87dd25c7e725c27a92ac760762315"
+   "bytes": 11380023,
+   "sha256": "d763a1d5b5010256963260915774cc06e685df5ec674c71bea89680d77ed2565"
   },
   "repairs.json": {
    "bytes": 1058,
    "sha256": "dee2b15f3592a9b3954d37832d44eee91089d948561888a35be29392fa91d733"
   },
   "stats.json": {
-   "bytes": 446,
-   "sha256": "b3b646a1cdaa3f257b4b1fea763c7d1db1c8271a9cb0860cc0c2ea56668b4953"
+   "bytes": 422,
+   "sha256": "d5a3e11ec96f2b4869de8bf6b9a75920a8db12f5ace91f246e7c85060c9fd5e5"
   },
   "todo_annotations.jsonl": {
-   "bytes": 49869,
-   "sha256": "91d51b91a7570e1c37f4480f45af301afaabfb5ccfed7aa1183b4240aa5eef84"
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   }
+ },
+ "source_inputs": {
+  "content_review.json": "c4022e8b9674cdf495e3c6bdcbfdf270b1e921d0cda6c8c263d2e555f17d94d8",
+  "author_overrides.json": "d07f925d6469b31cb3e8f9a0a811ea2df2d2b8483db37e6d8e7396e0d74be682",
+  "editorial_fixes.json": "5897e4bd26728332de9a3b887d4d79385a6966554309001bd63d446f505c807b",
+  "annotation_additions.jsonl": "9db6636799324761ccbe137d1ae34f0b0a7b9277a45dcf369c6b75243f151a52"
  }
 }
