@@ -1,0 +1,51 @@
+{
+ "schema_version": 3,
+ "data_version": "3.a6f4d160cb173e02",
+ "counts": {
+  "poems": 1579,
+  "authors": 373
+ },
+ "read_only_corpus": true,
+ "search": {
+  "tokenizer": "unicode61",
+  "normalization": "NFC/casefold/character tokens with punctuation boundaries"
+ },
+ "files": {
+  "authors.json": {
+   "bytes": 4765424,
+   "sha256": "d5b82bad9a0b33e58fe384ddefc2d6395beb93d6e65d0c7221696a1249d165dc"
+  },
+  "categories.json": {
+   "bytes": 20310,
+   "sha256": "f551bdaad106c157f34d833ccccbf5a2cdab6487dd7a66dbd5c4f8fb50d7f8d4"
+  },
+  "generated.jsonl": {
+   "bytes": 2491557,
+   "sha256": "42fb0a9fffe45147040de9d3597770ead3b5e95ee68e73a9e8d550d95d9cb70c"
+  },
+  "id_map.json": {
+   "bytes": 115309,
+   "sha256": "0968334c63f4984eaa0816b6a41d8837dea220173729571bdd9782d3b61d2be3"
+  },
+  "poems.db": {
+   "bytes": 38494208,
+   "sha256": "e0ddedd2367ff5431e06e1816491e886d634dafba835c25aed4f79dc5f337b5e"
+  },
+  "poems.json": {
+   "bytes": 11280838,
+   "sha256": "a6f4d160cb173e025d0fd9d308b578caa3a7666830aff4ee7ba7a210f44581b0"
+  },
+  "repairs.json": {
+   "bytes": 1058,
+   "sha256": "dee2b15f3592a9b3954d37832d44eee91089d948561888a35be29392fa91d733"
+  },
+  "stats.json": {
+   "bytes": 446,
+   "sha256": "1a5a8d9d58373352122a3b5bf6b95e65fdd7576961ddc54d4f939edf4548e71d"
+  },
+  "todo_annotations.jsonl": {
+   "bytes": 52510,
+   "sha256": "e3988bf7c56f298516f164dbf4cf64b9f6b9963a295d5ff947f4fab3936a4b4b"
+  }
+ }
+}

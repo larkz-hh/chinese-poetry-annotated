@@ -1,0 +1,32 @@
+[
+ {
+  "id": "5c22086497880d3b825c9631",
+  "field": "appreciation",
+  "reason": "修复迁移前的原文冒充注解或替换字符；保留 pre-v3 快照供回查。"
+ },
+ {
+  "id": "5c26e0a497880d3b825f5b23",
+  "field": "appreciation",
+  "reason": "修复迁移前的原文冒充注解或替换字符；保留 pre-v3 快照供回查。"
+ },
+ {
+  "id": "5c26e12497880d3b8260562f",
+  "field": "translate",
+  "reason": "修复迁移前的原文冒充注解或替换字符；保留 pre-v3 快照供回查。"
+ },
+ {
+  "id": "5c26e1fb97880d3b826162ba",
+  "field": "appreciation",
+  "reason": "修复迁移前的原文冒充注解或替换字符；保留 pre-v3 快照供回查。"
+ },
+ {
+  "id": "5c26e21497880d3b826195f0",
+  "field": "appreciation",
+  "reason": "修复迁移前的原文冒充注解或替换字符；保留 pre-v3 快照供回查。"
+ },
+ {
+  "id": "5c26e3b997880d3b8263bf01",
+  "field": "appreciation",
+  "reason": "修复迁移前的原文冒充注解或替换字符；保留 pre-v3 快照供回查。"
+ }
+]
