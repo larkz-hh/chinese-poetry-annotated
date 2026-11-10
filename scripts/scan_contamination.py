@@ -4,8 +4,9 @@ import json
 import os
 import re
 from difflib import SequenceMatcher
+from pathlib import Path
 
-APP = r"D:\project\poems-clean\app-data"
+APP = str(Path(__file__).resolve().parents[1] / "app-data")
 poems = json.load(open(os.path.join(APP, "poems.json"), encoding="utf-8"))
 DROP = "，。！？、；：“”‘’（）《》〈〉【】…—·,.!?;:\"'()[]<>/\\|`~@#$%^&*+=_- \t\n\r　"
 
