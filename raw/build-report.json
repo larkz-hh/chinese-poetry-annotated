@@ -1,0 +1,9 @@
+{
+ "original_records": 220061,
+ "dropped_empty": 105,
+ "merged_records": 5430,
+ "works": 214526,
+ "lite": 1801,
+ "authors": 7729,
+ "identity_rule": "same author + source URL, or same author/dynasty + normalized body; never title alone"
+}
