@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.stage-*/
+backups/
+.env
+.env.*
+!.env.example
+*.db-wal
+*.db-shm
+*.db-journal
+.pytest_cache/
