@@ -1,8 +1,8 @@
 # 古诗词 App 数据源 · schema v3
 
-从 [yxcs/poems-db](https://github.com/yxcs/poems-db) 的原始转储整理而来，提供可离线使用的 JSON 和 SQLite。当前包含 **1579 条作品记录、373 条作者记录**。部分同题、异文和作者归属仍需内容审核，记录数不代表已经过学术校勘的独立作品数。
+从 [yxcs/poems-db](https://github.com/yxcs/poems-db) 的原始转储整理而来，提供可离线使用的 JSON 和 SQLite。当前包含 **1524 条作品记录、372 条作者记录**，每条作品均有译文、注释和赏析。全量完成 AI 初审，仍有待查证的内容疑点；记录数不代表已经过学术校勘的独立作品数。
 
-本次修复保留原有 1470 个作品 ID 的解析能力。合并的旧 ID 通过 `id_map.json` 或 SQLite 的 `id_aliases` 查找；例如两个《忆江南三首》记录合并后，旧收藏仍能定位。原有作品映射到 1469 条记录，另外保留 110 条恢复候选；其中包括此前丢失的杜甫“迟日江山丽”、李商隐“紫泉宫殿锁烟霞”等同题作品。
+本次修复保留原有 1470 个作品 ID，以及中间版本全部 1579 个作品 ID 的解析能力。合并的旧 ID 通过 `id_map.json` 或 SQLite 的 `id_aliases` 查找，旧收藏仍能定位。恢复此前丢失的杜甫“迟日江山丽”、李商隐“紫泉宫殿锁烟霞”等同题作品后，又显式核对并合并 55 条同作品异文或排版重复，其他正文版本保存在 `editions` 中。
 
 ## 文件
 
@@ -18,12 +18,20 @@ app-data/
   repairs.json             已确认污染字段的修复记录
   generated.jsonl          历史生成记录；不会自动调用接口重生成
   todo_annotations.jsonl   仍缺有效注解的待补任务
+  todo_content_review.jsonl 内容待查证清单，含作品与具体疑点
 raw/
   poems_all.jsonl.gz        214526 条保守去重后的全库记录
   poems_lite.json           当前精选构建素材
   authors.json              全量作者素材
   cipai.json                来源转储中的词牌名称
   editorial_fixes.json      可复现的修订文本，标为 AI 编辑、未人工审核
+  content_review.json       有正文哈希保护的异文合并、文体与作者归属决定
+  author_overrides.json     新增作者简介及核查来源
+  annotation_additions.jsonl 带正文哈希的补注记录
+  content_reviews.jsonl     逐首 AI 初审意见，含误报，不直接作为修改依据
+  review_triage.jsonl       AI 二审决定与可续跑的失败记录
+  approved_review_edits.json 显式批准的局部修改及依据
+  review_resolutions.json   修改前后数组、哈希及疑点处理结果
   selection.json            固定选取范围，避免重复构建不断扩大数据集
   build-report.json         当前原始库构建统计
 reports/
@@ -39,15 +47,19 @@ backups/pre-v3/             本机迁移前快照，未纳入版本控制
 
 | 项目 | 当前情况 |
 |---|---:|
-| 正文 | 1579 条 |
-| 有译文 | 1471 条 |
-| 有注释 | 1470 条 |
-| 有赏析 | 1469 条 |
-| 三类注解齐全 | 1469 条 |
-| 至少缺一类注解 | 110 条 |
-| 作者简介待补 | 12 位；作者外键均可关联 |
+| 正文 | 1524 条 |
+| 有译文 / 注释 / 赏析 | 各 1524 条 |
+| 三类注解齐全 | 1524 条 |
+| 至少缺一类注解 | 0 条 |
+| 作者简介待补 | 0 条 |
+| 文体待分类 | 0 条 |
+| AI 初审覆盖 | 1524 条 |
+| AI 二审覆盖 | 308 条 |
+| 内容待核 | 652 条作品中的 1115 个疑点 |
 
-`complete` 只表示三个注解字段都有通过基础污染检查的文本，**不表示已经人工审核**。`review_status` 当前均为 `unreviewed`。`has_author_bio=false` 时展示“作者资料待补”，不要编造简介。
+`complete` 只表示三个注解字段都有通过基础污染检查的文本，**不表示已经人工审核**。`review_status="ai_reviewed"` 表示 AI 审核后没有尚未处理的疑点，`needs_source_check` 表示仍需查证，均不是人工审定。`content_review.academic_review_complete` 当前始终为 false。`has_author_bio=false` 时应展示“作者资料待补”。
+
+本轮新增 55 条完整补注、11 位真实作者的有来源简介；原清单中的“乐府诗集”实为书名，其《敕勒歌》已归为佚名。修正 103 处明确的错字、错引和译注错误，无损合并 28 处被拆成单字数组的赏析。原始值与处理理由保留在修订文件中。第二轮审核因接口 HTTP 402 余额不足中断，已停止请求并保留续跑记录。疑点数量不是已经证实的错误数量，初审误报也保留处理轨迹。
 
 正文 `content` 是主版本的显示单元数组，单元可能是一联、一段或序言。`editions` 保留其他版本、原始内容与异文提示，`original_content` 保留来源正文。不同版本不会再串成一首展示。
 
@@ -135,23 +147,29 @@ python -X utf8 scripts/audit_data.py
 python -X utf8 -m unittest discover -s scripts -p test_data_pipeline.py -v
 ```
 
-构建保留同题不同文；同作者且来源 URL 相同，或同作者/朝代且主版本正文规范化后相同的记录可合并，并保留别名、来源 ID、标签和其他版本。其余同题差异保守保留并加入 `same_title_identity_review` 待核清单。
+构建保留同题不同文；同作者且来源 URL 相同，或同作者/朝代且主版本正文规范化后相同的记录可合并，并保留别名、来源 ID、标签和其他版本。其他合并必须列入 `raw/content_review.json`，正文哈希不符时拒绝应用。内容修改必须列入 `approved_review_edits.json`，不会自动采纳审核模型的替换提议；`review_resolutions.json` 同时核验修改前后哈希，防止在不同正文上套用旧注解。
 
 临时包通过校验后才替换文件。替换是逐文件进行的，构建期间不要让 App/服务读取该目录；分发时把完整数据包作为一个版本交付，并通过 `manifest.json` 验证文件。初次迁移自动保存本机快照，快照不随 `.gitignore` 纳入版本控制；可按需另行归档。
 
-## 可选的后续补注
+## 补注与审核续跑
 
-本次重建复用了已有生成记录，没有调用外部生成接口。若需要继续补注，配置环境变量 `LLM_API_KEY`、`LLM_BASE_URL`、`LLM_MODEL_ID`，或放在本项目不纳入版本控制的 `.env`；也可通过 `POEMS_ENV_FILE` 指定配置文件。
+普通构建和合并不调用外部接口。本轮补注、初审及部分二审使用了已配置的 DeepSeek 模型；现在没有缺注解任务。接口余额恢复后，可继续二审。配置环境变量 `LLM_API_KEY`、`LLM_BASE_URL`、`LLM_MODEL_ID`，或通过 `--env-file` 指定本机配置；不要提交密钥。
 
 ```powershell
-python -X utf8 scripts/gen_annotations.py --limit 3 --workers 2
+# 仅有新缺失项时补注；生成与审核输出均可续跑
+python -X utf8 scripts/complete_annotations.py --env-file .env --workers 2
+python -X utf8 scripts/review_content.py --env-file .env --workers 2
+python -X utf8 scripts/resolve_content_reviews.py --env-file .env --workers 2
+
+# 阅读意见并显式编辑 approved_review_edits.json 后，离线编译修订并发布
+python -X utf8 scripts/prepare_review_resolutions.py
 python -X utf8 scripts/merge_annotations.py
 ```
 
-生成记录包含正文哈希、时间、模型与提示词版本；不匹配当前正文哈希的记录不会自动合并。长篇可通过 `gen_long_poem.py` 分段补写。补写结果仍是未审核内容。
+生成记录包含正文哈希、时间、模型与提示词版本；不匹配当前正文哈希的记录不会自动合并。审核续跑会从已提交的修改前数组恢复相同审核输入，避免重复请求已完成的条目；输入发生其他变化时拒绝使用旧审核。遇到 HTTP 402 会停止后续请求；恢复余额后由使用者重新运行。AI 初审无疑点也不等同于逐句对齐或学术审核。
 
 ## 来源与待完成的内容审核
 
 源数据抓取自古诗文网，发布记录保留来源 URL、来源 ID 和原始内容。原始译注、作者资料及生成内容的具体使用依据需要分别记录与核实；本项目不把“抓取内容”或“AI 内容”当作已确认授权的标记。
 
-当前剩余：110 条待补注解、12 位作者待补简介、172 条文体待分类，以及同题身份、异文和作者归属的内容核对。拼音、多音字校读、朗读、教材目录和背诵资源可在此契约上继续增加。
+当前剩余内容核查见 `app-data/todo_content_review.jsonl`。细分结果、示例与本轮验证见 `reports/app-data-audit.md`。拼音、多音字校读、朗读、教材目录和背诵资源可在此契约上继续增加。
