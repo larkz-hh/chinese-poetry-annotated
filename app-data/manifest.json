@@ -1,6 +1,6 @@
 {
  "schema_version": 4,
- "data_version": "4.f50d1d76b600e6ea",
+ "data_version": "4.4a6fa13d88bb9914",
  "counts": {
   "poems": 1524,
   "authors": 372,
@@ -30,12 +30,12 @@
    "sha256": "68e2578e903b54ba0fe3de060f69ef36f4660f10f725ead3c52af977955f527f"
   },
   "poems.db": {
-   "bytes": 42049536,
-   "sha256": "69b98a45494b894a599ea7cf567d3420f1c29afbb1062b240c60b836554d726b"
+   "bytes": 42487808,
+   "sha256": "e58d00f9761e52962ad6cf5f3b5ecc8539e58d55e0bb9f9a66f556d395def913"
   },
   "poems.json": {
-   "bytes": 13720474,
-   "sha256": "f50d1d76b600e6ea529760ffb8133043f64ce7d1fcde22ff480789a22415ad84"
+   "bytes": 14366596,
+   "sha256": "4a6fa13d88bb99141b922b3cf0e5484a1c9c131065da575f2aabf2453574fa52"
   },
   "repairs.json": {
    "bytes": 1058,
@@ -70,15 +70,21 @@
   "content_reviews.jsonl": "32a49908c60fe11519069837c4ec09099187828db3df50c3270333f0900707a9",
   "review_triage.jsonl": "5e0b60323069dc3206d0448899885c156b31ce291d90d539b266cc1d717bd7f6",
   "approved_review_edits.json": "3f5ec01d5fb13fda7257756b9e203ab3bf50041b9d8df8262460c7a6507a641d",
-  "review_resolutions.json": "bb92a5fcf6f9b5df1352fc35e7a7dc1eef72b3d2dc78cb74977aa8deab65629c",
+  "review_resolutions.json": "0c53a0fda53e8dd895208bb30810d37dffed00d779045375259c2d70f1534e49",
   "final_content_decisions.json": "ef65d7dbecfaa643e6f4f3207449ef6ec9aca907ced1a4c6c9fdb6aa2cd043aa",
   "source_evidence.json": "0d2dbe9630b85a072901614ee469967abd363bca277dd72fe003173e35d6d0eb",
   "famous_lines.json": "167e6ec84ad4a7fec26affbc38d3021e6db8d3538a4bdfb6b710608bb45178b8",
-  "famous_line_selections.jsonl": "6486fa6960f81b2ff7efe3c1684860411e0a8a0d0808db39e06ca85920c8740c"
+  "famous_line_selections.jsonl": "6486fa6960f81b2ff7efe3c1684860411e0a8a0d0808db39e06ca85920c8740c",
+  "notes_normalization.json": "072a1fbe79c7e0eee5bfa008df740667d30d2997eb54e29af8b675a3dac2feaa"
  },
  "famous_lines_policy": {
   "coverage": "complete",
   "require_all_works": true,
   "note": "Card excerpts include sourced selections and AI-selected representative excerpts; source URLs identify text provenance."
+ },
+ "notes_format": {
+  "version": "plain-notes-v1",
+  "mode": "document",
+  "entries": "term definitions, readings, variants and explanatory notes; no standalone body quotations"
  }
 }

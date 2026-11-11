@@ -15,10 +15,10 @@
  "integrity": "ok",
  "search_comparisons": 41,
  "search_results_equal": true,
- "database_bytes": 21102592,
- "full_database_bytes": 42049536,
- "reduction_percent": 49.81,
- "gzip_bytes": 8257236,
- "data_version": "runtime2.e81810789e8ae516",
+ "database_bytes": 22196224,
+ "full_database_bytes": 42487808,
+ "reduction_percent": 47.76,
+ "gzip_bytes": 8868939,
+ "data_version": "runtime2.fa6eb7f9f8aa6e7e",
  "source_package_unchanged": true
 }

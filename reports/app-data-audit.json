@@ -3,13 +3,15 @@
   "poems": 1524,
   "authors": 372,
   "schema_version": 4,
-  "data_version": "4.f50d1d76b600e6ea",
+  "data_version": "4.4a6fa13d88bb9914",
   "integrity": "ok",
   "errors": 0,
   "warnings": 0,
   "ai_reviewed": 1524,
   "famous_lines": 3389,
   "poems_with_famous_lines": 1524,
+  "notes_format_works": 1524,
+  "notes_items": 20974,
   "content_review_pending": 0,
   "missing_annotations": 0,
   "legacy_ids_resolved": true
@@ -63,8 +65,8 @@
  "errors": [],
  "warnings": [],
  "rebuild_comparison": {
-  "current_data_version": "4.965151008e3bae1e",
-  "staged_data_version": "4.f50d1d76b600e6ea",
+  "current_data_version": "4.f50d1d76b600e6ea",
+  "staged_data_version": "4.4a6fa13d88bb9914",
   "manifest_identical": false,
   "changed_files": [
    "poems.db",

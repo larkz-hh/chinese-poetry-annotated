@@ -1,0 +1,25 @@
+{
+ "version": "plain-notes-v1",
+ "works": 1524,
+ "changed_works": 1519,
+ "before_items": 6589,
+ "after_items": 20974,
+ "automatic_quote_removal_operations": 1453,
+ "manual_review_operations": 90,
+ "sourced_supplement_works": [
+  "5c26e0bc97880d3b825f8b3a"
+ ],
+ "missing_notes": 0,
+ "original_notes_retained": true,
+ "unexpected_changes": [],
+ "body_translation_appreciation_editions_famous_lines_preserved": true,
+ "authors_and_id_map_preserved": true,
+ "prior_provenance_preserved": true,
+ "editorial_provenance_added_works": [
+  "5c26e0bc97880d3b825f8b3a"
+ ],
+ "full_json_sqlite_and_runtime_notes_equal": true,
+ "full_runtime_archives_equal": true,
+ "data_version": "4.4a6fa13d88bb9914",
+ "runtime_data_version": "runtime2.fa6eb7f9f8aa6e7e"
+}

@@ -2,8 +2,8 @@
  "profile": "app-runtime",
  "runtime_schema": 2,
  "application_id": 1347372372,
- "source_data_version": "4.f50d1d76b600e6ea",
- "data_version": "runtime2.e81810789e8ae516",
+ "source_data_version": "4.4a6fa13d88bb9914",
+ "data_version": "runtime2.fa6eb7f9f8aa6e7e",
  "read_only_corpus": true,
  "counts": {
   "poems": 1524,
@@ -21,13 +21,18 @@
   "require_all_works": true,
   "note": "Card excerpts include sourced selections and AI-selected representative excerpts; source URLs identify text provenance."
  },
+ "notes_format": {
+  "version": "plain-notes-v1",
+  "mode": "document",
+  "entries": "term definitions, readings, variants and explanatory notes; no standalone body quotations"
+ },
  "files": {
   "poems.db": {
-   "bytes": 21102592,
-   "sha256": "e81810789e8ae5165bf5b04f1ebc211bf3e96e674442892f915c8160e48faa2f"
+   "bytes": 22196224,
+   "sha256": "fa6eb7f9f8aa6e7e1f80151afd2a23751f656a09bc8fcc70abb902ed25266127"
   }
  },
- "source_package_sha256": "952baa5260f4bbfd6a018e3bfaa795bdc6f21ec64ace8b5786ab6f30205c3271",
+ "source_package_sha256": "c894b82f35722173056fca52fc21fa3f5382b8fb66760fe03f7e4bdceaccc212",
  "preservation": "All poem/author fields and source evidence preserved; full metadata uses text references plus zlib compression",
  "archive": {
   "table": "record_archives",
