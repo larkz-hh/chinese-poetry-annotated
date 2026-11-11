@@ -2617,6 +2617,17 @@
    "sources": [
     "https://www.edb.gov.hk/attachment/tc/curriculum-development/kla/chi-edu/resources/primary/lang/jilei_shi_pdf/jilei_shi_010.pdf"
    ]
+  },
+  "5c26e33d97880d3b8262d839": {
+   "expected_body_hash": "e33c9338be3d5bdea4df71be5c337336a6fcd7dc9467f9f71b67dcee6547840c",
+   "status": "source_checked",
+   "reviewer": "codex",
+   "title": "采莲子·菡萏香连十顷陂",
+   "reason": "全唐诗卷891及全唐五代词均作菡萏香连十顷陂，现正文正确，订正旧标题香莲为香连并保留旧题。",
+   "sources": [
+    "https://ctext.org/text.pl?if=gb&node=276166",
+    "https://ctext.org/wiki.pl?chapter=998339&if=gb"
+   ]
   }
  }
 }

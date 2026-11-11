@@ -3,12 +3,12 @@
   "poems": 1524,
   "authors": 372,
   "schema_version": 3,
-  "data_version": "3.ede16c8c891686a8",
+  "data_version": "3.e690c105f20c62ab",
   "integrity": "ok",
   "errors": 0,
   "warnings": 1,
   "ai_reviewed": 1524,
-  "content_review_pending": 652,
+  "content_review_pending": 385,
   "missing_annotations": 0,
   "legacy_ids_resolved": true
  },
@@ -62,7 +62,7 @@
  "warnings": [
   {
    "code": "content_source_verification",
-   "count": 652,
+   "count": 385,
    "records": [
     {
      "id": "5c22086397880d3b825c95c7",
@@ -113,12 +113,6 @@
      "findings": 1
     },
     {
-     "id": "5c22086497880d3b825c95fd",
-     "title": "送方外上人",
-     "author": "刘长卿",
-     "findings": 1
-    },
-    {
      "id": "5c22086497880d3b825c9601",
      "title": "芙蓉楼送辛渐",
      "author": "王昌龄",
@@ -157,12 +151,6 @@
     {
      "id": "5c22086497880d3b825c962d",
      "title": "金谷园",
-     "author": "杜牧",
-     "findings": 1
-    },
-    {
-     "id": "5c22086497880d3b825c962f",
-     "title": "寄扬州韩绰判官",
      "author": "杜牧",
      "findings": 1
     },
@@ -212,7 +200,7 @@
      "id": "5c22086497880d3b825c9669",
      "title": "送梓州李使君",
      "author": "王维",
-     "findings": 2
+     "findings": 1
     },
     {
      "id": "5c22086497880d3b825c966b",
@@ -296,7 +284,7 @@
      "id": "5c22086497880d3b825c96d1",
      "title": "赋得暮雨送李胄",
      "author": "韦应物",
-     "findings": 2
+     "findings": 1
     },
     {
      "id": "5c22086497880d3b825c96d3",
@@ -377,18 +365,6 @@
      "findings": 1
     },
     {
-     "id": "5c22086497880d3b825c972d",
-     "title": "隋宫",
-     "author": "李商隐",
-     "findings": 1
-    },
-    {
-     "id": "5c22086497880d3b825c972f",
-     "title": "送魏万之京",
-     "author": "李颀",
-     "findings": 1
-    },
-    {
      "id": "5c22086497880d3b825c9731",
      "title": "咏怀古迹五首·其一",
      "author": "杜甫",
@@ -422,12 +398,6 @@
      "id": "5c22086497880d3b825c9749",
      "title": "野望",
      "author": "杜甫",
-     "findings": 1
-    },
-    {
-     "id": "5c22086497880d3b825c974b",
-     "title": "登柳州城楼寄漳汀封连四州",
-     "author": "柳宗元",
      "findings": 1
     },
     {
@@ -548,13 +518,13 @@
      "id": "5c22086597880d3b825c97b9",
      "title": "长恨歌",
      "author": "白居易",
-     "findings": 4
+     "findings": 3
     },
     {
      "id": "5c22086597880d3b825c97bb",
      "title": "琵琶行",
      "author": "白居易",
-     "findings": 6
+     "findings": 5
     },
     {
      "id": "5c22086597880d3b825c97bd",
@@ -653,12 +623,6 @@
      "findings": 1
     },
     {
-     "id": "5c22086597880d3b825c97fb",
-     "title": "秋夜曲",
-     "author": "王维",
-     "findings": 1
-    },
-    {
      "id": "5c22086597880d3b825c97fd",
      "title": "洛阳女儿行",
      "author": "王维",
@@ -671,22 +635,10 @@
      "findings": 1
     },
     {
-     "id": "5c22086597880d3b825c9805",
-     "title": "清平调·其二",
-     "author": "李白",
-     "findings": 1
-    },
-    {
      "id": "5c22086597880d3b825c980b",
      "title": "行路难·其二",
      "author": "李白",
      "findings": 1
-    },
-    {
-     "id": "5c22086597880d3b825c980d",
-     "title": "行路难·其三",
-     "author": "李白",
-     "findings": 3
     },
     {
      "id": "5c22086597880d3b825c9815",
@@ -743,12 +695,6 @@
      "findings": 1
     },
     {
-     "id": "5c22086597880d3b825c9831",
-     "title": "金缕衣",
-     "author": "佚名",
-     "findings": 1
-    },
-    {
      "id": "5c22086597880d3b825c9833",
      "title": "古意呈补阙乔知之",
      "author": "沈佺期",
@@ -765,12 +711,6 @@
      "title": "长干行·君家何处住",
      "author": "崔颢",
      "findings": 1
-    },
-    {
-     "id": "5c22086597880d3b825c9841",
-     "title": "和张仆射塞下曲·其二",
-     "author": "卢纶",
-     "findings": 3
     },
     {
      "id": "5c26e0a297880d3b825f582f",
@@ -813,12 +753,6 @@
      "title": "远别离",
      "author": "李白",
      "findings": 1
-    },
-    {
-     "id": "5c26e0a397880d3b825f5a41",
-     "title": "王明君",
-     "author": "石崇",
-     "findings": 5
     },
     {
      "id": "5c26e0a397880d3b825f5a45",
@@ -881,20 +815,8 @@
      "findings": 3
     },
     {
-     "id": "5c26e0bc97880d3b825f8afa",
-     "title": "采蘋",
-     "author": "佚名",
-     "findings": 1
-    },
-    {
      "id": "5c26e0bc97880d3b825f8b0c",
      "title": "何彼襛矣",
-     "author": "佚名",
-     "findings": 1
-    },
-    {
-     "id": "5c26e0bc97880d3b825f8b14",
-     "title": "国风·邶风·燕燕",
      "author": "佚名",
      "findings": 1
     },
@@ -926,13 +848,7 @@
      "id": "5c26e0bc97880d3b825f8b2a",
      "title": "国风·邶风·泉水",
      "author": "佚名",
-     "findings": 3
-    },
-    {
-     "id": "5c26e0bc97880d3b825f8b2e",
-     "title": "北风",
-     "author": "佚名",
-     "findings": 1
+     "findings": 2
     },
     {
      "id": "5c26e0bc97880d3b825f8b30",
@@ -949,12 +865,6 @@
     {
      "id": "5c26e0bc97880d3b825f8b40",
      "title": "鄘风·定之方中",
-     "author": "佚名",
-     "findings": 1
-    },
-    {
-     "id": "5c26e0bc97880d3b825f8b5c",
-     "title": "君子阳阳",
      "author": "佚名",
      "findings": 1
     },
@@ -1073,58 +983,16 @@
      "findings": 2
     },
     {
-     "id": "5c26e0bd97880d3b825f8c2c",
-     "title": "采芑",
-     "author": "佚名",
-     "findings": 2
-    },
-    {
      "id": "5c26e0bd97880d3b825f8c2e",
      "title": "小雅·车攻",
      "author": "佚名",
-     "findings": 2
-    },
-    {
-     "id": "5c26e0bd97880d3b825f8c30",
-     "title": "小雅·吉日",
-     "author": "佚名",
-     "findings": 2
-    },
-    {
-     "id": "5c26e0bd97880d3b825f8c32",
-     "title": "鸿雁",
-     "author": "佚名",
      "findings": 1
-    },
-    {
-     "id": "5c26e0bd97880d3b825f8c34",
-     "title": "沔水",
-     "author": "佚名",
-     "findings": 2
-    },
-    {
-     "id": "5c26e0bd97880d3b825f8c36",
-     "title": "小雅·鹤鸣",
-     "author": "佚名",
-     "findings": 2
-    },
-    {
-     "id": "5c26e0bd97880d3b825f8c38",
-     "title": "祈父",
-     "author": "佚名",
-     "findings": 2
     },
     {
      "id": "5c26e0bd97880d3b825f8c48",
      "title": "小雅·十月之交",
      "author": "佚名",
      "findings": 1
-    },
-    {
-     "id": "5c26e0bd97880d3b825f8c4a",
-     "title": "雨无正",
-     "author": "佚名",
-     "findings": 2
     },
     {
      "id": "5c26e0bd97880d3b825f8c4c",
@@ -1136,19 +1004,13 @@
      "id": "5c26e0bd97880d3b825f8c4e",
      "title": "小雅·小宛",
      "author": "佚名",
-     "findings": 2
-    },
-    {
-     "id": "5c26e0bd97880d3b825f8c50",
-     "title": "小雅·小弁",
-     "author": "佚名",
-     "findings": 2
+     "findings": 1
     },
     {
      "id": "5c26e0bd97880d3b825f8c52",
      "title": "小雅·巧言",
      "author": "佚名",
-     "findings": 2
+     "findings": 1
     },
     {
      "id": "5c26e0bd97880d3b825f8c54",
@@ -1160,47 +1022,17 @@
      "id": "5c26e0bd97880d3b825f8c56",
      "title": "小雅·巷伯",
      "author": "佚名",
-     "findings": 2
-    },
-    {
-     "id": "5c26e0bd97880d3b825f8c58",
-     "title": "小雅·谷风",
-     "author": "佚名",
-     "findings": 2
+     "findings": 1
     },
     {
      "id": "5c26e0bd97880d3b825f8c5c",
      "title": "小雅·大东",
      "author": "佚名",
-     "findings": 2
+     "findings": 1
     },
     {
      "id": "5c26e0bd97880d3b825f8c5e",
      "title": "小雅·四月",
-     "author": "佚名",
-     "findings": 1
-    },
-    {
-     "id": "5c26e0bd97880d3b825f8c62",
-     "title": "无将大车",
-     "author": "佚名",
-     "findings": 1
-    },
-    {
-     "id": "5c26e0bd97880d3b825f8c64",
-     "title": "小明",
-     "author": "佚名",
-     "findings": 1
-    },
-    {
-     "id": "5c26e0bd97880d3b825f8c66",
-     "title": "小雅·鼓钟",
-     "author": "佚名",
-     "findings": 1
-    },
-    {
-     "id": "5c26e0bd97880d3b825f8c68",
-     "title": "小雅·楚茨",
      "author": "佚名",
      "findings": 1
     },
@@ -1214,7 +1046,7 @@
      "id": "5c26e0bd97880d3b825f8c7a",
      "title": "小雅·车舝",
      "author": "佚名",
-     "findings": 2
+     "findings": 1
     },
     {
      "id": "5c26e0bd97880d3b825f8c7e",
@@ -1223,32 +1055,8 @@
      "findings": 2
     },
     {
-     "id": "5c26e0bd97880d3b825f8c80",
-     "title": "鱼藻",
-     "author": "佚名",
-     "findings": 1
-    },
-    {
-     "id": "5c26e0bd97880d3b825f8c82",
-     "title": "采菽",
-     "author": "佚名",
-     "findings": 1
-    },
-    {
      "id": "5c26e0bd97880d3b825f8c84",
      "title": "角弓",
-     "author": "佚名",
-     "findings": 2
-    },
-    {
-     "id": "5c26e0bd97880d3b825f8c86",
-     "title": "菀柳",
-     "author": "佚名",
-     "findings": 1
-    },
-    {
-     "id": "5c26e0bd97880d3b825f8c88",
-     "title": "都人士",
      "author": "佚名",
      "findings": 2
     },
@@ -1256,7 +1064,7 @@
      "id": "5c26e0bd97880d3b825f8c8a",
      "title": "采绿",
      "author": "佚名",
-     "findings": 2
+     "findings": 1
     },
     {
      "id": "5c26e0bd97880d3b825f8c90",
@@ -1271,24 +1079,6 @@
      "findings": 2
     },
     {
-     "id": "5c26e0bd97880d3b825f8c94",
-     "title": "小雅·渐渐之石",
-     "author": "佚名",
-     "findings": 1
-    },
-    {
-     "id": "5c26e0bd97880d3b825f8c98",
-     "title": "何草不黄",
-     "author": "佚名",
-     "findings": 1
-    },
-    {
-     "id": "5c26e0bd97880d3b825f8c9a",
-     "title": "大雅·文王",
-     "author": "佚名",
-     "findings": 1
-    },
-    {
      "id": "5c26e0bd97880d3b825f8c9e",
      "title": "绵",
      "author": "佚名",
@@ -1297,12 +1087,6 @@
     {
      "id": "5c26e0bd97880d3b825f8ca2",
      "title": "大雅·旱麓",
-     "author": "佚名",
-     "findings": 1
-    },
-    {
-     "id": "5c26e0bd97880d3b825f8ca4",
-     "title": "大雅·思齐",
      "author": "佚名",
      "findings": 1
     },
@@ -1325,38 +1109,8 @@
      "findings": 1
     },
     {
-     "id": "5c26e0bd97880d3b825f8cae",
-     "title": "大雅·生民",
-     "author": "佚名",
-     "findings": 1
-    },
-    {
-     "id": "5c26e0bd97880d3b825f8cb0",
-     "title": "行苇",
-     "author": "佚名",
-     "findings": 1
-    },
-    {
      "id": "5c26e0bd97880d3b825f8cb2",
      "title": "大雅·既醉",
-     "author": "佚名",
-     "findings": 1
-    },
-    {
-     "id": "5c26e0bd97880d3b825f8cb4",
-     "title": "大雅·凫鹥",
-     "author": "佚名",
-     "findings": 1
-    },
-    {
-     "id": "5c26e0bd97880d3b825f8cb6",
-     "title": "大雅·假乐",
-     "author": "佚名",
-     "findings": 1
-    },
-    {
-     "id": "5c26e0bd97880d3b825f8cb8",
-     "title": "大雅·公刘",
      "author": "佚名",
      "findings": 1
     },
@@ -1373,26 +1127,8 @@
      "findings": 1
     },
     {
-     "id": "5c26e0bd97880d3b825f8cc8",
-     "title": "云汉",
-     "author": "佚名",
-     "findings": 1
-    },
-    {
-     "id": "5c26e0bd97880d3b825f8cce",
-     "title": "韩奕",
-     "author": "佚名",
-     "findings": 1
-    },
-    {
      "id": "5c26e0bd97880d3b825f8cd2",
      "title": "大雅·常武",
-     "author": "佚名",
-     "findings": 1
-    },
-    {
-     "id": "5c26e0bd97880d3b825f8cd4",
-     "title": "大雅·瞻卬",
      "author": "佚名",
      "findings": 1
     },
@@ -1403,20 +1139,8 @@
      "findings": 1
     },
     {
-     "id": "5c26e0bd97880d3b825f8cdc",
-     "title": "周颂·维清",
-     "author": "佚名",
-     "findings": 1
-    },
-    {
      "id": "5c26e0bd97880d3b825f8cde",
      "title": "周颂·烈文",
-     "author": "佚名",
-     "findings": 1
-    },
-    {
-     "id": "5c26e0bd97880d3b825f8ce0",
-     "title": "周颂·天作",
      "author": "佚名",
      "findings": 1
     },
@@ -1425,36 +1149,6 @@
      "title": "周颂·我将",
      "author": "佚名",
      "findings": 1
-    },
-    {
-     "id": "5c26e0bd97880d3b825f8ce8",
-     "title": "周颂·执竞",
-     "author": "佚名",
-     "findings": 1
-    },
-    {
-     "id": "5c26e0bd97880d3b825f8cec",
-     "title": "周颂·臣工",
-     "author": "佚名",
-     "findings": 1
-    },
-    {
-     "id": "5c26e0bd97880d3b825f8cfa",
-     "title": "周颂·载见",
-     "author": "佚名",
-     "findings": 2
-    },
-    {
-     "id": "5c26e0bd97880d3b825f8cfc",
-     "title": "周颂·有客",
-     "author": "佚名",
-     "findings": 3
-    },
-    {
-     "id": "5c26e0bd97880d3b825f8d00",
-     "title": "周颂·闵予小子",
-     "author": "佚名",
-     "findings": 2
     },
     {
      "id": "5c26e0bd97880d3b825f8d02",
@@ -1466,13 +1160,7 @@
      "id": "5c26e0bd97880d3b825f8d04",
      "title": "周颂·敬之",
      "author": "佚名",
-     "findings": 3
-    },
-    {
-     "id": "5c26e0bd97880d3b825f8d06",
-     "title": "周颂·小毖",
-     "author": "佚名",
-     "findings": 2
+     "findings": 1
     },
     {
      "id": "5c26e0bd97880d3b825f8d08",
@@ -1523,33 +1211,9 @@
      "findings": 1
     },
     {
-     "id": "5c26e0bd97880d3b825f8d26",
-     "title": "商颂·殷武",
-     "author": "佚名",
-     "findings": 1
-    },
-    {
      "id": "5c26e0bd97880d3b825f8d2c",
      "title": "钱塘湖春行",
      "author": "白居易",
-     "findings": 1
-    },
-    {
-     "id": "5c26e0bd97880d3b825f8d2e",
-     "title": "雁门太守行",
-     "author": "李贺",
-     "findings": 1
-    },
-    {
-     "id": "5c26e0bd97880d3b825f8d30",
-     "title": "沁园春·长沙",
-     "author": "毛泽东",
-     "findings": 1
-    },
-    {
-     "id": "5c26e0bd97880d3b825f8d32",
-     "title": "寿阳曲·远浦帆归",
-     "author": "马致远",
      "findings": 1
     },
     {
@@ -1565,26 +1229,8 @@
      "findings": 2
     },
     {
-     "id": "5c26e0bd97880d3b825f8d94",
-     "title": "国风·卫风·木瓜",
-     "author": "佚名",
-     "findings": 1
-    },
-    {
      "id": "5c26e0bd97880d3b825f8d98",
      "title": "蒹葭",
-     "author": "佚名",
-     "findings": 1
-    },
-    {
-     "id": "5c26e0bd97880d3b825f8d9a",
-     "title": "无衣",
-     "author": "佚名",
-     "findings": 2
-    },
-    {
-     "id": "5c26e0be97880d3b825f8d9e",
-     "title": "采薇",
      "author": "佚名",
      "findings": 1
     },
@@ -1595,81 +1241,15 @@
      "findings": 1
     },
     {
-     "id": "5c26e0be97880d3b825f8da6",
-     "title": "荆轲歌",
-     "author": "佚名",
-     "findings": 1
-    },
-    {
-     "id": "5c26e0be97880d3b825f8db0",
-     "title": "古歌",
-     "author": "佚名",
-     "findings": 1
-    },
-    {
      "id": "5c26e0be97880d3b825f8db6",
      "title": "东城高且长",
      "author": "佚名",
      "findings": 1
     },
     {
-     "id": "5c26e0be97880d3b825f8dba",
-     "title": "涉江采芙蓉",
-     "author": "佚名",
-     "findings": 1
-    },
-    {
-     "id": "5c26e0be97880d3b825f8dc2",
-     "title": "凛凛岁云暮",
-     "author": "佚名",
-     "findings": 2
-    },
-    {
-     "id": "5c26e0be97880d3b825f8dc6",
-     "title": "燕歌行二首·其一",
-     "author": "曹丕",
-     "findings": 1
-    },
-    {
-     "id": "5c26e0be97880d3b825f8dc8",
-     "title": "白马篇",
-     "author": "曹植",
-     "findings": 1
-    },
-    {
-     "id": "5c26e0be97880d3b825f8dce",
-     "title": "咏荆轲",
-     "author": "陶渊明",
-     "findings": 2
-    },
-    {
      "id": "5c26e0be97880d3b825f8dd0",
      "title": "读山海经·其一",
      "author": "陶渊明",
-     "findings": 1
-    },
-    {
-     "id": "5c26e0be97880d3b825f8dd2",
-     "title": "梅花落",
-     "author": "鲍照",
-     "findings": 1
-    },
-    {
-     "id": "5c26e0be97880d3b825f8dd6",
-     "title": "断句",
-     "author": "刘昶",
-     "findings": 1
-    },
-    {
-     "id": "5c26e0be97880d3b825f8dda",
-     "title": "陇头歌辞三首",
-     "author": "佚名",
-     "findings": 1
-    },
-    {
-     "id": "5c26e0be97880d3b825f8ddc",
-     "title": "敕勒歌",
-     "author": "佚名",
      "findings": 1
     },
     {
@@ -1691,39 +1271,9 @@
      "findings": 2
     },
     {
-     "id": "5c26e0be97880d3b825f8dea",
-     "title": "戏答元珍",
-     "author": "欧阳修",
-     "findings": 1
-    },
-    {
-     "id": "5c26e0be97880d3b825f8df8",
-     "title": "春日",
-     "author": "朱熹",
-     "findings": 1
-    },
-    {
-     "id": "5c26e0be97880d3b825f8dfe",
-     "title": "在武昌作",
-     "author": "徐祯卿",
-     "findings": 1
-    },
-    {
      "id": "5c26e0be97880d3b825f8e02",
      "title": "塞上曲送元美",
      "author": "李攀龙",
-     "findings": 1
-    },
-    {
-     "id": "5c26e0be97880d3b825f8e08",
-     "title": "闯王",
-     "author": "佚名",
-     "findings": 1
-    },
-    {
-     "id": "5c26e0be97880d3b825f8e10",
-     "title": "村居",
-     "author": "高鼎",
      "findings": 1
     },
     {
@@ -1733,82 +1283,22 @@
      "findings": 1
     },
     {
-     "id": "5c26e0be97880d3b825f8e7a",
-     "title": "浣溪沙·五两竿头风欲平",
-     "author": "佚名",
-     "findings": 1
-    },
-    {
-     "id": "5c26e0be97880d3b825f8ec0",
-     "title": "浣溪沙·蓼岸风多橘柚香",
-     "author": "孙光宪",
-     "findings": 1
-    },
-    {
-     "id": "5c26e0ca97880d3b825fa576",
-     "title": "菩萨蛮·书江西造口壁",
-     "author": "辛弃疾",
-     "findings": 1
-    },
-    {
      "id": "5c26e0e497880d3b825fd834",
      "title": "西江月·遣兴",
      "author": "辛弃疾",
      "findings": 1
     },
     {
-     "id": "5c26e0e997880d3b825fe358",
-     "title": "减字木兰花·莎衫筠笠",
-     "author": "卢炳",
-     "findings": 1
-    },
-    {
-     "id": "5c26e0f197880d3b825ff2c5",
-     "title": "贺新郎·甚矣吾衰矣",
-     "author": "辛弃疾",
-     "findings": 2
-    },
-    {
-     "id": "5c26e0fd97880d3b82600941",
-     "title": "水龙吟·登建康赏心亭",
-     "author": "辛弃疾",
-     "findings": 2
-    },
-    {
      "id": "5c26e11197880d3b82602fdb",
      "title": "柳梢青·病酒心情",
      "author": "黄简",
-     "findings": 8
-    },
-    {
-     "id": "5c26e12397880d3b82605339",
-     "title": "摸鱼儿·东皋寓居",
-     "author": "晁补之",
-     "findings": 1
-    },
-    {
-     "id": "5c26e14297880d3b82609128",
-     "title": "桂枝香·金陵怀古",
-     "author": "王安石",
-     "findings": 1
+     "findings": 6
     },
     {
      "id": "5c26e14597880d3b8260971e",
      "title": "折杨柳歌辞五首",
      "author": "佚名",
      "findings": 3
-    },
-    {
-     "id": "5c26e14d97880d3b8260a5bc",
-     "title": "唐多令·芦叶满汀洲",
-     "author": "刘过",
-     "findings": 1
-    },
-    {
-     "id": "5c26e15197880d3b8260ac76",
-     "title": "摊破浣溪沙·手卷真珠上玉钩",
-     "author": "李璟",
-     "findings": 1
     },
     {
      "id": "5c26e15397880d3b8260affc",
@@ -1826,37 +1316,25 @@
      "id": "5c26e1c597880d3b8260f4eb",
      "title": "山坡羊·潼关怀古",
      "author": "张养浩",
-     "findings": 7
+     "findings": 3
     },
     {
      "id": "5c26e1c597880d3b8260f597",
      "title": "阳春曲·春景",
      "author": "胡祗遹",
-     "findings": 5
+     "findings": 1
     },
     {
      "id": "5c26e1c897880d3b8260fa59",
      "title": "折桂令·题录鬼簿",
      "author": "周浩",
-     "findings": 4
-    },
-    {
-     "id": "5c26e1c897880d3b8260fa77",
-     "title": "折桂令·寄远",
-     "author": "乔吉",
-     "findings": 2
+     "findings": 1
     },
     {
      "id": "5c26e1c897880d3b8260fb89",
      "title": "小桃红·碧湖湖上柳阴阴",
      "author": "杨果",
-     "findings": 4
-    },
-    {
-     "id": "5c26e1c997880d3b8260fd09",
-     "title": "六丑·落花",
-     "author": "周邦彦",
-     "findings": 3
+     "findings": 2
     },
     {
      "id": "5c26e1cd97880d3b82610413",
@@ -1871,18 +1349,6 @@
      "findings": 2
     },
     {
-     "id": "5c26e1d397880d3b826110f9",
-     "title": "双双燕·咏燕",
-     "author": "史达祖",
-     "findings": 1
-    },
-    {
-     "id": "5c26e1e197880d3b82612dac",
-     "title": "州桥",
-     "author": "范成大",
-     "findings": 1
-    },
-    {
      "id": "5c26e1e497880d3b826133d5",
      "title": "己亥杂诗·其五",
      "author": "龚自珍",
@@ -1892,41 +1358,17 @@
      "id": "5c26e1e497880d3b8261341f",
      "title": "墨梅",
      "author": "王冕",
-     "findings": 2
-    },
-    {
-     "id": "5c26e1e597880d3b8261366f",
-     "title": "天仙子·水调数声持酒听",
-     "author": "张先",
-     "findings": 1
-    },
-    {
-     "id": "5c26e1e697880d3b826137bf",
-     "title": "古朗月行",
-     "author": "李白",
      "findings": 1
     },
     {
      "id": "5c26e1e697880d3b826137cb",
      "title": "望庐山瀑布水二首",
      "author": "李白",
-     "findings": 2
-    },
-    {
-     "id": "5c26e1e697880d3b82613819",
-     "title": "发白马",
-     "author": "李白",
      "findings": 1
     },
     {
      "id": "5c26e1e697880d3b82613863",
      "title": "结客少年场行",
-     "author": "李白",
-     "findings": 1
-    },
-    {
-     "id": "5c26e1e697880d3b8261389b",
-     "title": "相逢行二首",
      "author": "李白",
      "findings": 1
     },
@@ -1943,38 +1385,8 @@
      "findings": 2
     },
     {
-     "id": "5c26e1e697880d3b82613929",
-     "title": "菩萨蛮·平林漠漠烟如织",
-     "author": "李白",
-     "findings": 2
-    },
-    {
      "id": "5c26e1e697880d3b82613937",
      "title": "峨眉山月歌",
-     "author": "李白",
-     "findings": 1
-    },
-    {
-     "id": "5c26e1e697880d3b8261393b",
-     "title": "上之回",
-     "author": "李白",
-     "findings": 1
-    },
-    {
-     "id": "5c26e1e697880d3b8261393d",
-     "title": "独坐敬亭山",
-     "author": "李白",
-     "findings": 1
-    },
-    {
-     "id": "5c26e1e797880d3b8261396d",
-     "title": "横江词六首",
-     "author": "李白",
-     "findings": 1
-    },
-    {
-     "id": "5c26e1e797880d3b826139bf",
-     "title": "千里思",
      "author": "李白",
      "findings": 1
     },
@@ -1983,12 +1395,6 @@
      "title": "观刈麦",
      "author": "白居易",
      "findings": 1
-    },
-    {
-     "id": "5c26e1e797880d3b826139d7",
-     "title": "长相思·汴水流",
-     "author": "白居易",
-     "findings": 2
     },
     {
      "id": "5c26e1e897880d3b82613bb9",
@@ -2003,36 +1409,6 @@
      "findings": 1
     },
     {
-     "id": "5c26e1e997880d3b82613dc7",
-     "title": "红线毯",
-     "author": "白居易",
-     "findings": 1
-    },
-    {
-     "id": "5c26e1ea97880d3b8261414b",
-     "title": "忆江南词三首",
-     "author": "白居易",
-     "findings": 3
-    },
-    {
-     "id": "5c26e1eb97880d3b8261425d",
-     "title": "卖炭翁",
-     "author": "白居易",
-     "findings": 2
-    },
-    {
-     "id": "5c26e1ed97880d3b82614669",
-     "title": "杜陵叟",
-     "author": "白居易",
-     "findings": 1
-    },
-    {
-     "id": "5c26e1ed97880d3b8261470f",
-     "title": "上阳白发人",
-     "author": "白居易",
-     "findings": 2
-    },
-    {
      "id": "5c26e1ee97880d3b8261490f",
      "title": "诏取永丰柳植禁苑感赋",
      "author": "白居易",
@@ -2042,7 +1418,7 @@
      "id": "5c26e1f097880d3b82614c45",
      "title": "兵车行",
      "author": "杜甫",
-     "findings": 5
+     "findings": 3
     },
     {
      "id": "5c26e1f097880d3b82614c79",
@@ -2063,16 +1439,10 @@
      "findings": 2
     },
     {
-     "id": "5c26e1f397880d3b826153c4",
-     "title": "永遇乐·京口北固亭怀古",
-     "author": "辛弃疾",
-     "findings": 2
-    },
-    {
      "id": "5c26e1f397880d3b826153c8",
      "title": "破阵子·掷地刘郎玉斗",
      "author": "辛弃疾",
-     "findings": 4
+     "findings": 2
     },
     {
      "id": "5c26e1f397880d3b826153ca",
@@ -2084,83 +1454,65 @@
      "id": "5c26e1f397880d3b82615406",
      "title": "送湖南部曲",
      "author": "辛弃疾",
-     "findings": 3
+     "findings": 2
     },
     {
      "id": "5c26e1f497880d3b8261555c",
      "title": "破阵子·为陈同甫赋壮词以寄之",
      "author": "辛弃疾",
-     "findings": 2
-    },
-    {
-     "id": "5c26e1f497880d3b826155dc",
-     "title": "南乡子·登京口北固亭有怀",
-     "author": "辛弃疾",
      "findings": 1
-    },
-    {
-     "id": "5c26e1f597880d3b826156cc",
-     "title": "贺新郎·别茂嘉十二弟",
-     "author": "辛弃疾",
-     "findings": 2
     },
     {
      "id": "5c26e1f597880d3b82615822",
      "title": "水龙吟·过南剑双溪楼",
      "author": "辛弃疾",
-     "findings": 4
+     "findings": 1
     },
     {
      "id": "5c26e1f697880d3b826158ba",
      "title": "摸鱼儿·更能消几番风雨",
      "author": "辛弃疾",
-     "findings": 5
+     "findings": 2
     },
     {
      "id": "5c26e1f697880d3b82615948",
      "title": "声声慢·寻寻觅觅",
      "author": "李清照",
-     "findings": 5
+     "findings": 2
     },
     {
      "id": "5c26e1f697880d3b8261594a",
      "title": "一剪梅·红藕香残玉簟秋",
      "author": "李清照",
-     "findings": 2
+     "findings": 1
     },
     {
      "id": "5c26e1f697880d3b82615950",
      "title": "临江仙·梅",
      "author": "李清照",
-     "findings": 4
+     "findings": 1
     },
     {
      "id": "5c26e1f697880d3b82615958",
      "title": "鹧鸪天·寒日萧萧上琐窗",
      "author": "李清照",
-     "findings": 2
+     "findings": 1
     },
     {
      "id": "5c26e1f697880d3b82615978",
      "title": "望洞庭",
      "author": "刘禹锡",
-     "findings": 3
+     "findings": 2
     },
     {
      "id": "5c26e1f697880d3b8261597e",
      "title": "竹枝词·山桃红花满上头",
      "author": "刘禹锡",
-     "findings": 2
+     "findings": 1
     },
     {
      "id": "5c26e1f697880d3b826159a6",
      "title": "插田歌",
-     "author": "刘禹锡",
-     "findings": 5
-    },
-    {
-     "id": "5c26e1f797880d3b82615ae2",
-     "title": "堤上行二首",
      "author": "刘禹锡",
      "findings": 1
     },
@@ -2168,55 +1520,19 @@
      "id": "5c26e1f797880d3b82615baa",
      "title": "竹枝词二首·其一",
      "author": "刘禹锡",
-     "findings": 2
+     "findings": 1
     },
     {
      "id": "5c26e1f797880d3b82615bda",
      "title": "浪淘沙·其三",
      "author": "刘禹锡",
-     "findings": 2
+     "findings": 1
     },
     {
      "id": "5c26e1f897880d3b82615d26",
      "title": "酬乐天扬州初逢席上见赠",
      "author": "刘禹锡",
-     "findings": 4
-    },
-    {
-     "id": "5c26e1f897880d3b82615dba",
-     "title": "杨柳枝词九首",
-     "author": "刘禹锡",
-     "findings": 3
-    },
-    {
-     "id": "5c26e1f897880d3b82615df2",
-     "title": "秋词",
-     "author": "刘禹锡",
      "findings": 2
-    },
-    {
-     "id": "5c26e1f997880d3b82615e92",
-     "title": "瑶池",
-     "author": "李商隐",
-     "findings": 1
-    },
-    {
-     "id": "5c26e1fa97880d3b82616090",
-     "title": "景阳井",
-     "author": "李商隐",
-     "findings": 1
-    },
-    {
-     "id": "5c26e1fa97880d3b826161d8",
-     "title": "乐游原",
-     "author": "李商隐",
-     "findings": 1
-    },
-    {
-     "id": "5c26e1fb97880d3b826162bc",
-     "title": "示儿",
-     "author": "陆游",
-     "findings": 1
     },
     {
      "id": "5c26e1fb97880d3b826162c4",
@@ -2225,34 +1541,22 @@
      "findings": 1
     },
     {
-     "id": "5c26e1fb97880d3b826162d0",
-     "title": "夜游宫·记梦寄师伯浑",
-     "author": "陆游",
-     "findings": 1
-    },
-    {
      "id": "5c26e20497880d3b826174da",
      "title": "临安春雨初霁",
      "author": "陆游",
-     "findings": 4
-    },
-    {
-     "id": "5c26e20797880d3b82617c38",
-     "title": "秋波媚·七月十六日晚登高兴亭望长安南山",
-     "author": "陆游",
-     "findings": 1
+     "findings": 2
     },
     {
      "id": "5c26e20b97880d3b826183da",
      "title": "诉衷情·当年万里觅封侯",
      "author": "陆游",
-     "findings": 2
+     "findings": 1
     },
     {
      "id": "5c26e20e97880d3b826189ba",
      "title": "书愤五首·其一",
      "author": "陆游",
-     "findings": 2
+     "findings": 1
     },
     {
      "id": "5c26e21097880d3b82618ed5",
@@ -2261,50 +1565,14 @@
      "findings": 2
     },
     {
-     "id": "5c26e21397880d3b82619348",
-     "title": "归园田居·其一",
-     "author": "陶渊明",
-     "findings": 2
-    },
-    {
-     "id": "5c26e21397880d3b8261934a",
-     "title": "杂诗",
-     "author": "陶渊明",
-     "findings": 1
-    },
-    {
-     "id": "5c26e21397880d3b8261934c",
-     "title": "读山海经·其十",
-     "author": "陶渊明",
-     "findings": 1
-    },
-    {
      "id": "5c26e21397880d3b82619450",
      "title": "万山潭作",
      "author": "孟浩然",
-     "findings": 2
-    },
-    {
-     "id": "5c26e21397880d3b826194a8",
-     "title": "虞美人·春花秋月何时了",
-     "author": "李煜",
-     "findings": 2
-    },
-    {
-     "id": "5c26e21397880d3b826194ac",
-     "title": "相见欢·林花谢了春红",
-     "author": "李煜",
      "findings": 1
     },
     {
      "id": "5c26e21397880d3b826194b0",
      "title": "临江仙·樱桃落尽春归去",
-     "author": "李煜",
-     "findings": 2
-    },
-    {
-     "id": "5c26e21397880d3b826194b2",
-     "title": "破阵子·四十年来家国",
      "author": "李煜",
      "findings": 1
     },
@@ -2318,19 +1586,7 @@
      "id": "5c26e21397880d3b826194de",
      "title": "浣溪沙·红日已高三丈透",
      "author": "李煜",
-     "findings": 4
-    },
-    {
-     "id": "5c26e21497880d3b8261954a",
-     "title": "织妇词",
-     "author": "元稹",
-     "findings": 1
-    },
-    {
-     "id": "5c26e21497880d3b826195f0",
-     "title": "遣悲怀三首·其二",
-     "author": "元稹",
-     "findings": 1
+     "findings": 2
     },
     {
      "id": "5c26e21497880d3b826196b8",
@@ -2342,7 +1598,7 @@
      "id": "5c26e21797880d3b82619b70",
      "title": "左迁至蓝关示侄孙湘",
      "author": "韩愈",
-     "findings": 2
+     "findings": 1
     },
     {
      "id": "5c26e21797880d3b82619b88",
@@ -2354,7 +1610,7 @@
      "id": "5c26e21797880d3b82619c6e",
      "title": "山石",
      "author": "韩愈",
-     "findings": 5
+     "findings": 1
     },
     {
      "id": "5c26e21897880d3b82619d6a",
@@ -2363,58 +1619,16 @@
      "findings": 1
     },
     {
-     "id": "5c26e21b97880d3b8261a3aa",
-     "title": "元日",
-     "author": "王安石",
-     "findings": 1
-    },
-    {
-     "id": "5c26e21c97880d3b8261a6c8",
-     "title": "浪淘沙·把酒祝东风",
-     "author": "欧阳修",
-     "findings": 1
-    },
-    {
-     "id": "5c26e21c97880d3b8261a6ca",
-     "title": "卖油翁",
-     "author": "欧阳修",
-     "findings": 1
-    },
-    {
-     "id": "5c26e22097880d3b8261af26",
-     "title": "奉和中书舍人贾至早朝大明宫",
-     "author": "岑参",
-     "findings": 1
-    },
-    {
      "id": "5c26e22397880d3b8261b600",
      "title": "利州南渡",
      "author": "温庭筠",
-     "findings": 2
-    },
-    {
-     "id": "5c26e22597880d3b8261b85e",
-     "title": "菩萨蛮·小山重叠金明灭",
-     "author": "温庭筠",
      "findings": 1
-    },
-    {
-     "id": "5c26e22697880d3b8261bbe6",
-     "title": "七步诗",
-     "author": "曹植",
-     "findings": 7
     },
     {
      "id": "5c26e22697880d3b8261bbe8",
      "title": "洛神赋",
      "author": "曹植",
-     "findings": 5
-    },
-    {
-     "id": "5c26e22697880d3b8261bbea",
-     "title": "七哀诗",
-     "author": "曹植",
-     "findings": 1
+     "findings": 3
     },
     {
      "id": "5c26e22697880d3b8261bbee",
@@ -2423,28 +1637,10 @@
      "findings": 1
     },
     {
-     "id": "5c26e22697880d3b8261bbfa",
-     "title": "怨歌行",
-     "author": "曹植",
-     "findings": 1
-    },
-    {
      "id": "5c26e22697880d3b8261bc00",
      "title": "名都篇",
      "author": "曹植",
-     "findings": 2
-    },
-    {
-     "id": "5c26e22697880d3b8261bc06",
-     "title": "门有万里客行",
-     "author": "曹植",
      "findings": 1
-    },
-    {
-     "id": "5c26e22797880d3b8261bd2e",
-     "title": "塞下曲·秋风夜渡河",
-     "author": "王昌龄",
-     "findings": 2
     },
     {
      "id": "5c26e22797880d3b8261bd32",
@@ -2459,52 +1655,28 @@
      "findings": 1
     },
     {
-     "id": "5c26e22897880d3b8261bf5a",
-     "title": "节妇吟·寄东平李司空师道",
-     "author": "张籍",
-     "findings": 1
-    },
-    {
-     "id": "5c26e22a97880d3b8261c3f2",
-     "title": "宿新市徐公店",
-     "author": "杨万里",
-     "findings": 1
-    },
-    {
      "id": "5c26e23097880d3b8261cef4",
      "title": "早秋三首·其一",
      "author": "许浑",
-     "findings": 2
-    },
-    {
-     "id": "5c26e23397880d3b8261d627",
-     "title": "白莲",
-     "author": "陆龟蒙",
-     "findings": 2
+     "findings": 1
     },
     {
      "id": "5c26e23497880d3b8261d7df",
      "title": "破阵子·春景",
      "author": "晏殊",
-     "findings": 4
+     "findings": 1
     },
     {
      "id": "5c26e23497880d3b8261d8cb",
      "title": "浣溪沙·一向年光有限身",
      "author": "晏殊",
-     "findings": 2
+     "findings": 1
     },
     {
      "id": "5c26e23597880d3b8261d9cf",
      "title": "山亭柳·赠歌者",
      "author": "晏殊",
-     "findings": 6
-    },
-    {
-     "id": "5c26e23597880d3b8261da3f",
-     "title": "题金陵渡",
-     "author": "张祜",
-     "findings": 1
+     "findings": 2
     },
     {
      "id": "5c26e23797880d3b8261dd33",
@@ -2516,31 +1688,25 @@
      "id": "5c26e23797880d3b8261dd37",
      "title": "满江红·写怀",
      "author": "岳飞",
-     "findings": 3
+     "findings": 1
     },
     {
      "id": "5c26e23797880d3b8261dd39",
      "title": "小重山·昨夜寒蛩不住鸣",
      "author": "岳飞",
-     "findings": 2
+     "findings": 1
     },
     {
      "id": "5c26e23797880d3b8261dd3b",
      "title": "满江红·登黄鹤楼有感",
      "author": "岳飞",
-     "findings": 2
+     "findings": 1
     },
     {
      "id": "5c26e23797880d3b8261dd5f",
      "title": "鹧鸪天·小令尊前见玉箫",
      "author": "晏几道",
      "findings": 1
-    },
-    {
-     "id": "5c26e23797880d3b8261df15",
-     "title": "苏幕遮·燎沉香",
-     "author": "周邦彦",
-     "findings": 3
     },
     {
      "id": "5c26e23897880d3b8261df51",
@@ -2555,33 +1721,9 @@
      "findings": 1
     },
     {
-     "id": "5c26e23897880d3b8261e0b5",
-     "title": "望海潮·洛阳怀古",
-     "author": "秦观",
-     "findings": 1
-    },
-    {
      "id": "5c26e23997880d3b8261e1c3",
      "title": "千秋岁·水边沙外",
      "author": "秦观",
-     "findings": 1
-    },
-    {
-     "id": "5c26e23997880d3b8261e299",
-     "title": "纳凉",
-     "author": "秦观",
-     "findings": 1
-    },
-    {
-     "id": "5c26e23a97880d3b8261e391",
-     "title": "鹊桥仙·纤云弄巧",
-     "author": "秦观",
-     "findings": 1
-    },
-    {
-     "id": "5c26e23a97880d3b8261e490",
-     "title": "观书有感二首·其一",
-     "author": "朱熹",
      "findings": 1
     },
     {
@@ -2597,39 +1739,9 @@
      "findings": 1
     },
     {
-     "id": "5c26e24597880d3b8261fadf",
-     "title": "青玉案·凌波不过横塘路",
-     "author": "贺铸",
-     "findings": 1
-    },
-    {
      "id": "5c26e24897880d3b8261ff93",
      "title": "白头吟",
      "author": "卓文君",
-     "findings": 1
-    },
-    {
-     "id": "5c26e24b97880d3b8262057b",
-     "title": "兰陵王·丙子送春",
-     "author": "刘辰翁",
-     "findings": 1
-    },
-    {
-     "id": "5c26e24c97880d3b826208ba",
-     "title": "潍县署中画竹呈年伯包大丞括",
-     "author": "郑燮",
-     "findings": 2
-    },
-    {
-     "id": "5c26e24e97880d3b82620c80",
-     "title": "好事近·摇首出红尘",
-     "author": "朱敦儒",
-     "findings": 1
-    },
-    {
-     "id": "5c26e24e97880d3b82620cd6",
-     "title": "鹧鸪天·西都作",
-     "author": "朱敦儒",
      "findings": 1
     },
     {
@@ -2645,22 +1757,10 @@
      "findings": 1
     },
     {
-     "id": "5c26e25197880d3b826211f3",
-     "title": "贺新郎·送陈真州子华",
-     "author": "刘克庄",
-     "findings": 1
-    },
-    {
-     "id": "5c26e25897880d3b82622226",
-     "title": "水调歌头·和庞佑父",
-     "author": "张孝祥",
-     "findings": 3
-    },
-    {
      "id": "5c26e25997880d3b82622342",
      "title": "三峡",
      "author": "郦道元",
-     "findings": 5
+     "findings": 2
     },
     {
      "id": "5c26e25f97880d3b82622f35",
@@ -2669,28 +1769,10 @@
      "findings": 1
     },
     {
-     "id": "5c26e26197880d3b826233fd",
-     "title": "石灰吟",
-     "author": "于谦",
-     "findings": 1
-    },
-    {
-     "id": "5c26e26897880d3b826241d0",
-     "title": "千秋岁·数声鶗鴂",
-     "author": "张先",
-     "findings": 1
-    },
-    {
      "id": "5c26e26897880d3b826241d4",
      "title": "系裙腰·般涉调",
      "author": "张先",
      "findings": 2
-    },
-    {
-     "id": "5c26e26997880d3b82624342",
-     "title": "春江花月夜",
-     "author": "张若虚",
-     "findings": 1
     },
     {
      "id": "5c26e26a97880d3b826245da",
@@ -2702,84 +1784,24 @@
      "id": "5c26e26b97880d3b8262477b",
      "title": "垓下歌",
      "author": "项羽",
-     "findings": 3
-    },
-    {
-     "id": "5c26e26c97880d3b82624af8",
-     "title": "惜分飞·泪湿阑干花著露",
-     "author": "毛滂",
-     "findings": 1
-    },
-    {
-     "id": "5c26e27097880d3b82625333",
-     "title": "贺新郎·寄李伯纪丞相",
-     "author": "张元干",
-     "findings": 1
-    },
-    {
-     "id": "5c26e27197880d3b826253f3",
-     "title": "贺新郎·送胡邦衡待制赴新州",
-     "author": "张元干",
      "findings": 1
     },
     {
      "id": "5c26e27297880d3b8262560d",
      "title": "夜书所见",
      "author": "叶绍翁",
-     "findings": 3
-    },
-    {
-     "id": "5c26e2f997880d3b8262594d",
-     "title": "秦楼月·芳菲歇",
-     "author": "向子諲",
-     "findings": 1
+     "findings": 2
     },
     {
      "id": "5c26e2fc97880d3b82625e0f",
      "title": "春词二首",
      "author": "常建",
-     "findings": 2
-    },
-    {
-     "id": "5c26e2fc97880d3b82625e8d",
-     "title": "鹊踏枝·几日行云何处去",
-     "author": "冯延巳",
-     "findings": 2
-    },
-    {
-     "id": "5c26e2fd97880d3b82625f8d",
-     "title": "曲池荷",
-     "author": "卢照邻",
-     "findings": 1
-    },
-    {
-     "id": "5c26e2fd97880d3b82625f91",
-     "title": "梅花落",
-     "author": "卢照邻",
-     "findings": 1
-    },
-    {
-     "id": "5c26e2fd97880d3b82625f93",
-     "title": "送二兄入蜀",
-     "author": "卢照邻",
      "findings": 1
     },
     {
      "id": "5c26e2fd97880d3b82625f95",
      "title": "战城南",
      "author": "卢照邻",
-     "findings": 1
-    },
-    {
-     "id": "5c26e30097880d3b82626507",
-     "title": "战城南",
-     "author": "吴均",
-     "findings": 1
-    },
-    {
-     "id": "5c26e30a97880d3b82627796",
-     "title": "西江月·堂上谋臣尊俎",
-     "author": "刘过",
      "findings": 1
     },
     {
@@ -2792,19 +1814,13 @@
      "id": "5c26e30b97880d3b82627972",
      "title": "晚登三山还望京邑",
      "author": "谢朓",
-     "findings": 4
-    },
-    {
-     "id": "5c26e30b97880d3b82627b09",
-     "title": "宴清都·初春",
-     "author": "卢祖皋",
      "findings": 1
     },
     {
      "id": "5c26e30d97880d3b82627ec8",
      "title": "代出自蓟北门行",
      "author": "鲍照",
-     "findings": 3
+     "findings": 1
     },
     {
      "id": "5c26e30e97880d3b82627f68",
@@ -2813,39 +1829,9 @@
      "findings": 1
     },
     {
-     "id": "5c26e30e97880d3b82627f92",
-     "title": "赠秀才入军·其十四",
-     "author": "嵇康",
-     "findings": 1
-    },
-    {
-     "id": "5c26e31097880d3b82628474",
-     "title": "清平乐·宫怨",
-     "author": "黄升",
-     "findings": 1
-    },
-    {
      "id": "5c26e31197880d3b82628624",
      "title": "核舟记",
      "author": "魏学洢",
-     "findings": 6
-    },
-    {
-     "id": "5c26e31197880d3b82628626",
-     "title": "和晋陵陆丞早春游望",
-     "author": "杜审言",
-     "findings": 1
-    },
-    {
-     "id": "5c26e31397880d3b826289a8",
-     "title": "代悲白头翁",
-     "author": "刘希夷",
-     "findings": 1
-    },
-    {
-     "id": "5c26e31a97880d3b82629634",
-     "title": "村行",
-     "author": "王禹偁",
      "findings": 1
     },
     {
@@ -2855,57 +1841,21 @@
      "findings": 1
     },
     {
-     "id": "5c26e31c97880d3b82629a84",
-     "title": "菩萨蛮·暄风迟日春光闹",
-     "author": "谢逸",
-     "findings": 1
-    },
-    {
      "id": "5c26e31d97880d3b82629b6c",
      "title": "六么令·次韵和贺方回金陵怀古鄱阳席上作",
      "author": "李纲",
-     "findings": 4
-    },
-    {
-     "id": "5c26e31d97880d3b82629c38",
-     "title": "秋风辞",
-     "author": "刘彻",
-     "findings": 1
+     "findings": 2
     },
     {
      "id": "5c26e31d97880d3b82629c3a",
      "title": "天地",
      "author": "刘彻",
-     "findings": 5
+     "findings": 1
     },
     {
      "id": "5c26e31d97880d3b82629c42",
      "title": "天马二首·其二",
      "author": "刘彻",
-     "findings": 1
-    },
-    {
-     "id": "5c26e31d97880d3b82629c44",
-     "title": "华晔晔",
-     "author": "刘彻",
-     "findings": 1
-    },
-    {
-     "id": "5c26e31e97880d3b82629de4",
-     "title": "李延年歌",
-     "author": "李延年",
-     "findings": 1
-    },
-    {
-     "id": "5c26e32097880d3b8262a291",
-     "title": "短歌行",
-     "author": "陆机",
-     "findings": 1
-    },
-    {
-     "id": "5c26e32097880d3b8262a293",
-     "title": "猛虎行",
-     "author": "陆机",
      "findings": 1
     },
     {
@@ -2919,12 +1869,6 @@
      "title": "狱中题壁",
      "author": "谭嗣同",
      "findings": 2
-    },
-    {
-     "id": "5c26e32597880d3b8262aa99",
-     "title": "咏史·郁郁涧底松",
-     "author": "左思",
-     "findings": 1
     },
     {
      "id": "5c26e32597880d3b8262abf4",
@@ -2963,12 +1907,6 @@
      "findings": 1
     },
     {
-     "id": "5c26e33297880d3b8262c21b",
-     "title": "落花",
-     "author": "宋祁",
-     "findings": 1
-    },
-    {
      "id": "5c26e33497880d3b8262c6f0",
      "title": "玉楼春·春景",
      "author": "宋祁",
@@ -2990,7 +1928,7 @@
      "id": "5c26e33a97880d3b8262d24b",
      "title": "明日歌",
      "author": "钱福",
-     "findings": 7
+     "findings": 1
     },
     {
      "id": "5c26e33b97880d3b8262d425",
@@ -3005,57 +1943,21 @@
      "findings": 1
     },
     {
-     "id": "5c26e33d97880d3b8262d839",
-     "title": "采莲子·菡萏香莲十顷陂",
-     "author": "皇甫松",
-     "findings": 1
-    },
-    {
-     "id": "5c26e33e97880d3b8262d9cb",
-     "title": "白石郎曲",
-     "author": "郭茂倩",
-     "findings": 1
-    },
-    {
      "id": "5c26e34297880d3b8262e061",
      "title": "人日思归",
      "author": "薛道衡",
      "findings": 1
     },
     {
-     "id": "5c26e34297880d3b8262e063",
-     "title": "昔昔盐",
-     "author": "薛道衡",
-     "findings": 1
-    },
-    {
-     "id": "5c26e34497880d3b8262e4cc",
-     "title": "从军行",
-     "author": "卢思道",
-     "findings": 3
-    },
-    {
-     "id": "5c26e34a97880d3b8262ef85",
-     "title": "洞仙歌·雪云散尽",
-     "author": "李元膺",
-     "findings": 1
-    },
-    {
      "id": "5c26e34a97880d3b8262efe3",
      "title": "豫章行苦相篇",
      "author": "傅玄",
-     "findings": 2
+     "findings": 1
     },
     {
      "id": "5c26e34a97880d3b8262f041",
      "title": "赠范晔诗",
      "author": "陆凯",
-     "findings": 1
-    },
-    {
-     "id": "5c26e34c97880d3b8262f31b",
-     "title": "清平乐·春晚",
-     "author": "王安国",
      "findings": 1
     },
     {
@@ -3069,30 +1971,6 @@
      "title": "轻薄篇",
      "author": "张华",
      "findings": 3
-    },
-    {
-     "id": "5c26e35297880d3b8262ff1c",
-     "title": "舂歌",
-     "author": "戚夫人",
-     "findings": 1
-    },
-    {
-     "id": "5c26e35297880d3b8262ff2c",
-     "title": "山行·布谷飞飞劝早耕",
-     "author": "姚鼐",
-     "findings": 1
-    },
-    {
-     "id": "5c26e35597880d3b82630580",
-     "title": "柯敬仲墨竹",
-     "author": "李东阳",
-     "findings": 1
-    },
-    {
-     "id": "5c26e36a97880d3b82632c2f",
-     "title": "绝句",
-     "author": "王庭筠",
-     "findings": 1
     },
     {
      "id": "5c26e36f97880d3b826335d9",
@@ -3119,18 +1997,6 @@
      "findings": 1
     },
     {
-     "id": "5c26e37497880d3b82633f4b",
-     "title": "董娇饶",
-     "author": "宋子侯",
-     "findings": 1
-    },
-    {
-     "id": "5c26e37b97880d3b82634c0b",
-     "title": "博浪沙",
-     "author": "陈孚",
-     "findings": 1
-    },
-    {
      "id": "5c26e37f97880d3b826352d0",
      "title": "闻鹧鸪",
      "author": "尤侗",
@@ -3143,45 +2009,15 @@
      "findings": 3
     },
     {
-     "id": "5c26e38c97880d3b82636baf",
-     "title": "使至塞上",
-     "author": "王维",
-     "findings": 2
-    },
-    {
      "id": "5c26e39497880d3b82637a5c",
      "title": "室思",
      "author": "徐干",
-     "findings": 2
-    },
-    {
-     "id": "5c26e39797880d3b82638093",
-     "title": "饮马歌·边头春未到",
-     "author": "曹勋",
-     "findings": 2
+     "findings": 1
     },
     {
      "id": "5c26e39f97880d3b82639034",
      "title": "上京即事",
      "author": "萨都剌",
-     "findings": 1
-    },
-    {
-     "id": "5c26e3a797880d3b82639e25",
-     "title": "菩萨蛮·人人尽说江南好",
-     "author": "韦庄",
-     "findings": 1
-    },
-    {
-     "id": "5c26e3a897880d3b82639f65",
-     "title": "台城",
-     "author": "韦庄",
-     "findings": 1
-    },
-    {
-     "id": "5c26e3a897880d3b82639f91",
-     "title": "绥州作",
-     "author": "韦庄",
      "findings": 1
     },
     {
@@ -3194,36 +2030,12 @@
      "id": "5c26e3ad97880d3b8263a9e6",
      "title": "少年行四首",
      "author": "王维",
-     "findings": 4
-    },
-    {
-     "id": "5c26e3ae97880d3b8263aa1c",
-     "title": "伊州歌",
-     "author": "王维",
      "findings": 1
-    },
-    {
-     "id": "5c26e3ae97880d3b8263abb0",
-     "title": "春园即事",
-     "author": "王维",
-     "findings": 2
     },
     {
      "id": "5c26e3b597880d3b8263b7ff",
      "title": "从军行七首",
      "author": "王昌龄",
-     "findings": 2
-    },
-    {
-     "id": "5c26e3b597880d3b8263b815",
-     "title": "同从弟南斋玩月忆山阴崔少府",
-     "author": "王昌龄",
-     "findings": 1
-    },
-    {
-     "id": "5c26e3b897880d3b8263bd11",
-     "title": "玉树后庭花",
-     "author": "陈叔宝",
      "findings": 1
     },
     {
@@ -3235,12 +2047,6 @@
     {
      "id": "5c26e3b997880d3b8263bf4b",
      "title": "飞龙引二首·其二",
-     "author": "李白",
-     "findings": 1
-    },
-    {
-     "id": "5c26e3b997880d3b8263bfc7",
-     "title": "东海有勇妇",
      "author": "李白",
      "findings": 1
     },
@@ -3260,7 +2066,7 @@
      "id": "5c26e3b997880d3b8263c045",
      "title": "黄鹤楼送孟浩然之广陵",
      "author": "李白",
-     "findings": 2
+     "findings": 1
     },
     {
      "id": "5c26e3ba97880d3b8263c073",
@@ -3272,19 +2078,7 @@
      "id": "5c26e3ba97880d3b8263c0dd",
      "title": "上云乐",
      "author": "李白",
-     "findings": 13
-    },
-    {
-     "id": "5c26e3ba97880d3b8263c12d",
-     "title": "怨歌行",
-     "author": "李白",
-     "findings": 1
-    },
-    {
-     "id": "5c26e3ba97880d3b8263c189",
-     "title": "鞠歌行",
-     "author": "李白",
-     "findings": 2
+     "findings": 3
     },
     {
      "id": "5c26e3ba97880d3b8263c1ed",
@@ -3293,80 +2087,8 @@
      "findings": 2
     },
     {
-     "id": "5c26e3ba97880d3b8263c1f1",
-     "title": "白纻辞三首",
-     "author": "李白",
-     "findings": 1
-    },
-    {
-     "id": "5c26e3ba97880d3b8263c227",
-     "title": "侠客行",
-     "author": "李白",
-     "findings": 1
-    },
-    {
-     "id": "5c26e3ba97880d3b8263c22b",
-     "title": "君子有所思行",
-     "author": "李白",
-     "findings": 1
-    },
-    {
-     "id": "5c26e3ba97880d3b8263c22f",
-     "title": "春夜洛城闻笛",
-     "author": "李白",
-     "findings": 1
-    },
-    {
-     "id": "5c26e3bb97880d3b8263c293",
-     "title": "于阗采花",
-     "author": "李白",
-     "findings": 1
-    },
-    {
-     "id": "5c26e3bb97880d3b8263c344",
-     "title": "秦女卷衣",
-     "author": "李白",
-     "findings": 1
-    },
-    {
-     "id": "5c26e3bb97880d3b8263c35a",
-     "title": "飞龙引二首·其一",
-     "author": "李白",
-     "findings": 1
-    },
-    {
-     "id": "5c26e3bb97880d3b8263c37a",
-     "title": "上留田行",
-     "author": "李白",
-     "findings": 1
-    },
-    {
-     "id": "5c26e3bb97880d3b8263c416",
-     "title": "乌栖曲",
-     "author": "李白",
-     "findings": 1
-    },
-    {
-     "id": "5c26e3be97880d3b8263c86e",
-     "title": "一剪梅·舟过吴江",
-     "author": "蒋捷",
-     "findings": 1
-    },
-    {
-     "id": "5c26e3c097880d3b8263ccb0",
-     "title": "满江红·题南京夷山驿",
-     "author": "王清惠",
-     "findings": 1
-    },
-    {
      "id": "5c26e3c197880d3b8263ce3c",
      "title": "悲陈陶",
-     "author": "杜甫",
-     "findings": 1
-    },
-    {
-     "id": "5c26e3c197880d3b8263ce50",
-     "title": "缚鸡行",
      "author": "杜甫",
      "findings": 1
     },
@@ -3374,24 +2096,12 @@
      "id": "5c26e3c197880d3b8263ce6a",
      "title": "风疾舟中伏枕书怀三十六韵奉呈湖南亲友",
      "author": "杜甫",
-     "findings": 23
-    },
-    {
-     "id": "5c26e3c297880d3b8263cf6c",
-     "title": "野望",
-     "author": "杜甫",
-     "findings": 1
+     "findings": 6
     },
     {
      "id": "5c26e3c397880d3b8263d2d9",
      "title": "绝句",
      "author": "杜甫",
-     "findings": 2
-    },
-    {
-     "id": "5c26e3c497880d3b8263d4e7",
-     "title": "凤箫吟·锁离愁",
-     "author": "韩缜",
      "findings": 1
     },
     {
@@ -3407,18 +2117,6 @@
      "findings": 1
     },
     {
-     "id": "5c26e42397880d3b8263eecc",
-     "title": "自嘲",
-     "author": "鲁迅",
-     "findings": 1
-    },
-    {
-     "id": "5c26e42397880d3b8263efa8",
-     "title": "同声歌",
-     "author": "张衡",
-     "findings": 1
-    },
-    {
      "id": "5c26e42d97880d3b8264009b",
      "title": "渡辽水",
      "author": "王建",
@@ -3431,70 +2129,10 @@
      "findings": 1
     },
     {
-     "id": "5c26e42d97880d3b8264012b",
-     "title": "新嫁娘词",
-     "author": "王建",
-     "findings": 1
-    },
-    {
-     "id": "5c26e42d97880d3b8264012d",
-     "title": "宫中调笑·团扇",
-     "author": "王建",
-     "findings": 1
-    },
-    {
-     "id": "5c26e43597880d3b8264100b",
-     "title": "送陈章甫",
-     "author": "李颀",
-     "findings": 1
-    },
-    {
      "id": "5c26e43b97880d3b82641ba0",
      "title": "闻雁",
      "author": "韦应物",
      "findings": 2
-    },
-    {
-     "id": "5c26e43b97880d3b82641bb8",
-     "title": "送杨氏女",
-     "author": "韦应物",
-     "findings": 1
-    },
-    {
-     "id": "5c26e44597880d3b82642e50",
-     "title": "望海潮·东南形胜",
-     "author": "柳永",
-     "findings": 1
-    },
-    {
-     "id": "5c26e44597880d3b82642e70",
-     "title": "秋夜月·当初聚散",
-     "author": "柳永",
-     "findings": 1
-    },
-    {
-     "id": "5c26e44697880d3b8264307c",
-     "title": "春怀示邻里",
-     "author": "陈师道",
-     "findings": 1
-    },
-    {
-     "id": "5c26e44b97880d3b82643a49",
-     "title": "题临安邸",
-     "author": "林升",
-     "findings": 1
-    },
-    {
-     "id": "5c26e44d97880d3b82643d7d",
-     "title": "孤雁二首·其二",
-     "author": "崔涂",
-     "findings": 1
-    },
-    {
-     "id": "5c26e45097880d3b82644361",
-     "title": "赠别",
-     "author": "杜牧",
-     "findings": 1
     },
     {
      "id": "5c26e45597880d3b82644d0b",
@@ -3503,26 +2141,8 @@
      "findings": 2
     },
     {
-     "id": "5c26e45897880d3b8264526f",
-     "title": "念奴娇·赤壁怀古",
-     "author": "苏轼",
-     "findings": 1
-    },
-    {
      "id": "5c26e45897880d3b82645273",
      "title": "江城子·密州出猎",
-     "author": "苏轼",
-     "findings": 3
-    },
-    {
-     "id": "5c26e45897880d3b82645279",
-     "title": "望江南·超然台作",
-     "author": "苏轼",
-     "findings": 1
-    },
-    {
-     "id": "5c26e45897880d3b8264527d",
-     "title": "临江仙·夜饮东坡醒复醉",
      "author": "苏轼",
      "findings": 1
     },
@@ -3530,7 +2150,7 @@
      "id": "5c26e45897880d3b8264528b",
      "title": "西江月·顷在黄州",
      "author": "苏轼",
-     "findings": 3
+     "findings": 1
     },
     {
      "id": "5c26e45997880d3b826453ca",
@@ -3542,31 +2162,25 @@
      "id": "5c26e45997880d3b8264545a",
      "title": "江城子·乙卯正月二十日夜记梦",
      "author": "苏轼",
-     "findings": 9
-    },
-    {
-     "id": "5c26e45b97880d3b8264573e",
-     "title": "定风波·南海归赠王定国侍人寓娘",
-     "author": "苏轼",
-     "findings": 2
+     "findings": 7
     },
     {
      "id": "5c26e45b97880d3b82645754",
      "title": "赠刘景文",
      "author": "苏轼",
-     "findings": 2
+     "findings": 1
     },
     {
      "id": "5c26e45c97880d3b82645868",
      "title": "浣溪沙·簌簌衣巾落枣花",
      "author": "苏轼",
-     "findings": 2
+     "findings": 1
     },
     {
      "id": "5c26e45c97880d3b826459e8",
      "title": "卜算子·黄州定慧院寓居作",
      "author": "苏轼",
-     "findings": 6
+     "findings": 4
     },
     {
      "id": "5c26e45e97880d3b82645d42",
@@ -3578,7 +2192,7 @@
      "id": "5c26e45f97880d3b82645ee0",
      "title": "惠崇春江晚景二首",
      "author": "苏轼",
-     "findings": 2
+     "findings": 1
     },
     {
      "id": "5c26e46097880d3b82646171",
@@ -3587,87 +2201,27 @@
      "findings": 1
     },
     {
-     "id": "5c26e46a97880d3b82647321",
-     "title": "自叙",
-     "author": "杜荀鹤",
-     "findings": 2
-    },
-    {
-     "id": "5c26e46a97880d3b82647383",
-     "title": "溪兴",
-     "author": "杜荀鹤",
-     "findings": 2
-    },
-    {
      "id": "5c26e46b97880d3b8264757b",
      "title": "估客乐四首",
      "author": "释宝月",
-     "findings": 2
+     "findings": 1
     },
     {
      "id": "5c26e46b97880d3b826475f5",
      "title": "枯树赋",
      "author": "庾信",
-     "findings": 3
-    },
-    {
-     "id": "5c26e46d97880d3b826478b7",
-     "title": "廉颇蔺相如列传(节选)",
-     "author": "司马迁",
      "findings": 2
-    },
-    {
-     "id": "5c26e46f97880d3b82647d09",
-     "title": "马嵬",
-     "author": "袁枚",
-     "findings": 1
-    },
-    {
-     "id": "5c26e47f97880d3b82649bb9",
-     "title": "台山杂咏",
-     "author": "元好问",
-     "findings": 1
-    },
-    {
-     "id": "5c26e47f97880d3b82649bc5",
-     "title": "壬辰十二月车驾东狩后即事",
-     "author": "元好问",
-     "findings": 1
     },
     {
      "id": "5c26e48197880d3b82649eef",
      "title": "临江仙·身外闲愁空满",
      "author": "晏几道",
-     "findings": 6
+     "findings": 3
     },
     {
      "id": "5c26e48697880d3b8264a789",
      "title": "渡易水",
      "author": "陈子龙",
-     "findings": 2
-    },
-    {
-     "id": "5c26e48797880d3b8264a977",
-     "title": "湘春夜月·近清明",
-     "author": "黄孝迈",
-     "findings": 2
-    },
-    {
-     "id": "5c26e48997880d3b8264ae40",
-     "title": "狱中赠邹容",
-     "author": "章炳麟",
-     "findings": 3
-    },
-    {
-     "id": "5c26e48d97880d3b8264b5f5",
-     "title": "乡人至夜话",
-     "author": "李昌祺",
-     "findings": 1
-    },
-    {
-     "id": "5c26e49297880d3b8264bdc6",
-     "title": "晚出新亭",
-     "author": "阴铿",
      "findings": 1
     },
     {
@@ -3680,12 +2234,6 @@
      "id": "5c26e49e97880d3b8264d414",
      "title": "醉落魄·咏鹰",
      "author": "陈维崧",
-     "findings": 2
-    },
-    {
-     "id": "5c26e49f97880d3b8264d660",
-     "title": "鲁山山行",
-     "author": "梅尧臣",
      "findings": 1
     },
     {
@@ -3698,7 +2246,7 @@
      "id": "5c26e4ac97880d3b8264ee91",
      "title": "上林赋",
      "author": "司马相如",
-     "findings": 6
+     "findings": 1
     },
     {
      "id": "5c26e4b097880d3b8264f6ba",
@@ -3719,18 +2267,6 @@
      "findings": 1
     },
     {
-     "id": "5c26e4b697880d3b8265014b",
-     "title": "水调歌头·游览",
-     "author": "黄庭坚",
-     "findings": 1
-    },
-    {
-     "id": "5c26e4bc97880d3b82650c89",
-     "title": "将进酒",
-     "author": "李贺",
-     "findings": 4
-    },
-    {
      "id": "5c26e4bc97880d3b82650c9b",
      "title": "野歌",
      "author": "李贺",
@@ -3740,7 +2276,7 @@
      "id": "5c26e4bc97880d3b82650dc7",
      "title": "塞下曲",
      "author": "李贺",
-     "findings": 2
+     "findings": 1
     },
     {
      "id": "5c26e4bf97880d3b826512a5",
@@ -3749,93 +2285,27 @@
      "findings": 1
     },
     {
-     "id": "5c26e4c197880d3b82651635",
-     "title": "疏影·苔枝缀玉",
-     "author": "姜夔",
-     "findings": 1
-    },
-    {
-     "id": "5c26e4c197880d3b82651637",
-     "title": "念奴娇·闹红一舸",
-     "author": "姜夔",
-     "findings": 1
-    },
-    {
      "id": "5c26e4cc97880d3b82652b0d",
      "title": "重赠卢谌",
      "author": "刘琨",
-     "findings": 4
+     "findings": 1
     },
     {
      "id": "5c26e4d397880d3b8265372f",
      "title": "离骚",
      "author": "屈原",
-     "findings": 31
-    },
-    {
-     "id": "5c26e4d397880d3b82653731",
-     "title": "九歌·国殇",
-     "author": "屈原",
-     "findings": 1
+     "findings": 11
     },
     {
      "id": "5c26e4d397880d3b8265373f",
      "title": "远游",
      "author": "屈原",
-     "findings": 6
-    },
-    {
-     "id": "5c26e4d497880d3b826538bf",
-     "title": "三台·清明应制",
-     "author": "万俟咏",
-     "findings": 1
-    },
-    {
-     "id": "5c26e4d897880d3b82654170",
-     "title": "萤火",
-     "author": "赵执信",
-     "findings": 1
-    },
-    {
-     "id": "5c26e4db97880d3b82654620",
-     "title": "赋得自君之出矣",
-     "author": "张九龄",
-     "findings": 1
-    },
-    {
-     "id": "5c26e4dc97880d3b82654820",
-     "title": "如梦令·常记溪亭日暮",
-     "author": "李清照",
-     "findings": 1
-    },
-    {
-     "id": "5c26e4dc97880d3b82654822",
-     "title": "夏日绝句",
-     "author": "李清照",
-     "findings": 1
-    },
-    {
-     "id": "5c26e4dc97880d3b82654826",
-     "title": "渔家傲·天接云涛连晓雾",
-     "author": "李清照",
-     "findings": 2
-    },
-    {
-     "id": "5c26e4dc97880d3b8265483c",
-     "title": "凤凰台上忆吹箫·香冷金猊",
-     "author": "李清照",
-     "findings": 2
+     "findings": 4
     },
     {
      "id": "5c26e4dc97880d3b82654840",
      "title": "南歌子·天上星河转",
      "author": "李清照",
-     "findings": 3
-    },
-    {
-     "id": "5c26e4e397880d3b8265552a",
-     "title": "岁暮归南山",
-     "author": "孟浩然",
      "findings": 1
     },
     {
@@ -3848,30 +2318,12 @@
      "id": "5c26e54997880d3b8265770d",
      "title": "沁园春·答九华叶贤良",
      "author": "刘克庄",
-     "findings": 2
+     "findings": 1
     },
     {
      "id": "5c26e55597880d3b82658f91",
      "title": "秣陵怀古",
      "author": "纳兰性德",
-     "findings": 1
-    },
-    {
-     "id": "5c26e55897880d3b8265949b",
-     "title": "小池",
-     "author": "杨万里",
-     "findings": 1
-    },
-    {
-     "id": "5c26e55c97880d3b82659c0d",
-     "title": "昭君怨·赋松上鸥",
-     "author": "杨万里",
-     "findings": 1
-    },
-    {
-     "id": "5c26e56497880d3b8265ad75",
-     "title": "燕歌行二首·其二",
-     "author": "曹丕",
      "findings": 1
     },
     {
@@ -3881,40 +2333,10 @@
      "findings": 2
     },
     {
-     "id": "5c26e57397880d3b8265ca8c",
-     "title": "二砺",
-     "author": "郑思肖",
-     "findings": 1
-    },
-    {
-     "id": "5c26e57497880d3b8265cb92",
-     "title": "六州歌头·长淮望断",
-     "author": "张孝祥",
-     "findings": 1
-    },
-    {
-     "id": "5c26e57597880d3b8265ceda",
-     "title": "扬州慢·淮左名都",
-     "author": "姜夔",
-     "findings": 1
-    },
-    {
-     "id": "5c26e57597880d3b8265cee2",
-     "title": "长亭怨慢·渐吹尽",
-     "author": "姜夔",
-     "findings": 1
-    },
-    {
      "id": "5c26e57597880d3b8265ceec",
      "title": "除放自石湖归苕溪",
      "author": "姜夔",
-     "findings": 4
-    },
-    {
-     "id": "5c26e57697880d3b8265cfd4",
-     "title": "踏莎行·自沔东来丁未元日至金陵江上感梦而作",
-     "author": "姜夔",
-     "findings": 1
+     "findings": 3
     },
     {
      "id": "5c26e57797880d3b8265d2ea",
@@ -3947,41 +2369,17 @@
      "findings": 1
     },
     {
-     "id": "5c26e58197880d3b8265e62c",
-     "title": "水调歌头·送章德茂大卿使虏",
-     "author": "陈亮",
-     "findings": 1
-    },
-    {
-     "id": "5c26e58597880d3b8265ee38",
-     "title": "蜀道难·其一",
-     "author": "萧纲",
-     "findings": 1
-    },
-    {
      "id": "5c26e58697880d3b8265f041",
      "title": "山坡羊·骊山怀古",
      "author": "张养浩",
-     "findings": 1
-    },
-    {
-     "id": "5c26e58797880d3b8265f174",
-     "title": "从军行",
-     "author": "杨炯",
-     "findings": 1
-    },
-    {
-     "id": "5c26e58f97880d3b826601c2",
-     "title": "悯农二首",
-     "author": "李绅",
      "findings": 1
     }
    ]
   }
  ],
  "rebuild_comparison": {
-  "current_data_version": "3.ede16c8c891686a8",
-  "staged_data_version": "3.ede16c8c891686a8",
+  "current_data_version": "3.e690c105f20c62ab",
+  "staged_data_version": "3.e690c105f20c62ab",
   "manifest_identical": true,
   "changed_files": []
  }
