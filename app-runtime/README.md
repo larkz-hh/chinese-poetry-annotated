@@ -1,5 +1,7 @@
 # App 用 SQLite 数据包
 
+[返回项目首页](../README.md) · [App 接入指南](../docs/integration.md) · [构建与维护](../docs/maintenance.md)
+
 本目录是单独生成的 App 数据包，完整维护库仍在 `app-data/`。当前数据库约 **18.7 MiB**，相比完整库约 **38.2 MiB** 减少 **51.1%**。gzip 实测约 **7.5 MiB**，这是传输压缩尺寸，解压后仍占 18.7 MiB。
 
 没有删减作品、译注、作者长文、异文、来源或完整版已有的审核资料。常用内容以普通 SQLite 表、视图提供；重复文本集中存放，完整记录通过文本引用和 zlib 压缩保存。构建时逐条还原并与完整版比较，不用内容截断换取体积。
@@ -46,8 +48,11 @@ SELECT ordinal,kind,body FROM author_desc WHERE author_id=? ORDER BY ordinal;
 SELECT field,body FROM review_cautions WHERE poem_id=? ORDER BY finding_index;
 
 -- 分类组合查询
-SELECT p.id,p.title FROM poems p WHERE p.dynasty=?
-AND EXISTS(SELECT 1 FROM themes t WHERE t.poem_id=p.id AND t.theme=?);
+SELECT p.id,p.title,p.author FROM poems p
+WHERE p.dynasty=?
+  AND EXISTS(SELECT 1 FROM themes t WHERE t.poem_id=p.id AND t.theme=?)
+  AND EXISTS(SELECT 1 FROM levels l WHERE l.poem_id=p.id AND l.level=?)
+ORDER BY p.id LIMIT ? OFFSET ?;
 ```
 
 `passages` 的段落序号保留原数组顺序，但不表示译注与正文逐行对应。使用 `annotation_info.alignment_mode`，当前按整篇展示。`poem_sources`、`poem_source_ids`、`poem_aliases` 分别保留作品的全部来源 URL、来源 ID 和别名；`poem_terms` 保留原始标签以及题材、选集、学段的分类与顺序。
@@ -97,4 +102,4 @@ python -X utf8 scripts/export_app_runtime.py
 python -X utf8 -m unittest discover -s scripts -p "test_*.py" -v
 ```
 
-导出器先校验完整包的文件哈希，在临时目录创建运行包，逐项比对所有记录与段落，再替换此目录内的数据库。输出禁止位于源包内部，也不覆盖无运行包标识的数据库。复生成结果可重现，检查结果见 `reports/app-runtime-audit.json`。
+导出器先校验完整包的文件哈希，在临时目录创建运行包，逐项比对所有记录与段落，再替换此目录内的数据库。输出禁止位于源包内部，也不覆盖无运行包标识的数据库。复生成结果可重现，检查结果见 [运行包验收报告](../reports/app-runtime-audit.md)，完整重建流程见 [构建与维护](../docs/maintenance.md)。
