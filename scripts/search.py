@@ -5,6 +5,7 @@ import sqlite3
 from pathlib import Path
 
 from data_utils import ROOT, match_query
+from runtime_db import APPLICATION_ID
 
 
 def search(database, keyword, column=None, limit=20, offset=0):
@@ -16,9 +17,11 @@ def search(database, keyword, column=None, limit=20, offset=0):
     con = sqlite3.connect(Path(database).resolve().as_uri() + "?mode=ro", uri=True)
     con.row_factory = sqlite3.Row
     try:
-        return [dict(row) for row in con.execute("""
+        runtime = con.execute("PRAGMA application_id").fetchone()[0] == APPLICATION_ID
+        join = "p.rowid=poems_fts.rowid" if runtime else "p.id=poems_fts.pid"
+        return [dict(row) for row in con.execute(f"""
             SELECT p.id,p.title,p.author,p.dynasty,p.genre,p.complete
-            FROM poems_fts JOIN poems p ON p.id=poems_fts.pid
+            FROM poems_fts JOIN poems p ON {join}
             WHERE poems_fts MATCH ?
             ORDER BY bm25(poems_fts,0,10,5,1),p.id LIMIT ? OFFSET ?
             """, (query, limit, offset))]

@@ -4,3 +4,4 @@
 
 # Release checksums cover the exact artifact bytes, including their line endings.
 app-data/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+app-runtime/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
