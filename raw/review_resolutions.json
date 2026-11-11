@@ -35812,24 +35812,55 @@
   "5c26e1cc97880d3b826103d9": {
    "body_hash": "eeffb583ff53409f4f417a6738588a80cd03f4140499c806cc1571f039974750",
    "input_hash": "bbb67d0d9c6d9a82bff3fc4a77dfb36e5ab2d5ab1979a12feaac2733b48b65f1",
-   "output_hash": "bbb67d0d9c6d9a82bff3fc4a77dfb36e5ab2d5ab1979a12feaac2733b48b65f1",
+   "output_hash": "b49a7e2d80d3e1f991525d10f9a637e993f7c92220ae6db67d8578d457ef05ba",
    "context_before": {
     "title": "后庭花·清溪一叶舟",
     "author": "赵孟頫"
    },
-   "fields": {},
+   "fields": {
+    "appreciation": {
+     "before": [
+      "网页发生错误，请联系网站管理员：service@gushiwen.org"
+     ],
+     "after": [
+      "小令先以清溪、轻舟和两岸荷花铺开水乡秋景，再写采菱女的歌声惊起暮鸥，使画面由静转动。“乱云愁”以下转入风雨，结尾以戴荷叶归去的动作收束，人物活动与景物变化相互照应。秋色、暮鸥与风雨也使这幅日常图景带上淡淡愁意；若结合作者身世，可以体会其中的归隐意味，但不宜把这一解释当作唯一结论。"
+     ],
+     "format_only": false
+    }
+   },
    "reviewed_at": "2026-11-11",
    "model": "deepseek-v4-flash",
    "initial_findings": 1,
    "second_reviewed": true,
-   "edits": [],
+   "edits": [
+    {
+     "id": "5c26e1cc97880d3b826103d9",
+     "input_hash": "bbb67d0d9c6d9a82bff3fc4a77dfb36e5ab2d5ab1979a12feaac2733b48b65f1",
+     "finding_index": 0,
+     "field": "appreciation",
+     "index": 0,
+     "quote": "网页发生错误，请联系网站管理员：service@gushiwen.org",
+     "replacement": "小令先以清溪、轻舟和两岸荷花铺开水乡秋景，再写采菱女的歌声惊起暮鸥，使画面由静转动。“乱云愁”以下转入风雨，结尾以戴荷叶归去的动作收束，人物活动与景物变化相互照应。秋色、暮鸥与风雨也使这幅日常图景带上淡淡愁意；若结合作者身世，可以体会其中的归隐意味，但不宜把这一解释当作唯一结论。",
+     "reason": "原赏析为网站抓取错误提示，二审以不能补写为由驳回初审不当。依据当前正文撰写简要赏析，并参考有署名的公开赏析；保留原报错、旧输入哈希及二审原始记录。此为 Codex 编辑改写，不冒称恢复来源网站原赏析。",
+     "reviewer": "codex",
+     "reviewed_at": "2026-11-11",
+     "basis": "source_referenced_editorial_rewrite",
+     "evidence": [
+      "https://www.csclf.org/jdyq/202411/t20241104_31068.htm",
+      "https://www.gushiwen.cn/mingju/juv.aspx?id=f6478b646b2c"
+     ]
+    }
+   ],
    "pending_findings": [],
    "decisions": [
     {
      "finding_index": 0,
-     "action": "ai_rejected",
-     "reason": "该字段为赏析，初审指出其内容是网站错误提示而非赏析文本。这属于内容缺失/占位符问题，但按规则 field=content 的意见只可 reject 或 needs_source；此处 field 为 appreciation，虽非 content，但复核要求不修改原文，且此条并非错译、文字讹误或可据正文验证的缺漏，而是外部数据抓取失败。无法从正文直接验证应补何种赏析，补写会创造内容，故 reject。",
-     "model": "deepseek-v4-flash"
+     "action": "fixed",
+     "reason": "原赏析为网站抓取错误提示，二审以不能补写为由驳回初审不当。依据当前正文撰写简要赏析，并参考有署名的公开赏析；保留原报错、旧输入哈希及二审原始记录。此为 Codex 编辑改写，不冒称恢复来源网站原赏析。",
+     "evidence": [
+      "https://www.csclf.org/jdyq/202411/t20241104_31068.htm",
+      "https://www.gushiwen.cn/mingju/juv.aspx?id=f6478b646b2c"
+     ]
     }
    ]
   },

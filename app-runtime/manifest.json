@@ -2,8 +2,8 @@
  "profile": "app-runtime",
  "runtime_schema": 1,
  "application_id": 1347372372,
- "source_data_version": "3.d47b283f403f54da",
- "data_version": "runtime1.26b65136f6898b3a",
+ "source_data_version": "3.20d94cc6c4aa6255",
+ "data_version": "runtime1.1ebde61a2129a8d7",
  "read_only_corpus": true,
  "counts": {
   "poems": 1524,
@@ -17,10 +17,10 @@
  "files": {
   "poems.db": {
    "bytes": 19587072,
-   "sha256": "26b65136f6898b3ac4ff6f0178a73ce740dbfd5e721c139920ff18c978bce1b9"
+   "sha256": "1ebde61a2129a8d78e2f98cdfe3757e7e4ed0a3b5370fa219ff2dbed9dc0644c"
   }
  },
- "source_package_sha256": "b90f5c706a9ff1aed52afb3b8ec64362401a702c167feee55f5f56154b122e7d",
+ "source_package_sha256": "92c6f43f717e599074e0011f6aa515f867aa01e4ca5874e067ea06ca088f69c2",
  "preservation": "All poem/author fields and source evidence preserved; full metadata uses text references plus zlib compression",
  "archive": {
   "table": "record_archives",

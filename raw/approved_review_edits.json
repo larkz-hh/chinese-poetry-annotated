@@ -3575,6 +3575,23 @@
    "basis": "local_text_or_typographic_check",
    "review_round": "resume-20261111",
    "finding_index": 2
+  },
+  {
+   "id": "5c26e1cc97880d3b826103d9",
+   "input_hash": "bbb67d0d9c6d9a82bff3fc4a77dfb36e5ab2d5ab1979a12feaac2733b48b65f1",
+   "finding_index": 0,
+   "field": "appreciation",
+   "index": 0,
+   "quote": "网页发生错误，请联系网站管理员：service@gushiwen.org",
+   "replacement": "小令先以清溪、轻舟和两岸荷花铺开水乡秋景，再写采菱女的歌声惊起暮鸥，使画面由静转动。“乱云愁”以下转入风雨，结尾以戴荷叶归去的动作收束，人物活动与景物变化相互照应。秋色、暮鸥与风雨也使这幅日常图景带上淡淡愁意；若结合作者身世，可以体会其中的归隐意味，但不宜把这一解释当作唯一结论。",
+   "reason": "原赏析为网站抓取错误提示，二审以不能补写为由驳回初审不当。依据当前正文撰写简要赏析，并参考有署名的公开赏析；保留原报错、旧输入哈希及二审原始记录。此为 Codex 编辑改写，不冒称恢复来源网站原赏析。",
+   "reviewer": "codex",
+   "reviewed_at": "2026-11-11",
+   "basis": "source_referenced_editorial_rewrite",
+   "evidence": [
+    "https://www.csclf.org/jdyq/202411/t20241104_31068.htm",
+    "https://www.gushiwen.cn/mingju/juv.aspx?id=f6478b646b2c"
+   ]
   }
  ],
  "rejections": [
