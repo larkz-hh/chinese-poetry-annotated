@@ -1,0 +1,60 @@
+name: 数据纠错
+description: 反馈正文、译注、作者、分类或名句的问题。
+title: "[数据纠错] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        请提供具体记录与问题文字，便于核查。不同版本或解释可能并存，如有参考资料请注明出处；暂时无法给出完整改法也可以提交疑点。
+  - type: input
+    id: work
+    attributes:
+      label: 作品题名与作者
+      description: 如涉及作者资料，请填写作者姓名；涉及多篇作品可在问题说明中列出。
+      placeholder: 例如：《登鹳雀楼》 / 王之涣
+    validations:
+      required: true
+  - type: input
+    id: record-id
+    attributes:
+      label: 作品或作者 ID
+      description: 对应记录的 id；不知道时可以留空。
+  - type: input
+    id: data-version
+    attributes:
+      label: 数据包与版本
+      description: 请注明 app-runtime、app-data 或 raw；版本可在 manifest.json 的 data_version 中查看。
+  - type: dropdown
+    id: field
+    attributes:
+      label: 问题类型
+      multiple: true
+      options:
+        - 正文或版本
+        - 题名、作者或朝代
+        - 注释
+        - 译文
+        - 赏析
+        - 作者资料
+        - 名句与代表句
+        - 文体、题材或选集
+        - 其他数据问题
+    validations:
+      required: true
+  - type: textarea
+    id: current-content
+    attributes:
+      label: 当前内容与问题说明
+      description: 引用问题文字，说明字段、位置以及疑点；格式问题也可附截图。
+    validations:
+      required: true
+  - type: textarea
+    id: suggested-change
+    attributes:
+      label: 建议修改
+      description: 如有明确改法，请给出建议及理由；尚不确定时可以留空。
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 参考依据
+      description: 请尽量提供古籍或出版物的书名、版本、卷次、页码，或可访问的来源链接；暂无出处时可说明核查线索。

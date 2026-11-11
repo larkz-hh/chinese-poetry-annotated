@@ -1,0 +1,41 @@
+name: 改进建议
+description: 建议新增数据、字段、分发格式、接入示例或维护能力。
+title: "[改进建议] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        请说明实际使用场景和希望解决的问题。涉及新增作品或数据来源时，可一并提供收录范围与参考链接。
+  - type: dropdown
+    id: area
+    attributes:
+      label: 建议方向
+      options:
+        - 数据收录或内容补充
+        - 字段与数据结构
+        - 数据包与分发方式
+        - App 接入与示例
+        - 构建与维护工具
+        - 文档改进
+        - 其他
+    validations:
+      required: true
+  - type: textarea
+    id: use-case
+    attributes:
+      label: 使用场景与现有问题
+      description: 谁会使用这项能力？目前的接入方式或数据有什么不足？
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: 建议方案
+      description: 描述希望增加或调整的内容，以及预期效果；可以附示例。
+    validations:
+      required: true
+  - type: textarea
+    id: references
+    attributes:
+      label: 参考资料或替代方案
+      description: 可提供相关项目、数据来源、已有解决办法或兼容性考虑。

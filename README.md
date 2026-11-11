@@ -53,6 +53,10 @@ App 通常只需携带运行包及其 [manifest.json](app-runtime/manifest.json)
 
 验收结果：[完整包审计](reports/app-data-audit.md) · [运行包验收](reports/app-runtime-audit.md)。
 
+## 反馈与贡献
+
+欢迎提交 [数据纠错](https://github.com/larkz-hh/chinese-poetry-annotated/issues/new?template=01-data-correction.yml)、[接入问题](https://github.com/larkz-hh/chinese-poetry-annotated/issues/new?template=02-bug-report.yml) 和 [改进建议](https://github.com/larkz-hh/chinese-poetry-annotated/issues/new?template=03-feature-request.yml)，也欢迎通过 Pull Request 改进数据、工具与文档。纠错时请尽量提供作品、问题文字和出处，具体流程见 [贡献指南](CONTRIBUTING.md)。
+
 ## 许可证
 
 本项目有权授权的原创代码与原创文档采用 [MIT 许可证](LICENSE)，版权署名为 `larkz-hh`。数据包中的第三方内容按各自来源与授权条件使用，范围见 [数据来源与授权说明](docs/data-license.md)。
@@ -60,6 +64,7 @@ App 通常只需携带运行包及其 [manifest.json](app-runtime/manifest.json)
 ## 仓库目录
 
 ```text
+.github/     Issue 表单与 PR 模板
 app-runtime/  App 运行数据库与清单
 app-data/     完整维护数据库与 JSON 文件
 docs/         接入、数据结构与维护文档

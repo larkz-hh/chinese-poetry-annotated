@@ -1,0 +1,47 @@
+name: 接入与工具问题
+description: 反馈数据库读取、搜索、构建或导出中的异常。
+title: "[问题反馈] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        本模板用于数据接入和仓库工具问题。诗文内容有误时，请使用“数据纠错”模板。
+  - type: dropdown
+    id: component
+    attributes:
+      label: 涉及部分
+      multiple: true
+      options:
+        - App 运行库 app-runtime
+        - 完整维护包 app-data
+        - JSON 读取
+        - 搜索或筛选
+        - 数据构建、导出或校验
+        - 文档或示例
+        - 其他
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: 数据包版本或提交编号
+      description: 数据版本见 manifest.json 的 data_version；使用脚本时可提供 Git 提交编号。
+  - type: textarea
+    id: environment
+    attributes:
+      label: 使用环境
+      description: 填写相关环境，如操作系统、Android 版本、SQLite 驱动或 Python 版本；使用 Room 时请注明其版本。
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: 复现方式
+      description: 提供操作步骤、执行命令或最小 SQL 示例，以及必要的查询参数。
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: 预期结果与实际结果
+      description: 说明预期行为、实际现象及完整错误信息；可附截图或相关日志。
+    validations:
+      required: true

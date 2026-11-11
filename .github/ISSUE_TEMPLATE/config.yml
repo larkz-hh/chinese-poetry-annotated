@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 阅读贡献指南
+    url: https://github.com/larkz-hh/chinese-poetry-annotated/blob/main/CONTRIBUTING.md
+    about: 查看反馈入口、纠错依据、PR 提交流程与必要检查。
