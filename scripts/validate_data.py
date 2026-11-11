@@ -44,6 +44,9 @@ def validate(app, baseline=None):
             errors.append(dict(code="body_hash", records=[label(poem)]))
         if not poem["content"]:
             errors.append(dict(code="empty_content", records=[label(poem)]))
+        primary = [v for v in poem.get("editions", []) if v["is_primary"]]
+        if len(primary) != 1 or primary[0]["content"] != poem["content"]:
+            errors.append(dict(code="primary_edition", records=[label(poem)]))
         for key in ("content", *FIELDS):
             value = poem[key]
             if not isinstance(value, list) or any(not isinstance(s, str) for s in value):
@@ -69,16 +72,25 @@ def validate(app, baseline=None):
         review = poem.get("content_review")
         if review:
             pending = review["pending_findings"]
+            final = review.get("final_review")
+            status = "needs_source_check" if pending else "editorially_reviewed" if final else "ai_reviewed"
             indexes = [f["finding_index"] for f in pending] + [d["finding_index"] for d in review["decisions"]]
             if (review["output_hash"] != input_hash(poem)
                     or sorted(indexes) != list(range(review["initial_findings"]))
-                    or poem["review_status"] != ("needs_source_check" if pending else "ai_reviewed")
+                    or poem["review_status"] != status
                     or review.get("academic_review_complete") is not False):
                 review_errors.append(label(poem))
             for key in FIELDS:
-                expected = "needs_source_check" if any(f.get("field") == key for f in pending) else "ai_reviewed"
+                expected = "needs_source_check" if any(f.get("field") == key for f in pending) else status
                 if poem["field_sources"][key]["review_status"] != expected:
                     review_errors.append(label(poem, field=key))
+            if final and (final.get("status") != "completed"
+                    or final.get("findings") != sum(bool(d.get("final_review")) for d in review["decisions"])):
+                review_errors.append(label(poem, field="final_review"))
+            correction = review.get("body_correction")
+            if correction and (correction["after_hash"] != poem["body_hash"] or not correction["evidence"]
+                    or not any(body_hash(v["content"]) == correction["before_hash"] for v in poem["editions"])):
+                review_errors.append(label(poem, field="body_correction"))
     error("text_artifacts", dirty)
     error("annotation_is_original", same)
     error("unsafe_line_alignment", alignment)
@@ -102,6 +114,13 @@ def validate(app, baseline=None):
             for p in poems if p.get("content_review", {}).get("pending_findings")]
         if review_todo != expected_review_todo:
             errors.append(dict(code="content_review_todo_mismatch"))
+        caution_path = app / "review_cautions.jsonl"
+        if caution_path.exists():
+            cautions = [json.loads(s) for s in caution_path.read_text(encoding="utf-8").splitlines() if s]
+            expected_cautions = [dict(id=p["id"], title=p["title"], author=p["author"], **c)
+                for p in poems for c in p.get("content_review", {}).get("final_review", {}).get("cautions", [])]
+            if cautions != expected_cautions:
+                errors.append(dict(code="review_cautions_mismatch"))
     categories = load(app / "categories.json")
     for kind, field in (("题材", "themes"), ("选集", "collections"), ("学段", "levels")):
         counts = collections.Counter(t for p in poems for t in p[field])

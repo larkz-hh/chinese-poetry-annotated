@@ -11,6 +11,7 @@ from pathlib import Path
 
 from data_utils import ROOT, FIELDS, dump, load
 from review_application import input_hash, fragmented_array, reviewed_input
+from final_review import final_inputs, replay_final
 
 
 def successful_records(path):
@@ -24,7 +25,7 @@ def successful_records(path):
     return result
 
 
-def prepare(poems, reviews, triages, approvals, catalog, previous):
+def prepare(poems, reviews, triages, approvals, catalog, previous, final=None):
     output = {}
     for current in poems:
         pid = current["id"]
@@ -79,6 +80,10 @@ def prepare(poems, reviews, triages, approvals, catalog, previous):
         cat = catalog.get("works", {}).get(pid, {})
         if cat.get("title"):
             after["title"] = cat["title"]
+        final_rows = (final or {}).get(pid, [])
+        final_decisions, final_edits, cautions, body_change, context_after = replay_final(after, review, final_rows) if final_rows else ({}, [], [], None, {})
+        decisions.update(final_decisions)
+        edits.extend(final_edits)
         pending = []
         for i, finding in enumerate(review["findings"]):
             if i in decisions:
@@ -111,6 +116,15 @@ def prepare(poems, reviews, triages, approvals, catalog, previous):
             reviewed_at=approvals["reviewed_at"], model=review["model"],
             initial_findings=len(review["findings"]), second_reviewed=bool(triage), edits=edits,
             pending_findings=pending, decisions=[dict(finding_index=i, **d) for i, d in sorted(decisions.items())])
+        if final_rows:
+            output[pid]["final_review"] = dict(status="completed", scope="flagged_passages_after_second_review",
+                reviewer="codex", reviewed_at="2026-11-11", findings=len(final_rows), cautions=cautions)
+        if body_change:
+            output[pid]["body_change"] = body_change
+        if context_after:
+            output[pid]["context_after"] = context_after
+    if final and set(final) - set(output):
+        raise ValueError("Final decisions refer to missing works")
     return output
 
 
@@ -121,7 +135,9 @@ def main():
     path = ROOT / "raw/review_resolutions.json"
     works = prepare(load(args.input_poems), successful_records(ROOT / "raw/content_reviews.jsonl"),
         successful_records(ROOT / "raw/review_triage.jsonl"), load(ROOT / "raw/approved_review_edits.json"),
-        load(ROOT / "raw/content_review.json", {}), load(path, {}).get("works", {}))
+        load(ROOT / "raw/content_review.json", {}), load(path, {}).get("works", {}),
+        final_inputs(load(ROOT / "raw/final_content_decisions.json"), load(ROOT / "raw/source_evidence.json"))
+        if (ROOT / "raw/final_content_decisions.json").exists() else None)
     dump(path, dict(review_type="ai_assisted_review", academic_review_complete=False, works=works), newline="\n")
     print(json.dumps(dict(reviewed=len(works), changed=sum(bool(r["fields"]) for r in works.values()),
         pending_poems=sum(bool(r["pending_findings"]) for r in works.values()),

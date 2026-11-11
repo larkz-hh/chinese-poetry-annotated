@@ -137,6 +137,61 @@ class IdentityTests(unittest.TestCase):
 
 
 class ContentReviewTests(unittest.TestCase):
+    def test_final_review_preserves_original_body_and_can_resume_offline(self):
+        from final_review import final_inputs
+        poem, _ = self.fixture()
+        poem["appreciation"] = ["完整赏析"]
+        poem["original_content"] = ["正文"]
+        poem["editions"] = editions("p", poem["content"])
+        original = copy.deepcopy(poem)
+        digest = input_hash(poem)
+        reviews = {"p":dict(input_hash=digest, model="test", findings=[dict(field="content", quote="正文", index=0, reason="讹字")])}
+        row = dict(key="p:0", id="p", finding_index=0, input_hash=digest,
+            action="source_supported", reason="核对底本", reviewer="codex", reviewed_at="2026-11-11",
+            evidence=["https://example.test/classic"], caution="旧版另存",
+            changes=[dict(field="content", index=0, quote="正文", replacement="校订正文", occurrences=1)],
+            context_changes={"title":dict(before="测试", after="校订题名")})
+        final = final_inputs(dict(expected_findings=1, decisions=[row]), {})
+        approval = dict(reviewed_at="2026-11-11", edits=[], rejections=[])
+        first = prepare([poem], reviews, {}, approval, {}, {}, final)
+        apply_resolution(poem, first["p"])
+        self.assertEqual(poem["content"], ["校订正文"])
+        self.assertEqual(poem["original_content"], original["original_content"])
+        self.assertEqual(poem["editions"][0]["content"], ["正文"])
+        self.assertFalse(poem["editions"][0]["is_primary"])
+        self.assertEqual(sum(v["is_primary"] for v in poem["editions"]), 1)
+        self.assertEqual(poem["title"], "校订题名")
+        self.assertIn("测试", poem["aliases"])
+        self.assertFalse(poem["content_review"]["pending_findings"])
+        self.assertEqual(len(poem["content_review"]["final_review"]["cautions"]), 1)
+        self.assertEqual(input_hash(reviewed_input(poem, first["p"])), digest)
+        once = copy.deepcopy(poem)
+        apply_resolution(poem, first["p"])
+        self.assertEqual(poem, once)
+        second = prepare([poem], reviews, {}, approval, {}, first, final)
+        self.assertEqual(second, first)
+        poem["content"] = ["未经审核的外部修改"]
+        with self.assertRaises(ValueError):
+            apply_resolution(poem, first["p"])
+
+    def test_final_review_rejects_missing_decisions_and_tampered_evidence(self):
+        from final_review import final_inputs
+        with self.assertRaises(ValueError):
+            final_inputs(dict(expected_findings=1, decisions=[]), {})
+        with self.assertRaises(ValueError):
+            final_inputs(dict(expected_findings=0, decisions=[]), dict(sources={"x":dict(url="https://example.test", excerpt="改动", sha256="stale")}))
+
+    def test_final_review_cannot_patch_an_unmatched_passage(self):
+        from final_review import replay_final
+        poem, _ = self.fixture()
+        digest = input_hash(poem)
+        review = dict(input_hash=digest, findings=[dict(field="notes")])
+        row = dict(key="p:0", finding_index=0, input_hash=digest, action="corrected_from_text",
+            reason="显式修正", reviewer="codex", reviewed_at="2026-11-11", evidence=[],
+            changes=[dict(field="notes", index=0, quote="不在正文的旧值", replacement="新值", occurrences=1)])
+        with self.assertRaises(ValueError):
+            replay_final(poem, review, [row])
+
     def test_second_review_rejects_missing_fix_text_and_duplicate_indexes(self):
         from resolve_content_reviews import validate_decisions
         with self.assertRaises(ValueError):

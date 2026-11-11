@@ -179,7 +179,8 @@ def build(raw_dir, output, legacy_dir=ROOT / "app-data", legacy_raw=ROOT / "raw"
                 meta["reason"] = fix.get("reason")
             poem["field_sources"][key] = meta
             previous_meta = old.get("field_sources", {}).get(key)
-            if previous_meta and value == old.get(key) and previous_meta.get("body_hash") == poem["body_hash"]:
+            accepted_body_hashes = {poem["body_hash"], resolutions.get(pid, {}).get("body_change", {}).get("after_hash")}
+            if previous_meta and value == old.get(key) and previous_meta.get("body_hash") in accepted_body_hashes:
                 poem["field_sources"][key] = previous_meta.copy()
             # No alignment has been semantically checked; use whole-document rendering by default.
             poem["alignment"][key] = dict(mode="document" if value else "missing",
@@ -267,6 +268,10 @@ def build(raw_dir, output, legacy_dir=ROOT / "app-data", legacy_raw=ROOT / "raw"
                         output_hash=p["content_review"]["output_hash"], findings=p["content_review"]["pending_findings"])
                    for p in poems if p.get("content_review", {}).get("pending_findings")]
     (output / "todo_content_review.jsonl").write_text("".join(json.dumps(p, ensure_ascii=False) + "\n" for p in review_todo), encoding="utf-8")
+    cautions = [dict(id=p["id"], title=p["title"], author=p["author"], **c)
+        for p in poems for c in p.get("content_review", {}).get("final_review", {}).get("cautions", [])]
+    (output / "review_cautions.jsonl").write_text("".join(json.dumps(c, ensure_ascii=False) + "\n" for c in cautions), encoding="utf-8")
+    dump(output / "source_evidence.json", load(raw_dir / "source_evidence.json", {"sources": {}}))
     write_sqlite(output / "poems.db", poems, authors, migration)
     stats = dict(诗词总数=len(poems), 作者数=len(authors), 有原文=len(poems),
                  有译文=sum(bool(p["translate"]) for p in poems), 有注释=sum(bool(p["notes"]) for p in poems),
@@ -276,6 +281,9 @@ def build(raw_dir, output, legacy_dir=ROOT / "app-data", legacy_raw=ROOT / "raw"
                  AI初审覆盖=sum(bool(p.get("content_review")) for p in poems),
                  AI二审覆盖=sum(p.get("content_review", {}).get("second_reviewed", False) for p in poems),
                  内容待核作品=len(review_todo), 内容待核疑点=sum(len(p["findings"]) for p in review_todo),
+                 编辑终审作品=sum(bool(p.get("content_review", {}).get("final_review")) for p in poems),
+                 编辑终审疑点=sum(p.get("content_review", {}).get("final_review", {}).get("findings", 0) for p in poems),
+                 已明示解释分歧=len(cautions), 正文校订作品=sum(bool(p.get("content_review", {}).get("body_correction")) for p in poems),
                  对照方式="document：未经语义审核的注解按整篇展示，不按数组下标配对",
                  文体=dict(collections.Counter(p["genre"] for p in poems)))
     dump(output / "stats.json", stats)
@@ -286,7 +294,7 @@ def build(raw_dir, output, legacy_dir=ROOT / "app-data", legacy_raw=ROOT / "raw"
                     files={p.name: dict(bytes=p.stat().st_size, sha256=hashlib.sha256(p.read_bytes()).hexdigest())
                            for p in sorted(output.iterdir()) if p.is_file() and p.name != "manifest.json"})
     manifest["source_inputs"] = {name: hashlib.sha256((raw_dir / name).read_bytes()).hexdigest()
-                                for name in ("content_review.json", "author_overrides.json", "editorial_fixes.json", "annotation_additions.jsonl", "content_reviews.jsonl", "review_triage.jsonl", "approved_review_edits.json", "review_resolutions.json")
+                                for name in ("content_review.json", "author_overrides.json", "editorial_fixes.json", "annotation_additions.jsonl", "content_reviews.jsonl", "review_triage.jsonl", "approved_review_edits.json", "review_resolutions.json", "final_content_decisions.json", "source_evidence.json")
                                 if (raw_dir / name).is_file()}
     dump(output / "manifest.json", manifest)
     return stats
