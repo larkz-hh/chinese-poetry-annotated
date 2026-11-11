@@ -1,0 +1,22 @@
+{
+ "poems": 1524,
+ "authors": 372,
+ "editions": 1594,
+ "units": 6874,
+ "aliases": 1988,
+ "cautions": 42,
+ "author_sections": 1157,
+ "full_record_equality": true,
+ "reading_text_equality": true,
+ "originals_preserved": true,
+ "foreign_keys": "ok",
+ "integrity": "ok",
+ "search_comparisons": 41,
+ "search_results_equal": true,
+ "database_bytes": 19587072,
+ "full_database_bytes": 40062976,
+ "reduction_percent": 51.11,
+ "gzip_bytes": 7869075,
+ "data_version": "runtime1.26b65136f6898b3a",
+ "source_package_unchanged": true
+}
