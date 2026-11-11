@@ -1,0 +1,16 @@
+{
+ "scope": "app-curated-package",
+ "poems": 1524,
+ "covered_works": 1524,
+ "empty_works": 0,
+ "famous_lines": 3389,
+ "minimum_per_work": 1,
+ "maximum_per_work": 3,
+ "previous_quotes_preserved": 9,
+ "original_poem_fields_unchanged": true,
+ "authors_unchanged": true,
+ "native_card_results_equal": true,
+ "source_units_and_text_verified": true,
+ "manifest_hashes_verified": true,
+ "selection_note": "Source selections retained; remaining works have AI-selected representative excerpts, not a claim that every excerpt is universally recognized as a famous line."
+}

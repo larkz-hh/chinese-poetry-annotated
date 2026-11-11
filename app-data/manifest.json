@@ -1,11 +1,11 @@
 {
  "schema_version": 4,
- "data_version": "4.911fcb503d52b2d6",
+ "data_version": "4.f50d1d76b600e6ea",
  "counts": {
   "poems": 1524,
   "authors": 372,
-  "famous_lines": 9,
-  "poems_with_famous_lines": 8
+  "famous_lines": 3389,
+  "poems_with_famous_lines": 1524
  },
  "read_only_corpus": true,
  "search": {
@@ -30,12 +30,12 @@
    "sha256": "68e2578e903b54ba0fe3de060f69ef36f4660f10f725ead3c52af977955f527f"
   },
   "poems.db": {
-   "bytes": 40136704,
-   "sha256": "ecb8c209fa94e61cd12a33257be2776a8533f2ea83a7fa190663c4972b9bf4ba"
+   "bytes": 42049536,
+   "sha256": "69b98a45494b894a599ea7cf567d3420f1c29afbb1062b240c60b836554d726b"
   },
   "poems.json": {
-   "bytes": 12852796,
-   "sha256": "911fcb503d52b2d670e68fef7198c9e2999d20d489a4139179a45d8fb3420fd3"
+   "bytes": 13720474,
+   "sha256": "f50d1d76b600e6ea529760ffb8133043f64ce7d1fcde22ff480789a22415ad84"
   },
   "repairs.json": {
    "bytes": 1058,
@@ -50,8 +50,8 @@
    "sha256": "33e13f148454d8fed97b1a13b1b8bf24da2fd20663cddc6853d541484363809f"
   },
   "stats.json": {
-   "bytes": 694,
-   "sha256": "8a796e86fd3a475ce0656627535759d02c905b822b6bc3df1fda99232843cab4"
+   "bytes": 700,
+   "sha256": "dff2794ceacaa016e6b220c0a246deff8c7440a1386bd90194ed1b135d13b50e"
   },
   "todo_annotations.jsonl": {
    "bytes": 0,
@@ -73,6 +73,12 @@
   "review_resolutions.json": "bb92a5fcf6f9b5df1352fc35e7a7dc1eef72b3d2dc78cb74977aa8deab65629c",
   "final_content_decisions.json": "ef65d7dbecfaa643e6f4f3207449ef6ec9aca907ced1a4c6c9fdb6aa2cd043aa",
   "source_evidence.json": "0d2dbe9630b85a072901614ee469967abd363bca277dd72fe003173e35d6d0eb",
-  "famous_lines.json": "12f6f2e8e24dedba40114a2471c65ab95657a69e279728a0876580dead79bf0b"
+  "famous_lines.json": "167e6ec84ad4a7fec26affbc38d3021e6db8d3538a4bdfb6b710608bb45178b8",
+  "famous_line_selections.jsonl": "6486fa6960f81b2ff7efe3c1684860411e0a8a0d0808db39e06ca85920c8740c"
+ },
+ "famous_lines_policy": {
+  "coverage": "complete",
+  "require_all_works": true,
+  "note": "Card excerpts include sourced selections and AI-selected representative excerpts; source URLs identify text provenance."
  }
 }

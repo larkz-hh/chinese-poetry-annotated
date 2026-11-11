@@ -2,8 +2,8 @@
  "profile": "app-runtime",
  "runtime_schema": 2,
  "application_id": 1347372372,
- "source_data_version": "4.911fcb503d52b2d6",
- "data_version": "runtime2.24cc20d76de87ede",
+ "source_data_version": "4.f50d1d76b600e6ea",
+ "data_version": "runtime2.e81810789e8ae516",
  "read_only_corpus": true,
  "counts": {
   "poems": 1524,
@@ -13,16 +13,21 @@
   "aliases": 1988,
   "cautions": 42,
   "author_sections": 1157,
-  "famous_lines": 9,
-  "poems_with_famous_lines": 8
+  "famous_lines": 3389,
+  "poems_with_famous_lines": 1524
+ },
+ "famous_lines_policy": {
+  "coverage": "complete",
+  "require_all_works": true,
+  "note": "Card excerpts include sourced selections and AI-selected representative excerpts; source URLs identify text provenance."
  },
  "files": {
   "poems.db": {
-   "bytes": 19640320,
-   "sha256": "24cc20d76de87ede6c60633d52cb24486158ca44f5301979cae32353bc893639"
+   "bytes": 21102592,
+   "sha256": "e81810789e8ae5165bf5b04f1ebc211bf3e96e674442892f915c8160e48faa2f"
   }
  },
- "source_package_sha256": "985f07c1da3bb67557339950dc48ed99838448200fdc5f3e18929f3dfbf9b9b5",
+ "source_package_sha256": "952baa5260f4bbfd6a018e3bfaa795bdc6f21ec64ace8b5786ab6f30205c3271",
  "preservation": "All poem/author fields and source evidence preserved; full metadata uses text references plus zlib compression",
  "archive": {
   "table": "record_archives",
