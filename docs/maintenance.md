@@ -90,7 +90,7 @@ python -X utf8 -m unittest discover -s scripts -p "test_*.py" -v
 
 完整包中，`review_cautions.jsonl` 保存解释分歧，`source_evidence.json` 保存古籍核对依据，`generated.jsonl` 保存历史生成记录。`todo_annotations.jsonl` 与 `todo_content_review.jsonl` 分别为补注和内容待核清单。
 
-名句选取输入为 `raw/famous_lines.json`，维护方法及正文绑定规则见 [名句维护](famous-lines.md#维护与验证)。
+名句选取输入为 `raw/famous_lines.json`，模型选择日志保存在 `raw/famous_line_selections.jsonl`。维护方法及正文绑定规则见 [名句维护](famous-lines.md#维护与验证)。
 
 ## 工具索引
 

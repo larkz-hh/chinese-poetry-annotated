@@ -10,15 +10,15 @@
 
 | 数据包 | 用途 | 体积 |
 |---|---|---:|
-| [App 运行包](app-runtime/poems.db) | 应用内阅读、分类筛选与全文搜索 | 18.7 MiB |
-| [完整维护包](app-data/poems.db) | 数据核查、加工与维护 | 38.3 MiB |
+| [App 运行包](app-runtime/poems.db) | 应用内阅读、分类筛选与全文搜索 | 20.1 MiB |
+| [完整维护包](app-data/poems.db) | 数据核查、加工与维护 | 40.1 MiB |
 | [作品 JSON](app-data/poems.json) / [作者 JSON](app-data/authors.json) | 自定义导入或脚本处理 | 按文件获取 |
 
 两种数据库收录范围一致。运行包采用文本去重与档案压缩，保留完整维护包中的作品、作者及审核资料。两者表结构不同，接入时应采用对应的读取方式。
 
 App 通常只需携带运行包及其 [manifest.json](app-runtime/manifest.json)。体积单位 MiB 为 1024² 字节。
 
-名句卡片数据首批覆盖 **8 篇作品、9 组名句**，未整理作品保留空数组，详见 [名句与卡片接入](docs/famous-lines.md)。
+卡片摘录已覆盖全部 **1524 篇作品、3389 组名句与代表句**，每篇 1–3 组，详见 [名句与卡片接入](docs/famous-lines.md)。
 
 ## 接入概览
 
