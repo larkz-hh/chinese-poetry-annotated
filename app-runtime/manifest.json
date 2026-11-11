@@ -1,0 +1,40 @@
+{
+ "profile": "app-runtime",
+ "runtime_schema": 1,
+ "application_id": 1347372372,
+ "source_data_version": "3.d47b283f403f54da",
+ "data_version": "runtime1.26b65136f6898b3a",
+ "read_only_corpus": true,
+ "counts": {
+  "poems": 1524,
+  "authors": 372,
+  "editions": 1594,
+  "units": 6874,
+  "aliases": 1988,
+  "cautions": 42,
+  "author_sections": 1157
+ },
+ "files": {
+  "poems.db": {
+   "bytes": 19587072,
+   "sha256": "26b65136f6898b3ac4ff6f0178a73ce740dbfd5e721c139920ff18c978bce1b9"
+  }
+ },
+ "source_package_sha256": "b90f5c706a9ff1aed52afb3b8ec64362401a702c167feee55f5f56154b122e7d",
+ "preservation": "All poem/author fields and source evidence preserved; full metadata uses text references plus zlib compression",
+ "archive": {
+  "table": "record_archives",
+  "codec": "zlib-json-textrefs-v1",
+  "kinds": [
+   "poem",
+   "author",
+   "package"
+  ]
+ },
+ "search": {
+  "fts5": true,
+  "contentless": true,
+  "join": "poems.rowid = poems_fts.rowid",
+  "query_helper": "scripts/search.py"
+ }
+}
