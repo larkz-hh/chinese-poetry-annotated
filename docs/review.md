@@ -40,6 +40,10 @@ App 可通过完整 JSON 的 `field_sources`，或运行库的 `annotation_info`
 
 ### 后续修订记录
 
+**2026-11-11：统一精选包注释格式**
+
+全包采用 `plain-notes-v1`，清理重复原文与纯原文占位项，拆分明确词条，保留读音、异文和有效解释。全部原注释保存在 `raw/notes_normalization.json`。这项整理单独记录，不计入前述 565 个疑点；其中“翟衣”一项据来源补释并明确标记。格式、覆盖数及 App 展示方式见 [注释格式](notes-format.md)。
+
 **2026-11-11：《后庭花·清溪一叶舟》赏析报错修复**
 
 | 项目 | 记录 |
@@ -87,6 +91,7 @@ python -X utf8 scripts/export_app_runtime.py
 | `approved_review_edits.json` | 显式批准的局部修订 |
 | `final_content_decisions.json` | 二审剩余疑点的逐项处理 |
 | `review_resolutions.json` | 各阶段合成的前后值与校验哈希 |
+| `notes_normalization.json` | 注释格式整理前后值、步骤、复核及补释依据 |
 | `editorial_fixes.json` | 早期字段修复 |
 | `source_evidence.json` | 古籍摘录、来源 URL 与哈希 |
 

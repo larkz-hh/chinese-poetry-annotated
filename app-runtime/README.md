@@ -10,14 +10,14 @@
 
 | 项目 | 值或用途 |
 |---|---|
-| `poems.db` | 运行数据库，约 20.1 MiB |
+| `poems.db` | 运行数据库，约 21.2 MiB |
 | `manifest.json` | 文件大小、SHA-256、版本及记录数 |
 | `PRAGMA user_version` | `2` |
 | `PRAGMA application_id` | `1347372372`，即 ASCII `POET` |
 | `data_version` | 当前运行包版本 |
 | `source_data_version` | 对应完整维护包版本 |
 
-运行包通过共享文本与压缩档案保留完整资料。gzip 传输压缩实测约 7.9 MiB，解压后的数据库约 20.1 MiB。体积与无损比对结果见 [验收报告](../reports/app-runtime-audit.md)。
+运行包通过共享文本与压缩档案保留完整资料。gzip 传输压缩实测约 8.5 MiB，解压后的数据库约 21.2 MiB。体积与无损比对结果见 [验收报告](../reports/app-runtime-audit.md)。
 
 ## 普通读取
 
@@ -42,6 +42,8 @@ ORDER BY ordinal;
 ```
 
 译注的来源与展示方式按作品 ID 查询。当前采用 `document` 模式，整篇展示。
+
+注释条目可直接展示，不必额外拼接正文；读音、异文与纯原文占位项的处理见 [注释格式](../docs/notes-format.md)。
 
 ```sql
 SELECT kind, source_type, review_status, model, source_url, alignment_mode

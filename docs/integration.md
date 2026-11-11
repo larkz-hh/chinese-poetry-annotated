@@ -72,6 +72,8 @@
 
 译注展示模式可从 `annotation_info.alignment_mode` 或完整 JSON 的 `alignment[field].mode` 读取。质量与来源标记见 [内容审核与修订](review.md#审核标记)。
 
+`notes` 已整理为可直接展示的注释条目，保留读音与异文说明；无需额外拼接原文，也不与正文逐行配对。格式约定见 [注释格式](notes-format.md)。
+
 ## 格式识别
 
 | 标识 | 含义 |

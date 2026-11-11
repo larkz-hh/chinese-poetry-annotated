@@ -16,6 +16,8 @@
 
 内容修改、生成补注及模型审核流程见 [内容审核与修订](review.md#修订流程)。
 
+注释格式的显式整理记录为 `raw/notes_normalization.json`。修改该记录后，先执行 `python -X utf8 scripts/prepare_review_resolutions.py`，再重建完整包与运行包；原值、格式约定和哈希检查见 [注释格式](notes-format.md)。
+
 ## 常规重建
 
 数据流为：来源素材与显式修订 → 完整维护包 → App 运行包。

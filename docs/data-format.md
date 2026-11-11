@@ -32,6 +32,8 @@
 
 名句使用 `famous_lines` 对象数组，格式与查询见 [名句与诗词卡片](famous-lines.md)。
 
+注释使用可直接展示的词义、读音、异文或说明条目，规则与真实示例见 [注释格式](notes-format.md)。
+
 ## JSON 文件
 
 | 文件 | 顶层类型 | 每项内容 |
@@ -103,7 +105,7 @@
     },
     "notes": {
       "mode": "document",
-      "equal_length": true,
+      "equal_length": false,
       "verified": false,
       "unit_ids": []
     },

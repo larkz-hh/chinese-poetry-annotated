@@ -10,8 +10,8 @@
 
 | 数据包 | 用途 | 体积 |
 |---|---|---:|
-| [App 运行包](app-runtime/poems.db) | 应用内阅读、分类筛选与全文搜索 | 20.1 MiB |
-| [完整维护包](app-data/poems.db) | 数据核查、加工与维护 | 40.1 MiB |
+| [App 运行包](app-runtime/poems.db) | 应用内阅读、分类筛选与全文搜索 | 21.2 MiB |
+| [完整维护包](app-data/poems.db) | 数据核查、加工与维护 | 40.5 MiB |
 | [作品 JSON](app-data/poems.json) / [作者 JSON](app-data/authors.json) | 自定义导入或脚本处理 | 按文件获取 |
 
 两种数据库收录范围一致。运行包采用文本去重与档案压缩，保留完整维护包中的作品、作者及审核资料。两者表结构不同，接入时应采用对应的读取方式。
@@ -44,6 +44,7 @@ App 通常只需携带运行包及其 [manifest.json](app-runtime/manifest.json)
 |---|---|
 | 完成 App 初始化、选择 SQLite 或 Room | [App 接入指南](docs/integration.md) |
 | 理解作品结构、查看真实 JSON | [数据结构与 JSON 示例](docs/data-format.md) |
+| 展示注释、理解整理规则 | [注释格式](docs/notes-format.md) |
 | 读取名句、生成诗词卡片 | [名句与诗词卡片](docs/famous-lines.md) |
 | 查询表、视图与字段定义 | [SQLite 字段手册](docs/sqlite-schema.md) |
 | 编写列表、详情、筛选与搜索 SQL | [运行包查询与档案读取](app-runtime/README.md) |
