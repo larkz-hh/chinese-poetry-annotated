@@ -12,6 +12,18 @@ from review_content import review_hash
 from review_application import reviewed_input
 
 
+def validate_decisions(decisions, finding_count):
+    if (not isinstance(decisions, list) or len(decisions) != finding_count
+            or any(not isinstance(d, dict) for d in decisions)
+            or {d.get("finding_index") for d in decisions} != set(range(finding_count))):
+        raise ValueError("Decision indexes mismatch")
+    for d in decisions:
+        if (d.get("action") not in {"fix", "reject", "needs_source"}
+                or not isinstance(d.get("reason"), str) or not d["reason"].strip()
+                or (d["action"] == "fix" and not isinstance(d.get("replacement"), str))):
+            raise ValueError("Invalid triage decision or missing replacement")
+
+
 def triage(poem, review, config):
     prompt = ("复核初审意见。初审模型会误报，不能照单全收。请对每条意见给出 fix/reject/needs_source 三选一。"
               "只有能够从正文直接验证的错译、文字讹误、缺漏或公认的基础事实错误才 fix。"
@@ -28,8 +40,7 @@ def triage(poem, review, config):
         try:
             data, usage = request_json(config, "你是独立的复核编辑。谨慎判断，不把初审指控当作事实。只输出 JSON。", prompt, budget=12288)
             decisions = data.get("decisions")
-            if not isinstance(decisions, list) or {d.get("finding_index") for d in decisions} != set(range(len(review["findings"]))) or len(decisions) != len(review["findings"]):
-                raise ValueError("Decision indexes mismatch")
+            validate_decisions(decisions, len(review["findings"]))
             for decision in decisions:
                 if decision.get("replacement") is None and decision.get("action") != "fix":
                     decision["replacement"] = ""
@@ -62,7 +73,12 @@ def main():
     if output_path.exists():
         for line in output_path.read_text(encoding='utf-8').splitlines():
             r=json.loads(line)
-            if 'error' not in r:done.add((r['id'],r['input_hash']))
+            if 'error' not in r and r['id'] in reviews:
+                try:
+                    validate_decisions(r.get('decisions'),len(reviews[r['id']]['findings']))
+                except ValueError:
+                    continue
+                done.add((r['id'],r['input_hash']))
     pending=[r for r in reviews.values() if r['findings'] and (r['id'],r['input_hash']) not in done]
     if args.limit:pending=pending[:args.limit]
     print(f"Triage pending {len(pending)}; cached {len(done)}",flush=True)

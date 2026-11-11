@@ -53,15 +53,25 @@ def prepare(poems, reviews, triages, approvals, catalog, previous):
                 if rejection["input_hash"] != review["input_hash"]:
                     raise ValueError(f"Stale rejection: {pid}")
                 decisions[rejection["finding_index"]] = dict(action="source_rejected", reason=rejection["reason"], evidence=rejection["evidence"])
+        for decision in approvals.get("decisions", []):
+            if decision["id"] != pid:
+                continue
+            if (decision["input_hash"] != review["input_hash"]
+                    or decision["finding_index"] not in range(len(review["findings"]))
+                    or decision["action"] not in {"source_rejected", "local_rejected", "already_fixed", "interpretation_supported"}):
+                raise ValueError(f"Invalid explicit review decision: {pid}")
+            decisions[decision["finding_index"]] = {k: decision[k] for k in ("action", "reason", "evidence")}
         for edit in approvals.get("edits", []):
             if edit["id"] != pid:
                 continue
             if edit["input_hash"] != review["input_hash"]:
                 raise ValueError(f"Stale edit: {pid}")
             key, index, quote = edit["field"], edit["index"], edit["quote"]
-            if key not in FIELDS or not quote or after[key][index].count(quote) != 1:
+            occurrences = edit.get("occurrences", 1)
+            if (key not in FIELDS or not quote or not isinstance(occurrences, int) or occurrences < 1
+                    or after[key][index].count(quote) != occurrences):
                 raise ValueError(f"Edit is not uniquely located: {pid}:{key}:{index}")
-            after[key][index] = after[key][index].replace(quote, edit["replacement"], 1)
+            after[key][index] = after[key][index].replace(quote, edit["replacement"], occurrences)
             edits.append(edit)
             if "finding_index" in edit:
                 decisions[edit["finding_index"]] = dict(action="fixed", reason=edit["reason"], evidence=edit["evidence"])
@@ -88,6 +98,14 @@ def prepare(poems, reviews, triages, approvals, catalog, previous):
         for key in FIELDS:
             if poem[key] != after[key]:
                 fields[key] = dict(before=poem[key], after=after[key], format_only="".join(poem[key]) == "".join(after[key]))
+                old_change = previous.get(pid, {}).get("fields", {}).get(key, {})
+                prior = old_change.get("accepted_previous", []) + ([old_change["after"]] if old_change else [])
+                accepted = []
+                for value in prior:
+                    if value not in (poem[key], after[key]) and value not in accepted:
+                        accepted.append(value)
+                if accepted:
+                    fields[key]["accepted_previous"] = accepted
         output[pid] = dict(body_hash=poem["body_hash"], input_hash=input_hash(poem), output_hash=input_hash(after),
             context_before=dict(title=poem["title"], author=poem["author"]), fields=fields,
             reviewed_at=approvals["reviewed_at"], model=review["model"],

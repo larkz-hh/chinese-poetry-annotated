@@ -137,6 +137,38 @@ class IdentityTests(unittest.TestCase):
 
 
 class ContentReviewTests(unittest.TestCase):
+    def test_second_review_rejects_missing_fix_text_and_duplicate_indexes(self):
+        from resolve_content_reviews import validate_decisions
+        with self.assertRaises(ValueError):
+            validate_decisions([dict(finding_index=0, action="fix", reason="missing replacement")], 1)
+        with self.assertRaises(ValueError):
+            validate_decisions([dict(finding_index=0, action="reject", reason="same")]*2, 2)
+        validate_decisions([dict(finding_index=0, action="fix", replacement="", reason="remove stray punctuation")], 1)
+
+    def test_resumed_review_accepts_only_recorded_previous_output(self):
+        poem, _ = self.fixture()
+        poem["notes"] = ["错字甲；错字乙"]
+        original_hash = input_hash(poem)
+        findings = [dict(field="notes", index=0, quote=q, reason="文字问题") for q in ("错字甲", "错字乙")]
+        reviews = {"p":dict(input_hash=original_hash, model="test", findings=findings)}
+        edits = [dict(id="p", input_hash=original_hash, field="notes", index=0, quote=q,
+                      replacement=r, finding_index=i, reason="核对文字", evidence=[])
+                 for i, (q, r) in enumerate((("错字甲", "正字甲"), ("错字乙", "正字乙")))]
+        approval = dict(reviewed_at="2026-11-11", edits=edits[:1], rejections=[])
+        first = prepare([poem], reviews, {}, approval, {}, {})
+        apply_resolution(poem, first["p"])
+        approval["edits"] = edits
+        second = prepare([poem], reviews, {}, approval, {}, first)
+        self.assertEqual(second["p"]["fields"]["notes"]["accepted_previous"], [["正字甲；错字乙"]])
+        apply_resolution(poem, second["p"])
+        self.assertEqual(poem["notes"], ["正字甲；正字乙"])
+        self.assertNotIn("content_source_verification", poem["quality_issues"])
+        self.assertEqual(input_hash(reviewed_input(poem, second["p"])), original_hash)
+        apply_resolution(poem, second["p"])
+        poem["notes"] = ["未曾审核的外部改动"]
+        with self.assertRaises(ValueError):
+            apply_resolution(poem, second["p"])
+
     def fixture(self):
         poem = dict(id="p", title="测试", author="佚名", body_hash=body_hash(["正文"]), content=["正文"],
                     translate=["翻译"], notes=["词义"], appreciation=list("这是一段长度足够用于验证单字数组被无损合并的赏析文字。"),
@@ -175,6 +207,23 @@ class ContentReviewTests(unittest.TestCase):
         self.assertEqual(poem["notes"], ["词义"])
         self.assertEqual(poem["review_status"], "needs_source_check")
         self.assertEqual(len(poem["content_review"]["pending_findings"]), 1)
+        once = copy.deepcopy(poem)
+        apply_resolution(poem, resolution)
+        self.assertEqual(poem, once)
+
+    def test_repeated_quote_requires_explicit_occurrence_count(self):
+        poem, _ = self.fixture()
+        poem["notes"] = ["候景；候景"]
+        digest = input_hash(poem)
+        reviews = {"p":dict(input_hash=digest, model="test", findings=[])}
+        edit = dict(id="p", input_hash=digest, field="notes", index=0, quote="候景", replacement="侯景", reason="proper name", evidence=[])
+        approval = dict(reviewed_at="2026-11-11", edits=[edit], rejections=[])
+        with self.assertRaises(ValueError):
+            prepare([poem], reviews, {}, approval, {}, {})
+        edit["occurrences"] = 2
+        resolution = prepare([poem], reviews, {}, approval, {}, {})["p"]
+        apply_resolution(poem, resolution)
+        self.assertEqual(poem["notes"], ["侯景；侯景"])
 
     def test_http_402_stops_retrying_and_future_requests(self):
         import complete_annotations as api

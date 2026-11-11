@@ -15,6 +15,10 @@ def fragmented_array(value):
     return isinstance(value, list) and len(value) >= 20 and sum(isinstance(s, str) and len(s) <= 2 for s in value) / len(value) > .85
 
 
+def allowed_values(change):
+    return [change["before"], change["after"], *change.get("accepted_previous", [])]
+
+
 def reviewed_input(poem, resolution):
     """Restore a review's preimage for resuming the same review after publication."""
     before = copy.deepcopy(poem)
@@ -23,7 +27,7 @@ def reviewed_input(poem, resolution):
     if before["body_hash"] != resolution["body_hash"]:
         raise ValueError(f"Reviewed body changed: {poem['id']}")
     for key, change in resolution.get("fields", {}).items():
-        if before[key] not in (change["before"], change["after"]):
+        if before[key] not in allowed_values(change):
             raise ValueError(f"Annotation changed since review: {poem['id']}:{key}")
         before[key] = change["before"]
     before.update(resolution["context_before"])
@@ -39,7 +43,7 @@ def apply_resolution(poem, resolution):
         raise ValueError(f"Stale content review body: {poem['id']}")
     before = copy.deepcopy(poem)
     for key, change in resolution.get("fields", {}).items():
-        if key not in FIELDS or poem[key] not in (change["before"], change["after"]):
+        if key not in FIELDS or poem[key] not in allowed_values(change):
             raise ValueError(f"Stale reviewed annotation: {poem['id']}:{key}")
         before[key] = change["before"]
     before["title"] = resolution["context_before"]["title"]
@@ -71,5 +75,6 @@ def apply_resolution(poem, resolution):
     for key in FIELDS:
         poem["field_sources"][key]["review_status"] = "needs_source_check" if any(f.get("field") == key for f in pending) else "ai_reviewed"
         poem["alignment"][key]["equal_length"] = key != "appreciation" and len(poem[key]) == len(poem["content"])
+    poem["quality_issues"] = [i for i in poem["quality_issues"] if i != "content_source_verification"]
     if pending:
         poem["quality_issues"].append("content_source_verification")
