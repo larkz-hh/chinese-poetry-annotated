@@ -1,26 +1,33 @@
 {
-  "baseline_snapshot_files_verified": 26,
-  "regression_tests_passed": 21,
-  "repeat_full_build_identical": true,
-  "schema_version": 3,
-  "data_version": "3.ede16c8c891686a8",
-  "poems": 1524,
-  "authors": 372,
-  "annotations_missing": 0,
-  "author_bios_missing": 0,
-  "ai_initial_reviews": 1524,
-  "ai_second_reviews": 308,
-  "explicit_edits": 103,
-  "format_repairs": 28,
-  "content_pending_poems": 652,
-  "content_pending_findings": 1115,
-  "academic_review_complete": false,
-  "external_review_blocker": "DeepSeek HTTP 402 insufficient balance; requests stopped, logs resumable",
-  "remaining_warnings": [
-    [
-      "content_source_verification",
-      652
-    ]
-  ],
-  "repeat_full_build_manifest_identical": true
+ "baseline_snapshot_files_verified": 26,
+ "regression_tests_passed": 24,
+ "repeat_full_build_identical": true,
+ "schema_version": 3,
+ "data_version": "3.e690c105f20c62ab",
+ "poems": 1524,
+ "authors": 372,
+ "annotations_missing": 0,
+ "author_bios_missing": 0,
+ "ai_initial_reviews": 1524,
+ "ai_second_reviews": 805,
+ "explicit_edits": 260,
+ "format_repairs": 28,
+ "content_pending_poems": 385,
+ "content_pending_findings": 565,
+ "academic_review_complete": false,
+ "external_review_blocker": null,
+ "remaining_warnings": [
+  [
+   "content_source_verification",
+   385
+  ]
+ ],
+ "repeat_full_build_manifest_identical": true,
+ "second_review_pending": 0,
+ "review_resume": {
+  "completed": 497,
+  "new_edits": 157,
+  "changed_works": 99,
+  "title_corrections": 1
+ }
 }
