@@ -1,6 +1,6 @@
 {
  "schema_version": 3,
- "data_version": "3.e690c105f20c62ab",
+ "data_version": "3.d47b283f403f54da",
  "counts": {
   "poems": 1524,
   "authors": 372
@@ -28,28 +28,36 @@
    "sha256": "68e2578e903b54ba0fe3de060f69ef36f4660f10f725ead3c52af977955f527f"
   },
   "poems.db": {
-   "bytes": 40075264,
-   "sha256": "b07d33d444ac8cbdaa8d90d43050d967dceadd9979a0cb30047930b49b5854d0"
+   "bytes": 40062976,
+   "sha256": "210be707d37f5c1c6e51288475b952a6a10e873e56e30e6587c9bcc4f94eaed0"
   },
   "poems.json": {
-   "bytes": 12927741,
-   "sha256": "e690c105f20c62ab8998f55cb68a111393cafa26c2afd7df445c677a38abc98e"
+   "bytes": 12814683,
+   "sha256": "d47b283f403f54da9f12696aeae2438fcb842fe0c3dd3eb7ebb00bd14d12bb18"
   },
   "repairs.json": {
    "bytes": 1058,
    "sha256": "dee2b15f3592a9b3954d37832d44eee91089d948561888a35be29392fa91d733"
   },
+  "review_cautions.jsonl": {
+   "bytes": 7876,
+   "sha256": "ecb499cb12c0bb09a5ab53016966c6e640d0386bfb7a2d26a43d6c8ff4edaad8"
+  },
+  "source_evidence.json": {
+   "bytes": 112225,
+   "sha256": "33e13f148454d8fed97b1a13b1b8bf24da2fd20663cddc6853d541484363809f"
+  },
   "stats.json": {
-   "bytes": 531,
-   "sha256": "b17155b7fa8f7f8aa1be0abed6d2a6e015b3fa425fb57ffb0503823c2e832b1f"
+   "bytes": 643,
+   "sha256": "4d6c10d349c5b13b34a2601425f87623187792561e1c5f2aec35fb003d60428d"
   },
   "todo_annotations.jsonl": {
    "bytes": 0,
    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   },
   "todo_content_review.jsonl": {
-   "bytes": 525690,
-   "sha256": "60084e5c5b94b08db81d9c152f8ac3f1bb28da82b0c7365110825a1330e9db15"
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   }
  },
  "source_inputs": {
@@ -60,6 +68,8 @@
   "content_reviews.jsonl": "32a49908c60fe11519069837c4ec09099187828db3df50c3270333f0900707a9",
   "review_triage.jsonl": "5e0b60323069dc3206d0448899885c156b31ce291d90d539b266cc1d717bd7f6",
   "approved_review_edits.json": "9cb6d3aa6863a4c93c5771966e46996f6fb6ec41617c706e5ea47debebb927b7",
-  "review_resolutions.json": "b80c22b8d512f5dde206fb56cf45f8e4e53b0f5bf55ff5cea189e7da2e5335dd"
+  "review_resolutions.json": "f7be0f897e7fe32b804665aa64bc12a378fef2f0b8be93e4d2637d72dcc62b28",
+  "final_content_decisions.json": "ef65d7dbecfaa643e6f4f3207449ef6ec9aca907ced1a4c6c9fdb6aa2cd043aa",
+  "source_evidence.json": "0d2dbe9630b85a072901614ee469967abd363bca277dd72fe003173e35d6d0eb"
  }
 }
