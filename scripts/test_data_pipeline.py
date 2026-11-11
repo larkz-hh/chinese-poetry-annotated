@@ -9,7 +9,7 @@ import urllib.error
 from pathlib import Path
 
 from build import build, combine, norm
-from data_utils import ROOT, annotation_valid, editions, fts_text, match_query
+from data_utils import ROOT, annotation_valid, editions, fts_text, match_query, web_error_text
 from search import search
 from validate_data import validate
 from content_review import apply_catalog
@@ -48,6 +48,13 @@ class IdentityTests(unittest.TestCase):
         self.assertFalse(annotation_valid(["山一程水一程"], ["山一程，水一程。 "]))
         self.assertFalse(annotation_valid(["不完整�"], ["原文"]))
         self.assertFalse(annotation_valid([""], ["原文"]))
+
+    def test_web_error_messages_are_detected_without_rejecting_literary_text(self):
+        for value in (["网页发生错误，请联系网站管理员：service@gushiwen.org"],
+                      list("网页发生错误"), ["404 Not Found"], ["502 Bad Gateway"]):
+            self.assertTrue(web_error_text(value), value)
+        for value in (["清溪一叶舟，芙蓉两岸秋。"], ["诗中有愁绪，却不失从容。"], ["四百零四年"], []):
+            self.assertFalse(web_error_text(value), value)
 
     def test_full_ingest_keeps_two_works_and_merges_a_repeated_source(self):
         with tempfile.TemporaryDirectory(prefix=".stage-test-", dir=ROOT) as folder:
@@ -323,6 +330,24 @@ class SearchTests(unittest.TestCase):
 
 
 class PublishedPackageTests(unittest.TestCase):
+    @unittest.skipUnless((ROOT / "app-data/manifest.json").exists(), "v3 package not published yet")
+    def test_release_validation_rejects_a_website_error_in_appreciation(self):
+        from validate_data import load as real_load
+        poems = real_load(ROOT / "app-data/poems.json")
+        target = next(p for p in poems if p["id"] == "5c26e1cc97880d3b826103d9")
+        target["appreciation"] = ["网页发生错误，请联系网站管理员：service@gushiwen.org"]
+
+        def changed_load(path, default=None):
+            if Path(path) == ROOT / "app-data/poems.json":
+                return poems
+            return real_load(path, default)
+
+        with patch("validate_data.load", side_effect=changed_load):
+            report = validate(ROOT / "app-data")
+        error = next(e for e in report["errors"] if e["code"] == "web_error_artifacts")
+        self.assertIn(dict(id=target["id"], title=target["title"], author=target["author"],
+                           field="appreciation"), error["records"])
+
     @unittest.skipUnless((ROOT / "app-data/manifest.json").exists(), "v3 package not published yet")
     def test_published_package_contract(self):
         report = validate(ROOT / "app-data", baseline=ROOT / "backups/pre-v3/app-data/poems.json")

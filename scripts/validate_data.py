@@ -6,7 +6,7 @@ import re
 import sqlite3
 from pathlib import Path
 
-from data_utils import ROOT, FIELDS, SCHEMA_VERSION, body_hash, compact, fts_text, identity_body, load, match_query
+from data_utils import ROOT, FIELDS, SCHEMA_VERSION, body_hash, compact, fts_text, identity_body, load, match_query, web_error_text
 from review_application import input_hash, fragmented_array
 
 
@@ -38,7 +38,7 @@ def validate(app, baseline=None):
     if baseline:
         error("lost_legacy_ids", [p["id"] for p in load(baseline, []) if p["id"] not in migrations])
     dirty, same, alignment, version_mix, missing, provenance = [], [], [], [], [], []
-    fragmented, review_errors = [], []
+    fragmented, review_errors, web_errors = [], [], []
     for poem in poems:
         if poem["body_hash"] != body_hash(poem["content"]):
             errors.append(dict(code="body_hash", records=[label(poem)]))
@@ -54,6 +54,8 @@ def validate(app, baseline=None):
                 continue
             if any("\ufffd" in s or re.search(r"</?[a-zA-Z][^>]*>|&(?:[a-z]+|#\d+);", s) for s in value):
                 dirty.append(label(poem, field=key))
+            if web_error_text(value):
+                web_errors.append(label(poem, field=key))
             if key in FIELDS:
                 if fragmented_array(value):
                     fragmented.append(label(poem, field=key))
@@ -92,6 +94,13 @@ def validate(app, baseline=None):
                     or not any(body_hash(v["content"]) == correction["before_hash"] for v in poem["editions"])):
                 review_errors.append(label(poem, field="body_correction"))
     error("text_artifacts", dirty)
+    for author in authors:
+        if web_error_text(author.get("lifetime", "")):
+            web_errors.append(dict(id=author["id"], name=author["name"], field="lifetime"))
+        for index, section in enumerate(author.get("describe", [])):
+            if web_error_text(section.get("content", [])):
+                web_errors.append(dict(id=author["id"], name=author["name"], field=f"describe[{index}]"))
+    error("web_error_artifacts", web_errors)
     error("annotation_is_original", same)
     error("unsafe_line_alignment", alignment)
     error("versions_in_primary_body", version_mix)

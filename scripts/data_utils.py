@@ -77,6 +77,18 @@ def annotation_valid(value, content):
             and compact(value) != compact(content))
 
 
+WEB_ERROR_TEXT = re.compile(
+    r"网页发生错误|请联系网站管理员|service@gushiwen\.org|"
+    r"(?:403\s*Forbidden|404\s*Not\s*Found|500\s*Internal\s*Server\s*Error|"
+    r"502\s*Bad\s*Gateway|503\s*Service\s*Unavailable)", re.I)
+
+
+def web_error_text(value):
+    """Recognize site failure messages in displayed text, including split arrays."""
+    text = "".join(value) if isinstance(value, list) else value
+    return bool(WEB_ERROR_TEXT.search(text or ""))
+
+
 def editions(poem_id, content):
     """Split only explicit version endings; retain every original segment separately."""
     blocks, pending = [], []
