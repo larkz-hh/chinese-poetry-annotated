@@ -304,8 +304,11 @@ def build(raw_dir, output, legacy_dir=ROOT / "app-data", legacy_raw=ROOT / "raw"
                     files={p.name: dict(bytes=p.stat().st_size, sha256=hashlib.sha256(p.read_bytes()).hexdigest())
                            for p in sorted(output.iterdir()) if p.is_file() and p.name != "manifest.json"})
     manifest["source_inputs"] = {name: hashlib.sha256((raw_dir / name).read_bytes()).hexdigest()
-                                for name in ("content_review.json", "author_overrides.json", "editorial_fixes.json", "annotation_additions.jsonl", "content_reviews.jsonl", "review_triage.jsonl", "approved_review_edits.json", "review_resolutions.json", "final_content_decisions.json", "source_evidence.json", "famous_lines.json")
+                                for name in ("content_review.json", "author_overrides.json", "editorial_fixes.json", "annotation_additions.jsonl", "content_reviews.jsonl", "review_triage.jsonl", "approved_review_edits.json", "review_resolutions.json", "final_content_decisions.json", "source_evidence.json", "famous_lines.json", "famous_line_selections.jsonl")
                                 if (raw_dir / name).is_file()}
+    manifest["famous_lines_policy"] = dict(coverage=quote_catalog.get("coverage", "partial"),
+        require_all_works=bool(quote_catalog.get("require_all_works")),
+        note="Card excerpts include sourced selections and AI-selected representative excerpts; source URLs identify text provenance.")
     dump(output / "manifest.json", manifest)
     return stats
 

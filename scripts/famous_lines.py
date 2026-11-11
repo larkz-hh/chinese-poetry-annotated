@@ -63,6 +63,13 @@ def attach_famous_lines(poems, catalog):
     by_id = {p['id']: p for p in poems}
     if set(catalog['works']) - set(by_id):
         raise ValueError('Famous line curation refers to missing works')
+    if 'require_all_works' in catalog and type(catalog['require_all_works']) is not bool:
+        raise ValueError('Invalid full-coverage policy')
+    if catalog.get('require_all_works'):
+        if (catalog.get('expected_works') != len(poems) or set(catalog['works']) != set(by_id)
+                or any(not isinstance(entry, dict) or not entry.get('famous_lines')
+                       for entry in catalog['works'].values())):
+            raise ValueError('Full card coverage requires at least one selection for every work')
     for poem in poems:
         entry = catalog['works'].get(poem['id'])
         if entry is not None and (not isinstance(entry, dict) or entry.get('body_hash') != poem['body_hash']):

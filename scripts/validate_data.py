@@ -46,6 +46,8 @@ def validate(app, baseline=None):
             poems_with_famous_lines=sum(bool(p["famous_lines"]) for p in poems))
         if manifest.get("counts") != expected_counts:
             errors.append(dict(code="manifest_counts"))
+        if manifest.get("famous_lines_policy", {}).get("require_all_works") and any(not p["famous_lines"] for p in poems):
+            errors.append(dict(code="incomplete_card_coverage"))
     except ValueError as exc:
         quotes_valid = False
         errors.append(dict(code="famous_line_integrity", message=str(exc)))

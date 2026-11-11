@@ -11,6 +11,7 @@ from data_utils import ROOT
 from famous_lines import attach_famous_lines, validate_famous_lines, validate_famous_line_tables
 from runtime_db import write_runtime, validate_runtime, connect_readonly, read_archive
 from test_runtime_data import fixture
+from complete_famous_lines import candidates, validate_choices, compile_catalog, select_batch
 
 
 class FamousLineTests(unittest.TestCase):
@@ -45,6 +46,56 @@ class FamousLineTests(unittest.TestCase):
         catalog['works']['missing'] = catalog['works'].pop('p')
         with self.assertRaises(ValueError):
             attach_famous_lines(self.poems, catalog)
+
+    def test_full_coverage_policy_rejects_missing_and_empty_selections(self):
+        catalog=self.catalog()
+        catalog.update(require_all_works=True,expected_works=1)
+        attach_famous_lines(self.poems,catalog)
+        catalog['works']['p']['famous_lines']=[]
+        with self.assertRaisesRegex(ValueError,'Full card coverage'):
+            attach_famous_lines(self.poems,catalog)
+        catalog['works']={}
+        with self.assertRaisesRegex(ValueError,'Full card coverage'):
+            attach_famous_lines(self.poems,catalog)
+
+    def test_selection_candidates_cover_substrings_and_cross_unit_spans(self):
+        options=candidates(self.poems[0])
+        self.assertTrue(options)
+        for option in options:
+            self.assertIn(option['text'],''.join(self.poems[0]['content']))
+        poems=copy.deepcopy(self.poems)
+        poems[0]['famous_lines']=[]
+        spans=[i for i,o in enumerate(options) if len(o['unit_ids'])==2]
+        self.assertTrue(spans)
+        quotes=validate_choices(poems[0],options,[spans[0]])
+        self.assertEqual(quotes[0]['unit_ids'],['p:v2:u1','p:v2:u2'])
+        with self.assertRaises(ValueError):
+            validate_choices(poems[0],options,[True])
+        with self.assertRaises(ValueError):
+            validate_choices(poems[0],options,[len(options)])
+        with self.assertRaises(ValueError):
+            validate_choices(poems[0],options,[])
+
+    def test_full_catalog_compile_preserves_existing_ids_and_requires_every_work(self):
+        original=self.catalog()
+        completed=compile_catalog(self.poems,original,{})
+        self.assertEqual(completed['works'],original['works'])
+        self.assertTrue(completed['require_all_works'])
+        with self.assertRaisesRegex(ValueError,'Missing or stale'):
+            compile_catalog(self.poems,dict(schema_version=1,works={}),{})
+
+    def test_overlapping_model_selection_is_retried_without_real_api_calls(self):
+        poem=self.poems[0]
+        options=candidates(poem)
+        overlap=next((i,j) for i,a in enumerate(options) for j,b in enumerate(options)
+            if i<j and max(a['start'],b['start'])<min(a['end'],b['end']))
+        invalid=dict(selections=[dict(id=poem['id'],candidate_ids=list(overlap),reason='重叠候选')])
+        valid=dict(selections=[dict(id=poem['id'],candidate_ids=[0],reason='体现作品意象')])
+        with patch('complete_famous_lines.request_json',side_effect=[(invalid,{}),(valid,{})]) as request:
+            result=select_batch([(poem,options)],dict(LLM_MODEL_ID='test'))
+        self.assertEqual(request.call_count,2)
+        self.assertEqual(len(result[0]['famous_lines']),1)
+        self.assertIn('每篇只选',request.call_args.args[2])
 
     def test_changed_text_and_invalid_primary_unit_spans_are_rejected(self):
         mutations = [dict(text='不存在于正文的名句'), dict(text='月出之光，𠮷明月，'),
