@@ -12,6 +12,7 @@ from pathlib import Path
 from data_utils import ROOT, FIELDS, dump, load
 from review_application import input_hash, fragmented_array, reviewed_input
 from final_review import final_inputs, replay_final
+from notes_format import NOTES_FORMAT, apply_notes_normalization
 
 
 def successful_records(path):
@@ -25,7 +26,7 @@ def successful_records(path):
     return result
 
 
-def prepare(poems, reviews, triages, approvals, catalog, previous, final=None):
+def prepare(poems, reviews, triages, approvals, catalog, previous, final=None, notes_normalizations=None):
     output = {}
     for current in poems:
         pid = current["id"]
@@ -84,6 +85,8 @@ def prepare(poems, reviews, triages, approvals, catalog, previous, final=None):
         final_decisions, final_edits, cautions, body_change, context_after = replay_final(after, review, final_rows) if final_rows else ({}, [], [], None, {})
         decisions.update(final_decisions)
         edits.extend(final_edits)
+        notes_before_format = copy.deepcopy(after['notes'])
+        normalization = apply_notes_normalization(after, notes_normalizations or {})
         pending = []
         for i, finding in enumerate(review["findings"]):
             if i in decisions:
@@ -103,6 +106,9 @@ def prepare(poems, reviews, triages, approvals, catalog, previous, final=None):
         for key in FIELDS:
             if poem[key] != after[key]:
                 fields[key] = dict(before=poem[key], after=after[key], format_only="".join(poem[key]) == "".join(after[key]))
+                if (key == 'notes' and normalization and not normalization['semantic_change']
+                        and notes_before_format == poem[key]):
+                    fields[key]['format_normalized_only'] = True
                 old_change = previous.get(pid, {}).get("fields", {}).get(key, {})
                 prior = old_change.get("accepted_previous", []) + ([old_change["after"]] if old_change else [])
                 accepted = []
@@ -123,8 +129,12 @@ def prepare(poems, reviews, triages, approvals, catalog, previous, final=None):
             output[pid]["body_change"] = body_change
         if context_after:
             output[pid]["context_after"] = context_after
+        if normalization:
+            output[pid]['notes_normalization'] = normalization
     if final and set(final) - set(output):
         raise ValueError("Final decisions refer to missing works")
+    if notes_normalizations is not None and set(notes_normalizations) != set(output):
+        raise ValueError('Note normalization must cover exactly the published works')
     return output
 
 
@@ -133,11 +143,15 @@ def main():
     parser.add_argument("--input-poems", type=Path, default=ROOT / "app-data/poems.json")
     args = parser.parse_args()
     path = ROOT / "raw/review_resolutions.json"
+    normalization = load(ROOT / 'raw/notes_normalization.json', {})
+    if normalization and normalization.get('version') != NOTES_FORMAT:
+        raise ValueError('Unsupported note format version')
     works = prepare(load(args.input_poems), successful_records(ROOT / "raw/content_reviews.jsonl"),
         successful_records(ROOT / "raw/review_triage.jsonl"), load(ROOT / "raw/approved_review_edits.json"),
         load(ROOT / "raw/content_review.json", {}), load(path, {}).get("works", {}),
         final_inputs(load(ROOT / "raw/final_content_decisions.json"), load(ROOT / "raw/source_evidence.json"))
-        if (ROOT / "raw/final_content_decisions.json").exists() else None)
+        if (ROOT / "raw/final_content_decisions.json").exists() else None,
+        normalization.get('works') if normalization else None)
     dump(path, dict(review_type="ai_assisted_review", academic_review_complete=False, works=works), newline="\n")
     print(json.dumps(dict(reviewed=len(works), changed=sum(bool(r["fields"]) for r in works.values()),
         pending_poems=sum(bool(r["pending_findings"]) for r in works.values()),

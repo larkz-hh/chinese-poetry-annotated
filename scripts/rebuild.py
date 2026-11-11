@@ -44,7 +44,7 @@ def main():
         else:
             raw = staging / "raw"
             build_raw(args.source_dir, raw)
-            for name in ("editorial_fixes.json", "content_review.json", "author_overrides.json", "annotation_additions.jsonl", "content_reviews.jsonl", "review_triage.jsonl", "approved_review_edits.json", "review_resolutions.json", "final_content_decisions.json", "source_evidence.json", "famous_lines.json", "famous_line_selections.jsonl"):
+            for name in ("editorial_fixes.json", "content_review.json", "author_overrides.json", "annotation_additions.jsonl", "content_reviews.jsonl", "review_triage.jsonl", "approved_review_edits.json", "review_resolutions.json", "final_content_decisions.json", "source_evidence.json", "famous_lines.json", "famous_line_selections.jsonl", "notes_normalization.json"):
                 if (ROOT / "raw" / name).is_file():
                     shutil.copy2(ROOT / "raw" / name, raw / name)
         stats = build_app(raw, app, generated_path=app / "generated.jsonl")

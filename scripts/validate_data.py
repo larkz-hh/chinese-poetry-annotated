@@ -9,6 +9,7 @@ from pathlib import Path
 from data_utils import ROOT, FIELDS, SCHEMA_VERSION, body_hash, compact, fts_text, identity_body, load, match_query, web_error_text
 from review_application import input_hash, fragmented_array
 from famous_lines import validate_famous_lines, validate_famous_line_tables
+from notes_format import NOTES_FORMAT, PINYIN, notes_hash
 
 
 def validate(app, baseline=None):
@@ -36,6 +37,22 @@ def validate(app, baseline=None):
     error("missing_author_links", [label(p) for p in poems if p["author_id"] not in author_ids])
     error("missing_sources", [label(p) for p in poems if not p.get("source") or not p.get("sources")])
     error("invalid_alias_targets", [key for key, value in migrations.items() if value not in ids])
+    if manifest.get('notes_format'):
+        if manifest['notes_format'].get('version') != NOTES_FORMAT or manifest['notes_format'].get('mode') != 'document':
+            errors.append(dict(code='notes_format_version'))
+        invalid_notes=[]
+        for p in poems:
+            meta=p['field_sources']['notes']
+            review=p.get('content_review',{}).get('notes_normalization',{})
+            body=compact(p['content'])
+            if (meta.get('display_format') != NOTES_FORMAT or review.get('version') != NOTES_FORMAT
+                    or review.get('after_hash') != notes_hash(p['notes'])
+                    or p['alignment']['notes']['mode'] != 'document'
+                    or not p['notes'] or any(not s.strip() for s in p['notes'])
+                    or any(len(compact(PINYIN.sub(r'\1',s))) >= 6
+                           and compact(PINYIN.sub(r'\1',s)) in body for s in p['notes'])):
+                invalid_notes.append(label(p))
+        error('notes_format_integrity',invalid_notes)
     if baseline:
         error("lost_legacy_ids", [p["id"] for p in load(baseline, []) if p["id"] not in migrations])
     quotes_valid = True
@@ -219,6 +236,8 @@ def validate(app, baseline=None):
                              ai_reviewed=sum(bool(p.get("content_review")) for p in poems),
                              famous_lines=sum(len(p.get("famous_lines", [])) for p in poems),
                              poems_with_famous_lines=sum(bool(p.get("famous_lines")) for p in poems),
+                             notes_format_works=sum(p['field_sources']['notes'].get('display_format') == NOTES_FORMAT for p in poems),
+                             notes_items=sum(len(p['notes']) for p in poems),
                              content_review_pending=sum(bool(p.get("content_review", {}).get("pending_findings")) for p in poems),
                              missing_annotations=len(missing), legacy_ids_resolved=True if baseline and not any(e["code"] == "lost_legacy_ids" for e in errors) else None),
                 search=search, errors=errors, warnings=warnings)

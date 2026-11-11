@@ -62,12 +62,13 @@ def apply_resolution(poem, resolution):
             raise ValueError("Review would introduce invalid annotations")
         poem[key] = change["after"]
         previous = poem["field_sources"][key]
-        if not change.get("format_only") and previous.get("revision") != "content-review-v1":
+        if (not change.get("format_only") and not change.get('format_normalized_only')
+                and previous.get("revision") != "content-review-v1"):
             poem["field_sources"][key] = dict(type="ai_editorial", model="codex",
                 original_source=previous.copy(), revision="content-review-v1", body_hash=poem["body_hash"],
                 alignment_verified=False, source_url=previous.get("source_url"),
                 reason="复核后修正明确的文字、引用或译注错误；原值保存在 review_resolutions.json")
-        elif change.get("format_only"):
+        elif change.get("format_only") and not change.get('format_normalized_only'):
             poem["field_sources"][key]["format_repaired"] = "single-character-array-joined"
     if input_hash(poem) != resolution["output_hash"]:
         raise ValueError(f"Unexpected review output: {poem['id']}")
@@ -81,6 +82,10 @@ def apply_resolution(poem, resolution):
         pending_findings=pending, decisions=resolution.get("decisions", []))
     if resolution.get("final_review"):
         poem["content_review"]["final_review"] = copy.deepcopy(resolution["final_review"])
+    if resolution.get('notes_normalization'):
+        normalization = resolution['notes_normalization']
+        poem['content_review']['notes_normalization'] = copy.deepcopy(normalization)
+        poem['field_sources']['notes']['display_format'] = normalization['version']
     if correction:
         poem["content_review"]["body_correction"] = dict(before_hash=correction["before_hash"],
             after_hash=correction["after_hash"], evidence=correction["evidence"], reason=correction["reason"])

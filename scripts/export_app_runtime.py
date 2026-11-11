@@ -68,6 +68,7 @@ def export(source, output):
             source_data_version=manifest["data_version"], data_version=f"runtime{RUNTIME_SCHEMA}.{digest[:16]}",
             read_only_corpus=True, counts={k: report[k] for k in ("poems", "authors", "editions", "units", "aliases", "cautions", "author_sections", "famous_lines", "poems_with_famous_lines")},
             famous_lines_policy=manifest.get("famous_lines_policy", {}),
+            notes_format=manifest.get('notes_format', {}),
             files={"poems.db":dict(bytes=len(payload), sha256=digest)},
             source_package_sha256=hashlib.sha256((source / "manifest.json").read_bytes()).hexdigest(),
             preservation="All poem/author fields and source evidence preserved; full metadata uses text references plus zlib compression",
