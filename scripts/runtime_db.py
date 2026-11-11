@@ -6,9 +6,10 @@ import zlib
 from pathlib import Path
 
 from data_utils import FIELDS, fts_text
+from famous_lines import FAMOUS_LINE_SCHEMA, write_famous_lines, validate_famous_line_tables
 
 APPLICATION_ID = int.from_bytes(b"POET", "big")
-RUNTIME_SCHEMA = 1
+RUNTIME_SCHEMA = 2
 ARCHIVE_CODEC = "zlib-json-textrefs-v1"
 
 
@@ -157,6 +158,9 @@ CREATE VIRTUAL TABLE poems_fts USING fts5(pid UNINDEXED,title,author,content,con
 """
 
 
+SCHEMA += FAMOUS_LINE_SCHEMA.format(poem_table="poem_records")
+
+
 def write_runtime(path, poems, authors, aliases, source_manifest, evidence):
     """Write only a new file. All original record fields survive in archives."""
     path = Path(path)
@@ -231,6 +235,7 @@ def write_runtime(path, poems, authors, aliases, source_manifest, evidence):
             con.execute("INSERT INTO poems_fts(rowid,pid,title,author,content) VALUES(?,?,?,?,?)", (rowid, None,
                 fts_text("\n".join([p["title"]] + p["aliases"])), fts_text(p["author"]), fts_text("\n".join(p["content"]))))
             archive("poem", p["id"], p)
+        write_famous_lines(con, poems)
         con.executemany("INSERT INTO id_aliases VALUES(?,?)", sorted(aliases.items()))
         archive("package", "source_manifest", source_manifest)
         archive("package", "source_evidence", evidence)
@@ -264,6 +269,7 @@ def validate_runtime(path, poems, authors, aliases, source_manifest, evidence):
             raise ValueError("Runtime author IDs differ")
         if con.execute("SELECT COUNT(*) FROM record_archives").fetchone()[0] != len(poems) + len(authors) + 2:
             raise ValueError("Runtime archive count differs")
+        validate_famous_line_tables(con, poems)
         main_columns = ("id", "title", "source_title", "author_id", "dynasty", "format", "genre", "genre_basis",
                         "source", "body_hash", "complete", "ai_generated", "review_status", "text_scope")
         native = {r[0]: r for r in con.execute("SELECT " + ",".join(main_columns) + " FROM poem_records")}
@@ -328,6 +334,8 @@ def validate_runtime(path, poems, authors, aliases, source_manifest, evidence):
             raise ValueError("Runtime search row count differs")
         return dict(poems=len(poems), authors=len(authors), editions=sum(len(p["editions"]) for p in poems),
             units=sum(len(e["units"]) for p in poems for e in p["editions"]), aliases=len(aliases),
+            famous_lines=sum(len(p["famous_lines"]) for p in poems),
+            poems_with_famous_lines=sum(bool(p["famous_lines"]) for p in poems),
             cautions=con.execute("SELECT COUNT(*) FROM review_cautions").fetchone()[0],
             author_sections=con.execute("SELECT COUNT(*) FROM author_sections").fetchone()[0],
             full_record_equality=True, reading_text_equality=True, originals_preserved=True,

@@ -1,0 +1,125 @@
+{
+ "schema_version": 1,
+ "selection_type": "editorial_selection",
+ "reviewed_at": "2026-11-11",
+ "reviewer": "codex",
+ "coverage": "partial",
+ "note": "首批明确选句，逐字绑定当前主版本；未整理作品使用空数组，不把任意正文自动标为名句。source_url 为名句页或正文来源。",
+ "selection_references": [
+  "https://www.gushiwen.cn/mingjus/"
+ ],
+ "works": {
+  "5c22086597880d3b825c9837": {
+   "body_hash": "e4b4ce76150f08bc3307d7cae68bfd3e69397f517b510a327ae4c77e5374e9c2",
+   "famous_lines": [
+    {
+     "id": "5c22086597880d3b825c9837:q1",
+     "text": "谁言寸草心，报得三春晖。",
+     "unit_ids": [
+      "5c22086597880d3b825c9837:v1:u3"
+     ],
+     "source_url": "https://m.gushiwen.cn/mingju/juv_9361bcf3e14b.aspx"
+    }
+   ]
+  },
+  "5c22086497880d3b825c9741": {
+   "body_hash": "ac77e5da1173e09f2f616592ef275604d151b973be671910b1bf163f33120dcd",
+   "famous_lines": [
+    {
+     "id": "5c22086497880d3b825c9741:q1",
+     "text": "无边落木萧萧下，不尽长江滚滚来。",
+     "unit_ids": [
+      "5c22086497880d3b825c9741:v1:u2"
+     ],
+     "source_url": "https://www.gushiwen.cn/mingju/juv.aspx?id=1adf451b2021"
+    },
+    {
+     "id": "5c22086497880d3b825c9741:q2",
+     "text": "万里悲秋常作客，百年多病独登台。",
+     "unit_ids": [
+      "5c22086497880d3b825c9741:v1:u3"
+     ],
+     "source_url": "https://www.gushiwen.cn/mingju_920.aspx"
+    }
+   ]
+  },
+  "5c22086397880d3b825c95db": {
+   "body_hash": "3ee5fe195f4bd096005d69a6cde910e43c517408cd2fb23b4e3282d14a9e3607",
+   "famous_lines": [
+    {
+     "id": "5c22086397880d3b825c95db:q1",
+     "text": "举头望明月，低头思故乡。",
+     "unit_ids": [
+      "5c22086397880d3b825c95db:v1:u2"
+     ],
+     "source_url": "https://www.gushiwen.cn/mingju/juv_bb47bd24978f.aspx"
+    }
+   ]
+  },
+  "5c22086497880d3b825c9667": {
+   "body_hash": "d1220899229be9f6bb90d49aee06ac43a256ad73ad37e4951133aa6b35e5974d",
+   "famous_lines": [
+    {
+     "id": "5c22086497880d3b825c9667:q1",
+     "text": "海内存知己，天涯若比邻。",
+     "unit_ids": [
+      "5c22086497880d3b825c9667:v1:u3"
+     ],
+     "source_url": "https://m.gushiwen.cn/mingju/juv_fdf6b01307fd.aspx"
+    }
+   ]
+  },
+  "5c22086497880d3b825c978b": {
+   "body_hash": "46a9304a6eff492a13d246cf4cd2d1f400bf34362cc56a9092cf0ee4660e6ae4",
+   "famous_lines": [
+    {
+     "id": "5c22086497880d3b825c978b:q1",
+     "text": "会当凌绝顶，一览众山小。",
+     "unit_ids": [
+      "5c22086497880d3b825c978b:v1:u4"
+     ],
+     "source_url": "https://www.shidianguji.com/mingju/7640310833184489510"
+    }
+   ]
+  },
+  "5c22086597880d3b825c97b9": {
+   "body_hash": "1ba105e74f010c9d38eea23c0db62154ed7d3ede7b1eabaa0d00a825084b4fb6",
+   "famous_lines": [
+    {
+     "id": "5c22086597880d3b825c97b9:q1",
+     "text": "天生丽质难自弃，一朝选在君王侧。",
+     "unit_ids": [
+      "5c22086597880d3b825c97b9:v1:u3"
+     ],
+     "source_url": "https://so.gushiwen.org/shiwenv_09d31b73b44d.aspx"
+    }
+   ]
+  },
+  "5c22086597880d3b825c97bb": {
+   "body_hash": "6d00371e8ed9d28b6de43b23f1aada4eae69798e06aea54e703eb2d1b5dc8693",
+   "famous_lines": [
+    {
+     "id": "5c22086597880d3b825c97bb:q1",
+     "text": "别有幽愁暗恨生，此时无声胜有声。",
+     "unit_ids": [
+      "5c22086597880d3b825c97bb:v1:u17"
+     ],
+     "source_url": "https://so.gushiwen.org/shiwenv_0581b0ba8bb4.aspx"
+    }
+   ]
+  },
+  "5c22086497880d3b825c972f": {
+   "body_hash": "7973734183d32a0f1d0fe3a50ca2810de990c73f3823a98b53d3f357817820fc",
+   "famous_lines": [
+    {
+     "id": "5c22086497880d3b825c972f:q1",
+     "text": "莫见长安行乐处，空令岁月易蹉跎。",
+     "unit_ids": [
+      "5c22086497880d3b825c972f:v1:u4"
+     ],
+     "source_url": "https://so.gushiwen.org/shiwenv_67ca0b01f1c4.aspx"
+    }
+   ]
+  }
+ }
+}

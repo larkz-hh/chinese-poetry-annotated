@@ -1,4 +1,4 @@
-"""Audit the current schema v3 package, writing only the requested report directory."""
+"""Audit the full data package, writing only the requested report directory."""
 import argparse
 import json
 from pathlib import Path

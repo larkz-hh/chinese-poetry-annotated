@@ -1,4 +1,4 @@
-"""Release checks for schema v3, usable on a staging package before publication."""
+"""Release checks for the full package, usable before publication."""
 import collections
 import hashlib
 import json
@@ -8,6 +8,7 @@ from pathlib import Path
 
 from data_utils import ROOT, FIELDS, SCHEMA_VERSION, body_hash, compact, fts_text, identity_body, load, match_query, web_error_text
 from review_application import input_hash, fragmented_array
+from famous_lines import validate_famous_lines, validate_famous_line_tables
 
 
 def validate(app, baseline=None):
@@ -37,6 +38,17 @@ def validate(app, baseline=None):
     error("invalid_alias_targets", [key for key, value in migrations.items() if value not in ids])
     if baseline:
         error("lost_legacy_ids", [p["id"] for p in load(baseline, []) if p["id"] not in migrations])
+    quotes_valid = True
+    try:
+        validate_famous_lines(poems)
+        expected_counts = dict(poems=len(poems), authors=len(authors),
+            famous_lines=sum(len(p["famous_lines"]) for p in poems),
+            poems_with_famous_lines=sum(bool(p["famous_lines"]) for p in poems))
+        if manifest.get("counts") != expected_counts:
+            errors.append(dict(code="manifest_counts"))
+    except ValueError as exc:
+        quotes_valid = False
+        errors.append(dict(code="famous_line_integrity", message=str(exc)))
     dirty, same, alignment, version_mix, missing, provenance = [], [], [], [], [], []
     fragmented, review_errors, web_errors = [], [], []
     for poem in poems:
@@ -155,6 +167,11 @@ def validate(app, baseline=None):
         if integrity != "ok":
             errors.append(dict(code="sqlite_integrity", records=[integrity]))
         error("foreign_keys", con.execute("PRAGMA foreign_key_check").fetchall())
+        if quotes_valid:
+            try:
+                validate_famous_line_tables(con, poems)
+            except ValueError as exc:
+                errors.append(dict(code="sqlite_famous_lines", message=str(exc)))
         if con.execute("PRAGMA user_version").fetchone()[0] != SCHEMA_VERSION:
             errors.append(dict(code="schema_version"))
         actual = {pid: json.loads(meta) for pid, meta in con.execute("SELECT id,metadata_json FROM poems")}
@@ -198,6 +215,8 @@ def validate(app, baseline=None):
                              data_version=manifest["data_version"], integrity=integrity,
                              errors=len(errors), warnings=len(warnings),
                              ai_reviewed=sum(bool(p.get("content_review")) for p in poems),
+                             famous_lines=sum(len(p.get("famous_lines", [])) for p in poems),
+                             poems_with_famous_lines=sum(bool(p.get("famous_lines")) for p in poems),
                              content_review_pending=sum(bool(p.get("content_review", {}).get("pending_findings")) for p in poems),
                              missing_annotations=len(missing), legacy_ids_resolved=True if baseline and not any(e["code"] == "lost_legacy_ids" for e in errors) else None),
                 search=search, errors=errors, warnings=warnings)

@@ -1,4 +1,4 @@
-"""Safe, parameterized search against a read-only schema v3 package."""
+"""Safe, parameterized search against either read-only SQLite package."""
 import argparse
 import json
 import sqlite3

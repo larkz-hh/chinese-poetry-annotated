@@ -8,7 +8,7 @@ from pathlib import Path
 from unittest.mock import patch
 
 from build_v2 import write_sqlite
-from data_utils import ROOT, FIELDS, body_hash, dump
+from data_utils import ROOT, FIELDS, SCHEMA_VERSION, body_hash, dump
 from export_app_runtime import export, verify_source
 from runtime_db import write_runtime, read_archive, connect_readonly, validate_runtime
 from search import search
@@ -36,9 +36,11 @@ def fixture():
         quality_issues=[], field_sources={k:dict(type="ai_editorial", review_status="editorially_reviewed",
             model="test", source_url=None, body_hash=body_hash(content)) for k in FIELDS},
         alignment={k:dict(mode="document", verified=False, equal_length=False, unit_ids=[]) for k in FIELDS},
+        famous_lines=[dict(id="p:q1", text="月出之光。𠮷明月，", unit_ids=["p:v2:u1", "p:v2:u2"],
+            source_url="https://example.test/quote")],
         content_review=dict(academic_review_complete=False, decisions=[dict(reason="原始审核理由")],
             final_review=dict(cautions=[dict(finding_index=0, field="notes", text="解释存在分歧")])) )
-    return [poem], [author], {"p": "p", "old-p": "p"}, {"data_version": "3.test", "schema_version": 3}, {"sources": {"e1": {"excerpt": "古籍原文"}}}
+    return [poem], [author], {"p": "p", "old-p": "p"}, {"data_version": f"{SCHEMA_VERSION}.test", "schema_version": SCHEMA_VERSION}, {"sources": {"e1": {"excerpt": "古籍原文"}}}
 
 
 class RuntimeTests(unittest.TestCase):
@@ -123,7 +125,7 @@ class RuntimeTests(unittest.TestCase):
         source = self.path / "source"
         source.mkdir()
         (source / "poems.json").write_bytes(b"changed")
-        dump(source / "manifest.json", dict(schema_version=3, files={"poems.json":dict(sha256="stale")}))
+        dump(source / "manifest.json", dict(schema_version=SCHEMA_VERSION, files={"poems.json":dict(sha256="stale")}))
         with self.assertRaises(ValueError):
             verify_source(source)
 

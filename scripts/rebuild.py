@@ -9,7 +9,7 @@ from pathlib import Path
 
 from build import build as build_raw
 from build_v2 import build as build_app
-from data_utils import ROOT, dump, load
+from data_utils import ROOT, SCHEMA_VERSION, dump, load
 from validate_data import validate
 
 
@@ -44,7 +44,7 @@ def main():
         else:
             raw = staging / "raw"
             build_raw(args.source_dir, raw)
-            for name in ("editorial_fixes.json", "content_review.json", "author_overrides.json", "annotation_additions.jsonl", "content_reviews.jsonl", "review_triage.jsonl", "approved_review_edits.json", "review_resolutions.json", "final_content_decisions.json", "source_evidence.json"):
+            for name in ("editorial_fixes.json", "content_review.json", "author_overrides.json", "annotation_additions.jsonl", "content_reviews.jsonl", "review_triage.jsonl", "approved_review_edits.json", "review_resolutions.json", "final_content_decisions.json", "source_evidence.json", "famous_lines.json"):
                 if (ROOT / "raw" / name).is_file():
                     shutil.copy2(ROOT / "raw" / name, raw / name)
         stats = build_app(raw, app, generated_path=app / "generated.jsonl")
@@ -77,7 +77,7 @@ def main():
                 if path.is_file():
                     os.replace(path, target / path.name)
         dump(ROOT / "reports/app-data-audit.json", report)
-        print("Published schema v3 data. Baseline remains in backups/pre-v3.")
+        print(f"Published schema v{SCHEMA_VERSION} data. Baseline remains in backups/pre-v3.")
 
 
 if __name__ == "__main__":

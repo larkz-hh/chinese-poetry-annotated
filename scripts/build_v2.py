@@ -1,4 +1,4 @@
-"""Build schema v3 JSON/SQLite from raw data and existing annotation records."""
+"""Build full JSON/SQLite data from raw inputs and existing annotation records."""
 import argparse
 import collections
 import hashlib
@@ -10,6 +10,7 @@ from data_utils import (ROOT, FIELDS, SCHEMA_VERSION, annotation_valid, body_has
                         compact, dump, editions, fts_text, identity_body, load, unique)
 from content_review import apply_catalog
 from review_application import apply_resolution
+from famous_lines import FAMOUS_LINE_SCHEMA, attach_famous_lines, write_famous_lines
 
 COLLECTIONS = {"唐诗三百首", "宋词三百首", "古诗三百首", "元曲三百首", "诗经", "乐府",
                "古文观止", "宋词精选", "唐诗精选", "最美", "早教古诗100首",
@@ -255,6 +256,11 @@ def build(raw_dir, output, legacy_dir=ROOT / "app-data", legacy_raw=ROOT / "raw"
     for name, key in (("题材", "themes"), ("选集", "collections"), ("学段", "levels")):
         counts = collections.Counter(t for p in poems for t in p[key])
         categories[name] = [dict(name=tag, count=count) for tag, count in sorted(counts.items(), key=lambda item: (-item[1], item[0]))]
+    quote_catalog = load(raw_dir / "famous_lines.json", dict(schema_version=1, works={}))
+    for pid, previous in legacy.items():
+        if previous.get("famous_lines") and pid not in quote_catalog.get("works", {}):
+            raise ValueError(f"Existing famous lines lost without an explicit curation entry: {pid}")
+    attach_famous_lines(poems, quote_catalog)
     dump(output / "poems.json", poems)
     dump(output / "authors.json", authors)
     dump(output / "categories.json", categories)
@@ -278,6 +284,8 @@ def build(raw_dir, output, legacy_dir=ROOT / "app-data", legacy_raw=ROOT / "raw"
                  有赏析=sum(bool(p["appreciation"]) for p in poems), 三样齐全=sum(bool(p["complete"]) for p in poems),
                  AI补全过=sum(p["ai_generated"] for p in poems), 仍缺任一项=len(todo),
                  作者简介待补=sum(not a["lifetime"] for a in authors),
+                 名句总数=sum(len(p["famous_lines"]) for p in poems),
+                 已收录名句作品=sum(bool(p["famous_lines"]) for p in poems),
                  AI初审覆盖=sum(bool(p.get("content_review")) for p in poems),
                  AI二审覆盖=sum(p.get("content_review", {}).get("second_reviewed", False) for p in poems),
                  内容待核作品=len(review_todo), 内容待核疑点=sum(len(p["findings"]) for p in review_todo),
@@ -288,13 +296,15 @@ def build(raw_dir, output, legacy_dir=ROOT / "app-data", legacy_raw=ROOT / "raw"
                  文体=dict(collections.Counter(p["genre"] for p in poems)))
     dump(output / "stats.json", stats)
     payload = (output / "poems.json").read_bytes()
-    manifest = dict(schema_version=SCHEMA_VERSION, data_version="3." + hashlib.sha256(payload).hexdigest()[:16],
-                    counts=dict(poems=len(poems), authors=len(authors)), read_only_corpus=True,
+    manifest = dict(schema_version=SCHEMA_VERSION, data_version=f"{SCHEMA_VERSION}." + hashlib.sha256(payload).hexdigest()[:16],
+                    counts=dict(poems=len(poems), authors=len(authors),
+                        famous_lines=sum(len(p["famous_lines"]) for p in poems),
+                        poems_with_famous_lines=sum(bool(p["famous_lines"]) for p in poems)), read_only_corpus=True,
                     search=dict(tokenizer="unicode61", normalization="NFC/casefold/character tokens with punctuation boundaries"),
                     files={p.name: dict(bytes=p.stat().st_size, sha256=hashlib.sha256(p.read_bytes()).hexdigest())
                            for p in sorted(output.iterdir()) if p.is_file() and p.name != "manifest.json"})
     manifest["source_inputs"] = {name: hashlib.sha256((raw_dir / name).read_bytes()).hexdigest()
-                                for name in ("content_review.json", "author_overrides.json", "editorial_fixes.json", "annotation_additions.jsonl", "content_reviews.jsonl", "review_triage.jsonl", "approved_review_edits.json", "review_resolutions.json", "final_content_decisions.json", "source_evidence.json")
+                                for name in ("content_review.json", "author_overrides.json", "editorial_fixes.json", "annotation_additions.jsonl", "content_reviews.jsonl", "review_triage.jsonl", "approved_review_edits.json", "review_resolutions.json", "final_content_decisions.json", "source_evidence.json", "famous_lines.json")
                                 if (raw_dir / name).is_file()}
     dump(output / "manifest.json", manifest)
     return stats
@@ -333,6 +343,7 @@ def write_sqlite(path, poems, authors, migration):
         CREATE INDEX idx_l_level ON levels(level);
         CREATE VIRTUAL TABLE poems_fts USING fts5(pid UNINDEXED,title,author,content,tokenize='unicode61');
         """)
+        con.executescript(FAMOUS_LINE_SCHEMA.format(poem_table="poems"))
         encode = lambda value: json.dumps(value, ensure_ascii=False, separators=(",", ":"))
         for a in authors:
             con.execute("INSERT INTO authors VALUES(?,?,?,?,?,?,?,?,?)", (a["id"], a["name"], a["dynasty"], a["lifetime"], a["works"], a["avatar"], a["source_works"], a["bio_status"], encode(a)))
@@ -351,6 +362,7 @@ def write_sqlite(path, poems, authors, migration):
             for kind in FIELDS:
                 con.execute("INSERT INTO annotations VALUES(?,?,?,?,?,?,?)", (p["id"], kind, encode(p[kind]), p["alignment"][kind]["mode"], p["field_sources"][kind]["type"], p["field_sources"][kind]["review_status"], encode(p["field_sources"][kind])))
             con.execute("INSERT INTO poems_fts VALUES(?,?,?,?)", (p["id"], fts_text("\n".join([p["title"]] + p["aliases"])), fts_text(p["author"]), fts_text("\n".join(p["content"]))))
+        write_famous_lines(con, poems)
         con.executemany("INSERT INTO id_aliases VALUES(?,?)", sorted(migration.items()))
         con.commit()
         if con.execute("PRAGMA foreign_key_check").fetchall() or con.execute("PRAGMA integrity_check").fetchone()[0] != "ok":

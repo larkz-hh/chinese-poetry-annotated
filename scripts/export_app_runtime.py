@@ -7,14 +7,14 @@ import os
 import tempfile
 from pathlib import Path
 
-from data_utils import ROOT, dump, load
+from data_utils import ROOT, SCHEMA_VERSION, dump, load
 from runtime_db import APPLICATION_ID, RUNTIME_SCHEMA, ARCHIVE_CODEC, connect_readonly, write_runtime, validate_runtime
 
 
 def verify_source(source):
     manifest = load(source / "manifest.json")
-    if not manifest or manifest.get("schema_version") != 3:
-        raise ValueError("Expected full schema v3 source package")
+    if not manifest or manifest.get("schema_version") != SCHEMA_VERSION:
+        raise ValueError(f"Expected full schema v{SCHEMA_VERSION} source package")
     for name, info in manifest["files"].items():
         if Path(name).name != name or hashlib.sha256((source / name).read_bytes()).hexdigest() != info["sha256"]:
             raise ValueError(f"Source checksum failed: {name}")
@@ -65,8 +65,8 @@ def export(source, output):
         digest = hashlib.sha256(payload).hexdigest()
         full_bytes = (source / "poems.db").stat().st_size
         meta = dict(profile="app-runtime", runtime_schema=RUNTIME_SCHEMA, application_id=APPLICATION_ID,
-            source_data_version=manifest["data_version"], data_version=f"runtime1.{digest[:16]}",
-            read_only_corpus=True, counts={k: report[k] for k in ("poems", "authors", "editions", "units", "aliases", "cautions", "author_sections")},
+            source_data_version=manifest["data_version"], data_version=f"runtime{RUNTIME_SCHEMA}.{digest[:16]}",
+            read_only_corpus=True, counts={k: report[k] for k in ("poems", "authors", "editions", "units", "aliases", "cautions", "author_sections", "famous_lines", "poems_with_famous_lines")},
             files={"poems.db":dict(bytes=len(payload), sha256=digest)},
             source_package_sha256=hashlib.sha256((source / "manifest.json").read_bytes()).hexdigest(),
             preservation="All poem/author fields and source evidence preserved; full metadata uses text references plus zlib compression",
