@@ -15,6 +15,7 @@
 | 分类 | 题材、选集、学段与原始标签 | 作品 ID |
 | 版本 | 主版本、其他版本、异文与原始正文 | 作品 ID、版本 ID |
 | 正文单元 | 版本内的一联、一段或一首 | 版本 ID、单元 ID |
+| 名句 | 适合卡片展示的独立摘录，可有多组 | 作品 ID、名句 ID、正文单元 ID |
 | 审核资料 | 来源、生成标记、处理决定与分歧提示 | 作品 ID、注解种类 |
 
 ## SQLite 与 JSON 的表示差异
@@ -28,6 +29,8 @@
 | 完整记录 | 解码 `record_archives` | 作品或作者完整对象 |
 
 `poems.content` 等 SQL 视图字段是换行拼接的字符串。精确读取段落边界应使用 `passages`；JSON 则直接保留数组。译注按整篇展示，数组下标不表示经过验证的逐句对应关系。
+
+名句使用 `famous_lines` 对象数组，格式与查询见 [名句与诗词卡片](famous-lines.md)。
 
 ## JSON 文件
 
@@ -132,6 +135,7 @@
 | 正文 | `content`、`original_content` | string[] |
 | 译注 | `translate`、`notes`、`appreciation` | string[] |
 | 版本 | `editions` | object[] |
+| 名句卡片 | `famous_lines` | object[] |
 | 字段来源 | `field_sources` | object |
 | 展示与对齐 | `alignment` | object |
 | 校验与审核 | `body_hash`、`review_status` | string |

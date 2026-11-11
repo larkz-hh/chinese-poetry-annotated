@@ -2,7 +2,7 @@
 
 [项目首页](../README.md) · [接入指南](integration.md) · [数据结构与 JSON](data-format.md) · [查询示例](../app-runtime/README.md)
 
-本手册以 App 运行包 **runtime schema 1** 为主，字段按实际交付数据库整理。常用读取接口在前，底层去重存储在末尾折叠区。
+本手册以 App 运行包 **runtime schema 2** 为主，字段按实际交付数据库整理。常用读取接口在前，底层去重存储在末尾折叠区。
 
 ## 对象导航
 
@@ -16,6 +16,7 @@
 | 版本 | [editions](#editions)、[edition_passages](#edition_passages) |
 | 审核与包信息 | [review_cautions](#review_cautions)、[record_archives](#record_archives)、[package_info](#package_info) |
 | 搜索 | [poems_fts](#poems_fts) |
+| 名句卡片 | [famous_lines](#famous_lines)、[famous_line_units](#famous_line_units) |
 
 ## 字段约定
 
@@ -26,7 +27,7 @@
 
 ## 格式对照
 
-运行包与完整维护包收录范围相同，存储结构分别采用 runtime schema 1 与 schema 3。
+运行包与完整维护包收录范围相同，存储结构分别采用 runtime schema 2 与 schema 4。
 
 | 数据内容 | App 运行包 | 完整维护包 |
 |---|---|---|
@@ -39,6 +40,7 @@
 | 题材、选集、学段 | `themes`、`collections`、`levels` 视图 | 三个同名表 |
 | 旧作品 ID | `id_aliases` 表 | `id_aliases` 表 |
 | 完整作品与作者 JSON | `record_archives` 解码后获得 | `poems.metadata_json`、`authors.metadata_json` |
+| 名句与正文定位 | `famous_lines`、`famous_line_units` 表 | 同名两张表 |
 | 全文搜索 | `poems_fts`，按 `rowid` 关联作品 | `poems_fts`，按 `pid` 关联作品 ID |
 
 运行包中的完整档案经解码获得 JSON；完整维护包从 `metadata_json` 读取。格式切换时应同时调整查询方式。
@@ -289,6 +291,32 @@ FTS5 虚拟表 · 全文检索索引。
 | `content` | 未声明 | — | 索引字段，运行包读取值为 NULL |
 
 采用 contentless FTS5，查询结果以 `rowid` 关联 `poems.rowid`。索引自身文本列不用于展示。
+
+## 名句卡片
+
+JSON 格式、收录范围及使用示例见 [名句指南](famous-lines.md)。
+
+### famous_lines
+
+表 · 名句文本与来源。
+
+| 字段 | 声明类型 | 约束 | 说明 |
+|---|---|---|---|
+| `id` | TEXT | 主键 1 | 名句稳定 ID |
+| `poem_id` | TEXT | 非空；→ `poem_records.id` | 所属作品 ID |
+| `ordinal` | INTEGER | 非空 | 从 0 开始的顺序 |
+| `text` | TEXT | 非空 | 卡片展示文本 |
+| `source_url` | TEXT | 非空 | 名句页或正文来源 URL |
+
+### famous_line_units
+
+表 · 名句到正文单元的有序关联。
+
+| 字段 | 声明类型 | 约束 | 说明 |
+|---|---|---|---|
+| `quote_id` | TEXT | 主键 1；非空；→ `famous_lines.id` | 名句 ID |
+| `ordinal` | INTEGER | 主键 2；非空 | 从 0 开始的顺序 |
+| `unit_id` | TEXT | 非空；→ `poem_units.id` | 当前主版本内的正文单元 ID |
 
 ## 底层存储
 

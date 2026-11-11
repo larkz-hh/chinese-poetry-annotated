@@ -2,7 +2,7 @@
 
 [项目首页](../README.md) · [字段手册](sqlite-schema.md) · [查询示例](../app-runtime/README.md)
 
-本文面向接入现有数据包的 App 开发者，以 `app-runtime/poems.db` 为例。数据库格式为 runtime schema 1。
+本文面向接入现有数据包的 App 开发者，以 `app-runtime/poems.db` 为例。数据库格式为 runtime schema 2。
 
 ## 接入准备
 
@@ -36,6 +36,7 @@
 | 正文与译注段落 | `passages`、`annotation_info` |
 | 作者简介与长文 | `authors`、`author_desc` |
 | 分类筛选 | `themes`、`collections`、`levels` |
+| 名句卡片 | `famous_lines`、`famous_line_units` |
 | 版本选择 | `editions`、`edition_passages` |
 | 全文搜索 | `poems_fts` 关联 `poems` |
 
@@ -75,12 +76,14 @@
 
 | 标识 | 含义 |
 |---|---|
-| `PRAGMA user_version` | 表结构版本；运行包为 `1`，完整维护包为 `3` |
+| `PRAGMA user_version` | 表结构版本；运行包为 `2`，完整维护包为 `4` |
 | `PRAGMA application_id` | 运行包标识 `1347372372`，对应 ASCII `POET` |
 | manifest：`data_version` | 当前内容包版本 |
 | manifest：`source_data_version` | 运行包所依据的完整维护包版本 |
 
 运行包与完整维护包应使用各自的查询与档案读取方式，格式对照见 [字段手册](sqlite-schema.md#格式对照)。
+
+名句卡片的 JSON、SQL 与格式升级说明见 [名句接入](famous-lines.md)。
 
 ## 开发机验证
 

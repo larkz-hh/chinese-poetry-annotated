@@ -2,7 +2,7 @@
 
 [项目首页](../README.md) · [接入指南](../docs/integration.md) · [字段手册](../docs/sqlite-schema.md)
 
-本页面向已完成数据库初始化的开发者，所有 SQL 均适用于 **runtime schema 1**。命令在仓库根目录执行；SQL 中的 `?` 使用参数绑定。
+本页面向已完成数据库初始化的开发者，所有 SQL 均适用于 **runtime schema 2**。命令在仓库根目录执行；SQL 中的 `?` 使用参数绑定。
 
 本页内容：[普通读取](#普通读取) · [搜索](#搜索) · [完整记录和审核档案](#完整记录和审核档案) · [数据包更新](#数据包更新)。
 
@@ -12,7 +12,7 @@
 |---|---|
 | `poems.db` | 运行数据库，约 18.7 MiB |
 | `manifest.json` | 文件大小、SHA-256、版本及记录数 |
-| `PRAGMA user_version` | `1` |
+| `PRAGMA user_version` | `2` |
 | `PRAGMA application_id` | `1347372372`，即 ASCII `POET` |
 | `data_version` | 当前运行包版本 |
 | `source_data_version` | 对应完整维护包版本 |
@@ -48,6 +48,10 @@ SELECT kind, source_type, review_status, model, source_url, alignment_mode
 FROM annotation_info
 WHERE poem_id = ?;
 ```
+
+### 名句卡片
+
+名句可独立查询并关联作品，直接用于卡片。字段、随机推荐及原文定位 SQL 见 [名句与诗词卡片](../docs/famous-lines.md)。
 
 ### 作者资料
 
