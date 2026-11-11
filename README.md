@@ -52,6 +52,10 @@ App 通常只需携带运行包及其 [manifest.json](app-runtime/manifest.json)
 
 验收结果：[完整包审计](reports/app-data-audit.md) · [运行包验收](reports/app-runtime-audit.md)。
 
+## 许可证
+
+本项目有权授权的原创代码与原创文档采用 [MIT 许可证](LICENSE)，版权署名为 `larkz-hh`。数据包中的第三方内容按各自来源与授权条件使用，范围见 [数据来源与授权说明](docs/data-license.md)。
+
 ## 仓库目录
 
 ```text
