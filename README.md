@@ -1,6 +1,6 @@
 # 古诗词 App 数据源 · schema v3
 
-从 [yxcs/poems-db](https://github.com/yxcs/poems-db) 的原始转储整理而来，提供可离线使用的 JSON 和 SQLite。当前包含 **1524 条作品记录、372 条作者记录**，每条作品均有译文、注释和赏析。全量完成 AI 初审，仍有待查证的内容疑点；记录数不代表已经过学术校勘的独立作品数。
+从 [yxcs/poems-db](https://github.com/yxcs/poems-db) 的原始转储整理而来，提供可离线使用的 JSON 和 SQLite。当前包含 **1524 条作品记录、372 条作者记录**，每条作品均有译文、注释和赏析。全量 AI 初审及有疑点作品的二审已完成，二审后剩余 565 个疑点也已逐条作出编辑决定。解释分歧另行明示，记录数不代表已经过专家学术校勘的独立作品数。
 
 本次修复保留原有 1470 个作品 ID，以及中间版本全部 1579 个作品 ID 的解析能力。合并的旧 ID 通过 `id_map.json` 或 SQLite 的 `id_aliases` 查找，旧收藏仍能定位。恢复此前丢失的杜甫“迟日江山丽”、李商隐“紫泉宫殿锁烟霞”等同题作品后，又显式核对并合并 55 条同作品异文或排版重复，其他正文版本保存在 `editions` 中。
 
@@ -19,6 +19,8 @@ app-data/
   generated.jsonl          历史生成记录；不会自动调用接口重生成
   todo_annotations.jsonl   仍缺有效注解的待补任务
   todo_content_review.jsonl 内容待查证清单，含作品与具体疑点
+  review_cautions.jsonl     已处理但有解释、版本或地望分歧的说明
+  source_evidence.json      本轮古籍核对摘录、URL 和摘录哈希
 raw/
   poems_all.jsonl.gz        214526 条保守去重后的全库记录
   poems_lite.json           当前精选构建素材
@@ -32,6 +34,8 @@ raw/
   review_triage.jsonl       AI 二审决定与可续跑的失败记录
   approved_review_edits.json 显式批准的局部修改及依据
   review_resolutions.json   修改前后数组、哈希及疑点处理结果
+  final_content_decisions.json 二审后 565 条疑点的逐项决定和精确变更
+  source_evidence.json      古籍证据摘录及哈希，构建时校验
   selection.json            固定选取范围，避免重复构建不断扩大数据集
   build-report.json         当前原始库构建统计
 reports/
@@ -56,13 +60,18 @@ backups/pre-v3/             本机迁移前快照，未纳入版本控制
 | AI 初审覆盖 | 1524 条 |
 | AI 二审覆盖 | 805 条；初审有疑点的作品全部覆盖 |
 | 二审待跑 | 0 条 |
-| 内容待核 | 385 条作品中的 565 个疑点 |
+| 二审后疑点编辑处理 | 385 条作品、565 个疑点，已全部处理 |
+| 内容待核 | 0 |
+| 已明示解释分歧 | 42 条 |
+| 古籍校订正文 | 3 条作品，原版本保留 |
 
-`complete` 只表示三个注解字段都有通过基础污染检查的文本，**不表示已经人工审核**。`review_status="ai_reviewed"` 表示 AI 审核后没有尚未处理的疑点，`needs_source_check` 表示仍需查证，均不是人工审定。`content_review.academic_review_complete` 当前始终为 false。`has_author_bio=false` 时应展示“作者资料待补”。
+`complete` 只表示三个注解字段都有通过基础污染检查的文本。`review_status="ai_reviewed"` 表示 AI 审核后没有尚未处理的疑点；`editorially_reviewed` 表示 Codex 对本轮剩余疑点逐条作出编辑决定；`needs_source_check` 表示仍待处理。**这些状态均不表示专家审定**，`content_review.academic_review_complete` 当前始终为 false。`content_review.final_review.scope="flagged_passages_after_second_review"` 明确本轮处理范围。App 可展示其中的 `cautions`，也可读取独立的 `review_cautions.jsonl`。
 
-已新增 55 条完整补注、11 位真实作者的有来源简介；原清单中的“乐府诗集”实为书名，其《敕勒歌》已归为佚名。累计显式修订 260 处，无损合并 28 处被拆成单字数组的赏析，原始值与处理理由均保留。接口余额恢复后已续完剩余 497 条二审，本轮新增 157 处修订，另核对《全唐诗》将《采莲子》误题“香莲”改为“香连”。疑点数量不是已经证实的错误数量，初审误报也保留处理轨迹。
+已新增 55 条完整补注、11 位真实作者的有来源简介；原清单中的“乐府诗集”实为书名，其《敕勒歌》已归为佚名。早期 260 处显式修订与 28 处单字数组无损合并继续保留。本轮处理剩余疑点时，校正文字、译义和人物错置，保留有古注依据的读法，删除未经核实且非必要的背景细节，难定之处明确列出分歧。原始值、证据与处理理由均可回查；疑点并不都是真错误。
 
 正文 `content` 是主版本的显示单元数组，单元可能是一联、一段或序言。`editions` 保留其他版本、原始内容与异文提示，`original_content` 保留来源正文。不同版本不会再串成一首展示。
+
+《田家词》《风流子·黄钟商芍药》《除夜自石湖归苕溪十首》新增据古籍校订的主版本；最后一组补回原记录遗漏的第一首并订正旧题“除放”。旧正文、原版本 ID 和单元 ID 都保留。请按 `is_primary` 选择版本，不能假设 `editions[0]` 永远是主版本；详情页直接使用 `content`。注解来源元数据的 `previous_body_hash` 记录校订前绑定，避免把原生成记录冒充成针对新正文生成的内容。
 
 **未经语义核对的译文、注释、赏析均使用 `alignment[field].mode="document"`，按整篇展示。** 不要把 `content[i]` 与 `translate[i]`、`notes[i]` 默认绑定；`equal_length=true` 也不代表语义对齐。当前没有声称已验证的逐句映射，后续可人工核对单元 ID 再开放逐句模式。
 
@@ -148,7 +157,7 @@ python -X utf8 scripts/audit_data.py
 python -X utf8 -m unittest discover -s scripts -p test_data_pipeline.py -v
 ```
 
-构建保留同题不同文；同作者且来源 URL 相同，或同作者/朝代且主版本正文规范化后相同的记录可合并，并保留别名、来源 ID、标签和其他版本。其他合并必须列入 `raw/content_review.json`，正文哈希不符时拒绝应用。内容修改必须列入 `approved_review_edits.json`，不会自动采纳审核模型的替换提议；`review_resolutions.json` 同时核验修改前后哈希，防止在不同正文上套用旧注解。
+构建保留同题不同文；同作者且来源 URL 相同，或同作者/朝代且主版本正文规范化后相同的记录可合并，并保留别名、来源 ID、标签和其他版本。其他合并必须列入 `raw/content_review.json`，正文哈希不符时拒绝应用。内容修改必须列入 `approved_review_edits.json` 或 `final_content_decisions.json`，不会自动采纳审核模型的替换提议；`review_resolutions.json` 同时核验修改前后哈希。正文校订必须给出来源，保留旧版，并重新绑定经过核对的译注。
 
 临时包通过校验后才替换文件。替换是逐文件进行的，构建期间不要让 App/服务读取该目录；分发时把完整数据包作为一个版本交付，并通过 `manifest.json` 验证文件。初次迁移自动保存本机快照，快照不随 `.gitignore` 纳入版本控制；可按需另行归档。
 
@@ -169,8 +178,8 @@ python -X utf8 scripts/merge_annotations.py
 
 生成记录包含正文哈希、时间、模型与提示词版本；不匹配当前正文哈希的记录不会自动合并。审核续跑会从已提交的修改前数组恢复相同审核输入，避免重复请求已完成的条目；输入发生其他变化时拒绝使用旧审核。补充修订只接受显式记录的上一版输出，同段多处相同字样还需指定出现次数，不能随意全局替换。遇到 HTTP 402 会停止后续请求。AI 初审无疑点、二审通过均不等同于逐句对齐或学术审核。
 
-## 来源与待完成的内容审核
+## 来源与审核边界
 
 源数据抓取自古诗文网，发布记录保留来源 URL、来源 ID 和原始内容。原始译注、作者资料及生成内容的具体使用依据需要分别记录与核实；本项目不把“抓取内容”或“AI 内容”当作已确认授权的标记。
 
-当前剩余内容核查见 `app-data/todo_content_review.jsonl`。细分结果、示例与本轮验证见 `reports/app-data-audit.md`。拼音、多音字校读、朗读、教材目录和背诵资源可在此契约上继续增加。
+当前 `app-data/todo_content_review.jsonl` 为空，本轮列出的疑点已全部处理。解释分歧见 `app-data/review_cautions.jsonl`，每项处理及校订前值见 `raw/final_content_decisions.json`、`raw/review_resolutions.json`；细分结果与验证见 `reports/app-data-audit.md`。本次完成的是有限范围内的 AI 辅助编辑审核，不等同于全库逐字专家校勘。拼音、多音字校读、朗读、教材目录和背诵资源可在此契约上继续增加。
